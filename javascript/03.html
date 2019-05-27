@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js第三天学习</title>
+</head>
+<body>
+	 <script>
+		// //计算年利率
+	 // 	var num=10000;
+	 // 	var rate=0.003;
+	 // 	for(var date=1;date<=5;date++)
+	 // 	{
+		// 	num=num+num*rate;
+	 // 	}
+	 // 	console.log("五年后的年利率为："+num.toFixed(digits)
+	 //
+	 //
+	 // 	兔子个数
+	 // 	每个月的值就是前两个月的和
+	 //
+	 // var num1=1;
+	 // var num2=1;
+	 // var sum=0;
+	 // for(var year=3;year<=12;year++)
+	 // {
+	 // 	//根据规律，第三个月等于前两个月值相加
+	 // 	sum=num1+num2;
+	 // 	//第一个月等于第二个月的值
+	 // 	num1=num2;
+	 // 	//因为循环，现在第二个月等于上一次第三个月的值
+	 // 	num2=sum;
+
+	 // }
+		// console.log("一年后的兔子位数为："+sum);
+		//
+		//
+		// 关于break关键字的使用
+		// while(true){
+		// 	console.log("sdfsf");
+		// 	break;
+		// }
+		// console.log("循环终止");
+
+		//求整数1-100的累加值，但要求碰到个位为3的数则停止累加
+		// var sum=0
+		// for(var i=1;i<=100;i++)
+		// {
+		// 	sum=sum+i;
+		// 	if(sum % 10 ==3)
+		// 		break;
+		// }
+		// console.log(sum);
+
+		//1-100的累加数，但要求跳过所有个位为3的数
+		//
+		//
+		//使用for循环计算结果
+		// var sum=0;
+		// for(var i=1;i<=100;i++)
+		// {
+
+		// 	if(i % 10 ==3)
+		// 		continue;
+		// 	sum=sum+i;
+		// }
+		// console.log(sum);
+
+		//使用while循环计算结果
+		// var sum1=0;
+		// var sum2=1;
+		// while(sum2<=100)
+		// {
+		// 	if(sum2%10==3)
+		// 	{
+		// 		sum2++;
+		// 		continue;
+		// 	}
+		// 	sum1=sum1+sum2;
+		// 	sum2++;
+		// }
+		// console.log(sum1);
+
+		//找到100到200之间第一个被7整除的数字
+		// for(var i=100;i<=200;i++)
+		// {
+		// 	if(i%7==0)
+
+		// 		break;
+		// }console.log(i);
+		//
+		//
+		// 使用continue计算100-200之间所有奇数的和
+		// var i=0;
+		// var num=100;
+		// while(num<=200)
+		// {
+		// 	if(num % 2 == 0)
+		// 	{
+		// 		num++;
+		// 		continue;
+		// 	}
+		// 	i += num;
+		// 	num++;
+		// }
+		// console.log(i);
+		//
+		//
+		//
+		//
+		// 数组
+		// var arr1=new Array();//空数组
+
+		// var arr2=new Array(5);//长度为5的数组，每个值都是undefined
+
+		// var arr3=new Array(1,2,3,4,5);//长度为五的数组，值分别为1,2,3,4,5
+
+		// var arr4=[];//定义一个空数组
+
+		// var arr5=[1,2,3];//长度为三的数组，值分别为1,2,3
+
+		// var arr6=["red","哈啊哈哈",1,true,2.23];//数组中元素的值可以不一样
+
+		// var arr7=[];
+		// //设置数组的元素的值
+		// arr7[0]=10;
+		// arr7[1]=20;
+
+		// console.log(arr1);
+		// console.log(arr2);
+		// console.log(arr3);
+		// console.log(arr4);
+		// console.log(arr5);
+		// console.log(arr6);
+		// console.log(arr7);
+	 </script>
+
+	 <script>
+	 	//求数组中所有元素的和
+	 	// var arr=[10,20,30,40];
+	 	// var sum=0;
+	 	// for(var i=0;i<arr.length;i++)
+	 	// {
+	 	// 	sum+=arr[i];
+	 	// }
+	 	// console.log(sum);
+
+	 	// //求数组中所有元素的平均值
+	 	// var arr2=[1,2,3,4,5,6];
+	 	// var sum2=0;
+	 	// for(var i=0;i<arr2.length;i++)
+	 	// {
+			// sum2+=arr2[i];
+	 	// }
+	 	// console.log(sum2/arr2.length);
+
+
+	 	// //求数组中所有元素的最大值
+
+	 	// var arr3=[1,2,5,7,10,54,55];
+	 	// var max=arr3[0];
+	 	// for(var i=0;i<arr3.length;i++)
+	 	// {
+	 	// 	if(max<arr3[i])
+	 	// 		max=arr3[i];
+	 	// }
+	 	// console.log("最大值："+max);
+
+	 	// //求数组中所有元素的最小值
+	 	// var arr4=[22,2,6,7,8,61,10]
+	 	// var min=arr4[0];
+	 	// for(var i=0;i<arr4.length;i++)
+	 	// {
+	 	// 	if(min>arr4[i])
+	 	// 		min=arr4[i];
+	 	// }
+	 	// console.log(min);
+
+	 	// //倒序遍历数组
+	 	// //逻辑转化
+	 	// var arr5=[10,20,60,40,50,30];
+	 	// //为正序排序
+	 	// // for(var i=0;i<arr5.length;i++)
+	 	// // {
+			// // console.log(arr5[i]);
+	 	// // }
+
+	 	// //倒序排序，逻辑相反，i从最后一位开始，到零结束，每一次不想加而是相减
+	 	// for(var i=arr5.length-1;i>=0;i--)
+	 	// {
+	 	// 	//每一次循环输出数组中的值
+			// console.log(arr5[i]);
+	 	// }
+
+
+	 	// //把数组中每个元素用|拼接到一起
+	 	// var names=["霍进","猴子","小珂","老翁","老蒋"];
+	 	// var str="";
+	 	// for(var i=0;i<names.length-1;i++)
+	 	// {
+			// str+=names[i]+"|";
+	 	// }
+	 	// console.log(str+names[names.length-1]);
+
+	 	// //去掉数组中重复的1,把其他的数据放到新的数组中
+	 	// var a=[1,1,1,2,3,4,5,1,6];
+	 	// var newa=[];
+	 	// for(var i=0;i<a.length;i++)
+	 	// {
+	 	// 	if(a[i]!=1)
+	 	// 		newa[newa.length]=a[i];
+	 	// }
+	 	// console.log(newa);
+
+	 	// // 反转数组，将数组中的数值调换
+	 	// var array=[1,2,3,4,5,6];
+	 	// for(i=0;i<=array.length/2;i++)
+	 	// {
+	 	// 	//先把第一个元素的值放在第三方变量中,进行反转转换
+	 	// 	var temp=array[i];
+	 	// 	array[i]=array[array.length-1-i];
+	 	// 	array[array.length-1-i]=temp;
+	 	// }
+	 	// console.log(array);
+
+
+	 	//提示用户输入班级人数，求总成绩，平均值，最高值，最小值
+	 	var percount=parseInt(prompt("请输入班级人数"));
+	 	var score=[];
+	 	//总成绩
+	 	var psum=0;
+
+	 	//循环的方式录入每个人的成绩
+	 	for(var i=0;i<percount;i++)
+	 	{
+	 		score[score.length]=parseInt(prompt("请输入第个"+(i+1)+"人的成绩"));
+	 	}
+	 	console.log(score);
+	 	//求总成绩
+	 	var max=score[0];
+	 	var min=score[0];
+	 	for(var i=0;i<score.length;i++)
+	 	{
+	 		psum+=score[i];//求和
+	 		//求最大值
+	 		if(max<score[i])
+	 		{
+	 			max=score[i];
+	 		}
+	 		//求最小值
+	 		if(min>score[i])
+	 		{
+	 			min=score[i];
+	 		}
+	 	}
+	 	console.log("总成绩为："+psum+"\n平均数为："+psum/score.length+"\n最高值为："+max+"\n最小值为："+min+"");
+
+	 	//冒泡排序
+
+	 </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第四节</title>
+</head>
+<body>
+	<script>
+		//冒泡排序：把所有的数据按照一定顺序进行排序，从小到大或是从大到小
+		var arr=[20,65,0,45,21,22,2];
+		// 循环轮数
+		for(var i=0; i<=arr.length-1;i++)
+		{
+			//每次循环比较的次数
+			for(var j=0;j<arr.length-1-i;j++)
+			{
+				//元素比较换值
+				if(arr[j]<arr[j+1]){
+					var temp=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=temp;
+				}
+			}
+		}
+		console.log(arr);
+	</script>
+</body>
+</html>

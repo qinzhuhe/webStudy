@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript学习第二篇</title>
+</head>
+<body>
+	<script>
+		//第一节：while循环
+		//练习：计算1-100之间所有数字的和
+		//思路：，定义两个变量，i和sum，i初始值为1，sum初始值为0，每次i+1结束就与sum相加然后将值赋给sum，知道i等于100时循环结束，循环结果应为5050
+		// var sum=0,i=1;
+		// while(i<=100){
+		// 	console.log(sum += i);
+		// 	i++;
+		// }
+
+		//求用户输入的阶乘
+		// var sum=1;//用来存储结果
+		// var a=1;//每次+1用来计算
+		// var num=parseInt(prompt("请输入一个数字计算阶乘"));
+		// while(a<=num){
+		// 	console.log(sum *= a);
+		// 	a++;
+		// }
+
+		//求1-100之间所有偶数的和
+		//使用for循环解决
+		// var num=0;
+		// for(var sum=1;sum<=100;sum++)
+		// {
+		// 	if(sum % 2 == 0){
+		// 		console.log(num += sum);
+		// 	}
+		// }
+		//使用while循环解决
+		// var num=0;
+		// var sum=1;
+		// while(sum<=100)
+		// {
+		// 	if(sum % 2 == 0)
+		// 	{
+		// 		console.log(num += sum);
+				
+		// 	}
+		// 	sum++;
+			
+		// }
+		//
+		//求1-100之间所有奇数的和
+		// var num=0;
+		// var sum=1;
+		// while(sum<=100)
+		// {
+		// 	if(sum % 2 != 0)
+		// 	{
+		// 		console.log(num += sum);
+				
+		// 	}
+		// 	sum++;
+			
+		// }
+		//求账号和密码是否一致，登录的问题
+		// var number=(prompt("请输入账号");
+		// var pass=prompt("请输入密码");
+		// //使用三元表达式
+		// var sum= number===pass ? alert(sum="输入正确") : alert(sum="请输入正确的账号密码");
+		// 
+		// 限制用户输入账号必须为admin
+		// 密码必须为123
+		// 如果输入不正确则提示重新输入
+		// 输入正确则console.log
+		// 使用prompt
+		// var username=prompt("请您输入账号");
+		// var userpass=prompt("请您输入密码");
+		// while(username!="admin" || userpass!="123"){
+		// 	username=prompt("请您重新输入账号");
+		// 	userpass=prompt("请您重新输入密码");
+		// }
+		// console.log("登录成功");
+		// 
+		// 
+		// 
+		// 
+		// 
+		// do-while循环练习
+		// var sum=1;
+		// do{
+		// 	console.log("一共会有十次判断哦");
+		// 	sum++;
+		// }while(sum<=10);
+		// 
+		// 
+		// 练习二
+		// do{
+
+		// 	var text=prompt("路漫漫其修远兮啊,您觉得呢？输入y或者n");
+
+		// }while(text!="y");
+		// console.log("当然如此");
+		// 
+		// 
+		// for循环练习
+		// 
+		// 求1-100之间的和
+		// var sum=0;
+		// for(var num=1;num<=100;num++){
+		// 	sum += num;
+		// }
+		// console.log("1-100之间的总数和为："+sum);
+		// 
+		// 
+		// 求1-100之间所有奇数的和
+		// var sum=0;
+		// for(var num=1;num<=100;num++)
+		// {
+		// 	if(num % 2 !=0)
+		// 		sum += num;	
+
+		// }
+		// console.log("所有奇数和为："+sum);
+		// 
+		// 
+		// 求1-100之间所有偶数的和
+		// var sum=0;
+		// for(var num=1;num<=100;num++){
+		// 	if(num % 2 ==0)
+		// 		sum += num;
+		// }
+		// console.log("所有偶数和为："+sum);
+		// 
+		// 
+		// 
+		// 求1-100之间所有能被3整除的和
+		// var sum=0;
+		// for(var num=1;num<=100;num++){
+		// 	if(num % 3 ==0)
+		// 		sum += num;
+		// }
+		// console.log("能被三整除的数之和为："+sum);
+		// 
+		// 求1-100之间所有能被7整除的和
+		// var sum=0;
+		// for(var num=1;num<=100;num++)
+		// {
+		// 	if(num % 7 == 0)
+		// 		sum += num;
+		// }
+		// console.log("能被七整除的数之和为："+sum);
+	</script>
+	<!-- 案例二 -->
+	<script>
+		//画星星
+		
+		//控制行数
+		//三角形，随着行数的增加，星星数量+1
+		// for(var i=1;i<=5;i++){
+		// 	//控制星数量
+		// 	for(var j=0;j<i;j++){
+		// 	document.write("☆");
+		// 	}
+		// 	document.write("<br />");
+		// }
+		
+
+		//九九乘法表
+		// for(var i=1;i<=9;i++)
+		// {
+		// 	//每一行计算当前行数的数量即可
+		// 	for(var j=1;j<=i;j++)
+		// 	{
+		// 		document.write("&nbsp;&nbsp;"+j+"*"+i+"="+i*j);
+		// 	}
+		// 	document.write("<br />");
+		// }
+		// 
+		// 表格版
+		// document.write("<table border='1' cellpadding='0' cellspadding='0'>");
+		// for(var i=1;i<=9;i++)
+		// {
+		// 	document.write("<tr>");
+		// 	//每一行计算当前行数的数量即可
+		// 	for(var j=1;j<=i;j++)
+		// 	{
+		// 		document.write("<td>");
+		// 		document.write("&nbsp;&nbsp;"+j+"*"+i+"="+i*j);
+		// 		document.write("</td>");
+				
+		// 	}
+		// 	document.write("</tr>");
+
+		// }
+		// document.write("</table>");
+	</script>
+
+	<!-- 作业练习 -->
+	<script>
+		//本金10000存入银行，年利率为千分之三，每过一年，将本金和利息相加作为新的本金。计算五年后，获得的本金为多少？
+		// var moeny=10000;
+		// for(i=1;i<=5;i++)
+		// {
+		// 	moeny=moeny+moeny*0.003;
+		// }
+		// console.log("五年后为："+moeny.toFixed(2));
+
+
+		//已知一对兔子每个月能生一对小兔子，而一对兔子从出生后第三个月起每个月生一对小兔子。加入一年内没有发生死亡现象，那么，一对兔子一年内能繁殖成多少对
+		//定义三个变量分别储存每三个月兔子数量的变化
+		var a=1;
+		var b=1;
+		var c=1;
+		//循环每个月不同的兔子数量，一共十二个月
+		for(var y=2;y<12;y++){
+			//第三个月兔子的数量等于前两个月相加
+			c=a+b;
+			//第二个月兔子数量等于
+			a=b;
+			b=c;
+		}
+		console.log("一年后兔子一共有："+c+"只");
+	</script>
+</body>
+</html>

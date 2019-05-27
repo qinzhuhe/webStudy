@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- <script>
+		/*
+		 使用第三方变量交换
+		 数值交换思路：创建三个变量，分别是num1、num2、temp，将num1中的值存temp中，再将num2的值赋给num1，最后将temp的值赋给num2，就完成了简单的数值交换
+		*/
+		// var num1=10;
+		// var num2=20;
+		// var temp;
+		// temp=num1;
+		// num1=num2;
+		// num2=temp;
+		// console.log(num1);
+		// console.log(num2);
+		/*
+		数字交换方法
+		思路：首先将num1+num2的值赋给num1，然后再将获得赋值后的num1的值-num2，将结果赋给num2，最后将num1-重新赋值后的num2值的结果赋给num1，就完成了数字交换这一目的
+		 */
+		// var num1 = 10;
+		// var num2 = 20;
+		// num1 = num1 + num2;//10+20=30
+		// num2 = num1 - num2;//30-20=10
+		// num1 = num1 - num2;//30-10=20
+		// var str = "hey";	
+		// console.log(num1,num2);
+		// console.log(typeof num1);
+		// console.log(typeof str);
+		// 
+		// 进制表现方式
+		//十进制 
+		// var num = 12;
+		// console.log(num);
+		// //八进制
+		// var num1 = 012;
+		// console.log(num1);
+		// //十六进制
+		// var num2=0x1a;
+		// console.log(num2);
+	</script>
+		
+	<script>
+		//数值的范围
+		// console.log(Number.MAX_VALUE);//数值的最大值
+		// console.log(Number.MIN_VALUE);//最小值
+
+
+		// //判断一个数字是不是NaN
+		// var her;
+		// console.log(isNaN(her));//如果说需要的内容不是一个数字则返回true，如果是一个数字则返回false
+	</script>
+
+
+	<script>
+//		var str="what her rong";
+//		console.log(str.length);
+	</script>
+
+	<script>
+		//var str1 = "I am strong and ";
+		//var str2 = "you are fall"; 
+		//console.log(str1+str2);
+	</script>
+
+		<script>
+			//转换整数
+			/*console.log(parseInt("10"));//10
+			console.log(parseInt("10sdfsfsdf"));//10
+			console.log(parseInt("g10"));//NaN
+			console.log(parseInt("1FSFSF"));//1
+			console.log(parseInt("10.99"));//10
+			console.log(parseInt("10.121FAFDFSDa"));//10*/
+
+			//使用parseFloat转小数
+/*			console.log(parseFloat("10"));//10
+			console.log(parseFloat("10sdfsfsdf"));//10
+			console.log(parseFloat("g10"));//NaN
+			console.log(parseFloat("1FSFSF"));//1
+			console.log(parseFloat("10.99"));//10.99
+			console.log(parseFloat("10.121FAFDFSDa"));//10.121*/
+
+
+			//使用Number转数字
+			/*console.log(Number("10"));//10
+			console.log(Number("10sdfsfsdf"));//NaN
+			console.log(Number("g10"));//NaN
+			console.log(Number("1FSFSF"));//NaN
+			console.log(Number("10.99"));//10.99
+			console.log(Number("10.121FAFDFSDa"));//NaN*/
+		</script>
+
+
+		<script>
+			// 使用.toString()转换字符串
+			/*var num = 10 ;
+			console.log(num.toString());*/
+			// 使用String()转换字符串
+		/*	var num = 10 ;
+			console.log(num.toString());
+			var num2 = null;
+			console.log(String(num2));*/
+		</script>
+
+
+
+			console.log(Boolean(1));//true
+			console.log(Boolean(0));//false
+			console.log(Boolean(12));//true
+			console.log(Boolean(-12));//true
+			console.log(Boolean("哈哈哈"));//true
+			console.log(Boolean(""));//false
+			console.log(Boolean(null));//false
+			console.log(Boolean(undefined));//false
+
+	
+		 	//闰年判断
+		 	for(var num3=2000;num3<2050;num3++){
+		 		if(num3 % 4 == 0 && num3 % 100 !=0 || num3 % 400 ==0){
+		 			console.log(num3+"是瑞年");
+		 		}
+		 		else
+		 			console.log(num3+"平年");
+
+		 	}
+		 </script> -->
+
+		<script>
+			//获取一个人的成绩，进行分级。不同的级数显示abcd;
+			// var jibie="A";
+			// switch (jibie){
+			// 	case "A":
+			// 	console.log("90到100之间");
+			// 	break;
+			// 	case "B":
+			// 	console.log("80到90之间");
+			// 	break;
+			// 	case "C":
+			// 	console.log("70到80之间");
+			// 	break;
+			// 	default :
+			// 	console.log("60到70之间");
+			// }
+
+
+			//练习二：根据月份显示对应的天数
+			// var month=parseInt(prompt("请输入月份"));
+			// switch (month){
+			// 	case 1:console.log("31天");break;
+			// 	case 2:console.log("28天");break;
+			// 	case 3:console.log("31天");break;
+			// 	case 4:console.log("30天");break;
+			// 	case 5:console.log("31天");break;
+			// 	case 6:console.log("30天");break;
+			// 	case 7:console.log("31天");break;
+			// 	case 8:console.log("31天");break;
+			// 	case 9:console.log("30天");break;
+			// 	case 10:console.log("31天");break;
+			// 	case 11:console.log("30天");break;
+			// 	case 12:console.log("31天");
+
+			// }
+			// 
+			// 根据用户 输入提示星期几
+			// var str=parseInt(prompt("请输入数字判断星期几"));
+			// switch(str){
+			// 	case 1:console.log("今天是星期1");break;
+			// 	case 2:console.log("今天是星期2");break;
+			// 	case 3:console.log("今天是星期3");break;
+			// 	case 4:console.log("今天是星期4");break;
+			// 	case 5:console.log("今天是星期5");break;
+			// 	case 6:console.log("今天是星期6");break;
+			// 	case 7:console.log("今天是星期天");break;
+			// 	default:console.log("请输入正确的星期数");
+			// }
+		</script>
+
+</body>
+</html>
