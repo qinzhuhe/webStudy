@@ -88,31 +88,31 @@
 			 * @param  array参数是一个数组
 			 * @return {*[]}返回值是一个数组，第一个元素值是最大值，第二个是最小值，第三个是和
 			 */
-			function getArrayAndMinAndSum(array){
-				var min=array[0];//最小值
-				var max=array[0];//最大值
-				var sum=0;
-				for(var i=0;i<array.length;i++)
-				{
-					// 求和
-					sum += array[i];
-					// 最大值
-					if(max<array[i])
-						max=array[i];
-					最小值
-					if(min>array[i])
-						min=array[i];
-				}
-				// 将结果装到一个数组中并返回
-				var arr=[sum,max,min];
-				return arr;
-			}
-			// 给函数一个数组
-			var arrayAy=getArrayAndMinAndSum([1,2,3,4,5]);
-			// 返回最大值、最小值、相加和结果
-			console.log("最大值："+arrayAy[0]);
-			console.log("最小值："+arrayAy[1]);
-			console.log("和："+arrayAy[2]);
+			// function getArrayAndMinAndSum(array){
+			// 	var min=array[0];//最小值
+			// 	var max=array[0];//最大值
+			// 	var sum=0;
+			// 	for(var i=0;i<array.length;i++)
+			// 	{
+			// 		// 求和
+			// 		sum += array[i];
+			// 		// 最大值
+			// 		if(max<array[i])
+			// 			max=array[i];
+			// 		最小值
+			// 		if(min>array[i])
+			// 			min=array[i];
+			// 	}
+			// 	// 将结果装到一个数组中并返回
+			// 	var arr=[sum,max,min];
+			// 	return arr;
+			// }
+			// // 给函数一个数组
+			// var arrayAy=getArrayAndMinAndSum([1,2,3,4,5]);
+			// // 返回最大值、最小值、相加和结果
+			// console.log("最大值："+arrayAy[0]);
+			// console.log("最小值："+arrayAy[1]);
+			// console.log("和："+arrayAy[2]);
 
 	</script>
 </body>

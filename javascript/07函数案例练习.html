@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第七个文件</title>
+</head>
+<body>
+	<script>
+		//求三个数中的最大值
+		// function maxnum(x,y,z){
+		// 	return x>y ? ( x>z ? x : z) : ( x<y ? y :x );
+		// }
+		// console.log(maxnum(5,7,1));
+
+
+		// 判断一个数是否是素数
+		// function znum(x){
+		// 	for(var i=2; i<x; i++)
+		// 	{
+		// 		if( x % i == 0 )
+		// 		{
+		// 			return false;
+		// 		}
+		// 		return true;
+		// 	}
+		// }
+
+		// var result = znum(3);
+		// if(result){
+		// 	console.log("这个数是质数");
+		// }
+		// else{
+		// 	console.log("这个数不是质数");
+		// }
+
+
+		// 求两个数字的差
+		// 	function numfloat(x,y){
+		// 		return x-y;
+		// 	}
+		// 	console.log(numfloat(10,2));
+
+
+		// //求一组数字中的最大值
+		// function maxnum(array){
+		// 	var max=array[0];
+		// 	for(var i=1;i<=array.length;i++){
+		// 		if(max<array[i])
+		// 		{
+		// 			max = array[i];
+		// 		}
+		// 	}
+		// 	return max;
+		// }
+		// console.log(maxnum([20,30,40,70,60]));
+
+
+		// 求一组数字中的最小值
+		// function minnum(array){
+		// 	var min = array[0];
+		// 	for(var i=1;i<array.length;i++)
+		// 	{
+		// 		if(array[i]<min)
+		// 		{
+		// 			min=array[i];
+		// 		}
+		// 	}
+		// 	return min;
+		// }
+		// console.log(minnum([10,1,40,5]));
+
+
+		// 求一组数字的和
+		// function numand(array){
+		// 	var sum=0;
+		// 	for(var i=0;i<array.length;i++){
+		// 		sum+=array[i];
+		// 	}
+		// 	return sum;
+		// }
+		// console.log(numand([10,20,30]));
+
+
+		// 求一组数字的最大值，最小值还有和
+		// function getnum(array){
+		// 	var sum=0;
+		// 	var min=array[0];
+		// 	var max=array[0];
+		// 	for(var i=0 ; i<array.length;i++)
+		// 	{
+		// 		// 求和
+		// 		sum += array[i];
+		// 		// 求最大值
+		// 		if(array[i]>max)
+		// 		{
+		// 			max=array[i];
+		// 		}
+		// 		// 求最小值
+		// 		if(array[i]<min)
+		// 		{
+		// 			min=array[i];
+		// 		}
+		// 	}
+		// 		var arr=[max,min,sum];
+		// 		return arr;
+		// }
+		// var res=getnum([10,20,30,40]);
+		// console.log("最大值为："+res[0]);
+		// console.log("最小值为："+res[1]);
+		// console.log("和为："+res[2]);
+
+		// getnum();
+
+
+		// 求斐波那契数列 12--144
+		// function fb(num){
+		// 	var num1=1;
+		// 	var num2=1;
+		// 	var sum=0;
+		// 	for(var i=3;i<=num;i++)
+		// 	{
+		// 		sum=num1+num2;
+		// 		num1=num2;
+		// 		num2=sum;
+		// 	}
+		// 	return sum;
+		// }
+		// console.log(fb(12));
+
+
+		// 	判断是否是闰年
+		// function ismonths(year){
+		// 	return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
+		// }
+		// // 输入年月日，获取这个日期是当年的第多少天
+		// function daynum(year,month,day){
+		// 	// 定义变量储存对应的天数
+		// 	var days=day;
+		// 	// 如果用户输的是一月份直接输出day即可
+		// 	if(month==1)
+		// 	{
+		// 		return days;
+		// 	}
+		// 	// 代码执行到这里，说明用户输入的不是一月份
+		// 	// 定义一个数组储存每个月份的天数
+		// 	var months=[31,28,31,30,31,30,31,31,30,31,30,31,30];
+		// 	// 从一月循环到输入的月份，并计算天数
+		// 	for(var i=1;i<month-1;i++)
+		// 	{
+		// 		days += months[i];
+		// 	}
+		// 	// 如果是闰年则加一天
+		// 	if(ismonths(year) && month>2){
+		// 		days++;
+		// 	}
+		// 	return days;
+		// }
+		// console.log(daynum(2000,1,7));
+
+
+
+
+		// 求一个数字的阶乘（使用函数嵌套）
+		// 首先使用一个函数装载阶乘算法
+		// function getjiecheng(num){
+		// 	var result=1;
+		// 	for(var i=1;i<=num;i++)
+		// 	{
+		// 		result *= i;
+		// 	}
+		// 	return result;
+		// }
+		// // 计算数的阶乘
+		// function numsum(num){
+		// 	var sum=0;
+		// 	for(var i=1;i<=num;i++)
+		// 	{
+		// 		sum += getjiecheng(i);
+		// 	}
+		// 	return sum;
+		// }
+		// console.log(numsum(4));
+	</script>
+</body>
+</html>
