@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第九块</title>
+</head>
+<body>
+	<script>
+		//函数声明，fn是变量，fn是参数，
+		// function f1(fn){
+		// 	fn();//函数调用---说明fn这个变量中存储的是一个函数
+		// }
+		// function f2(){
+		// 	console.log("哈哈哈哈，学代码死路一条");
+		// }
+		// // 这里需要调用的是函数中的代码，而不是函数返回的结果
+		// f1(f2);
+		
+
+		// function sayhi(fn){
+		// 	console.log("您好啊");
+		// 	fn();
+		// }
+		// function susay(){
+		// 	console.log("我好个啥呢，awsl");
+		// }
+		// sayhi(susay);
+		
+
+		function f1(){
+			// 一个返回值
+			console.log("这个函数被调用了");
+			return function(){
+				console.log("这是第二个匿名函数")
+			}
+		}
+		var ff=f1();
+		// ff已经变成了一个函数，加上()调用其中的代码即可返回匿名函数中的结果
+		// ff();
+	</script>
+</body>
+</html>

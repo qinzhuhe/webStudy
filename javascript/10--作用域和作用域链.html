@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十块</title>
+</head>
+<body>
+	<!-- 作用域 -->
+	<script>
+		//定义全局变量，所以连下面也能使用这个变量
+		// var num=10;
+	</script>
+	<script>
+		// console.log(num);
+
+		// 隐式全局变量和全局变量
+		// var num1=10;
+		// num2=20;
+		// delete num1;
+		// delete num2;
+		// // 隐式全局变量可以被删除，而全局变量不能
+		// console.log(typeof num1);
+		// console.log(num1+10);
+		// console.log(typeof num2);
+		
+
+		// 全局变量和局部变量
+		// function f1(){
+		// 	num=100;
+		// 	num+=10;
+		// }
+		// f1();
+		
+
+		// 作用域链
+		// var num=5;
+		function f1(){
+			// var num=10;
+
+			function f2(){
+				// var num=20;
+
+				function f3(){
+					var num=50;
+					// console.log("这里是f3，你已经调用了我");
+					// 声明了没有赋值，且一直寻找不到变量则会报错
+					console.log(num);
+				}
+				f3();
+			}
+			f2();
+		}
+		f1();
+		num=null;
+		console.log(num);
+	</script>
+</body>
+</html>
