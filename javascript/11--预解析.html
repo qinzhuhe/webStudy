@@ -7,9 +7,40 @@
 <body>
 	<script>
 		//把变量的声明给提前了,因为变量只声明了而没有复制，所以为undefined
-		var num;
-		console.log(num);
-		num=10;
+		// var num;
+		// console.log(num);
+		// num=10;
+
+
+		// 如果变量和函数同名的话，函数优先
+		// var a = 25;
+		// function abc(){
+		// 	alert(a);//undefined
+		// 	var a = 10;
+		// }
+		// abc();
+
+
+		// 如果变量和函数同名，函数优先
+		// console.log(a);
+		// function a(){
+		// console.log('aaaaaa');
+		// }
+		// var a = 1;
+		// console.log(a);
+
+
+		// 案例3
+		f1();
+		console.log(c);
+		console.log(b);
+		console.log(a);
+		function f1(){
+			var a = b = c = 9;
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
 	</script>
 </body>
 </html>
