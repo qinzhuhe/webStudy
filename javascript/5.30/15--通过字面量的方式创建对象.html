@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十五块</title>
+</head>
+<body>
+	<script>
+		//字面量的方式创建对象
+		// var obj = {};
+		// // 添加属性
+		// obj.name="小白";
+		// obj.age=10;
+		// // 添加方法
+		// obj.sayHi=function (){
+		// 	console.log("我是"+this.name);
+		// };
+		// obj.sayHi();
+
+		// // 优化后的写法
+		// var obj2={
+		// 	name:"小明",
+		// 	age:20,
+		// 	sayHi:function (){
+		// 		console.log("我是"+obj2.name);
+		// 	},
+		// 	eat:function(){
+		// 		console.log("吃了");
+		// 	}
+		// };
+		// obj2.sayHi();
+		// obj2.eat();
+
+		// 字面量创建对象的缺陷：对象是一次性的，无法传值
+		// 点语法：对象.名字=值;对象.名字=函数;
+		// 没有什么点，就有了
+		// var obj={
+		// 	name:"橙光",
+		// 	age:38,
+		// 	sex:"女"
+		// };
+		// console.log(obj.name);
+		/*
+		js是一门什么样的语言？
+		是一门解释性的语言
+		是一门脚本语言
+		是一门弱类型语言，声明变量都用var
+		是一门基于对象的语言
+		是一门动态类型的语言：
+		1、代码(变量)只有执行到这个位置的时候，才知道这个变量中到底存储的是什么，如果是变量，就有对象的属性和方法，如果是变量就是变量的作用。
+		2、对象没有什么，只要点了，通过点语法，那么就可以为对象添加属性或者方法
+		 */
+		
+		// 写程序是一个写诗的过程，在书写的过程中慢慢写诗，化繁为简，是一个优雅的过程。
+		// 在学习的过程中，目前经历的是一个“扎马步”的阶段，而且这个阶段还有很长一段路，当基础打牢后，才会存在后来的得心应手，行云流水，写出一篇优美的诗词
+		
+		// 访问属性的另一种写法,除了用'.'还能使用'[]'
+		 function Pseson(name,page){
+		 	this.name=name;
+		 	this.page=page;
+		 	this,play=function (){
+		 		console.log("喜欢玩游戏");
+		 	};
+		 }
+		 var obj=new Pseson();
+		 obj["name"]="佐助";
+		 // obj.name="鸣人";
+		 console.log(obj.name);
+	</script>
+</body>
+</html>

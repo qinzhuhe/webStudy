@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十九块</title>
+</head>
+<body>
+	<script>
+		//验证变量是不是对象
+		// console.log(Array instanceof Object);
+		// var obj={};
+		// console.log(obj instanceof Object);
+
+
+		//Math对象
+		var arr=[];
+
+		// Math.abs();
+		// console.log(Math.abs('-1'));//1
+		// console.log(Math.abs(-2));//2
+		// console.log(Math.abs(null));//0
+		// console.log(Math.abs("string"));//NaN
+
+		// Math.ceil();//无论小数有多小，都会向上取整
+		// console.log(Math.ceil(12.3));//13
+		// console.log(Math.ceil(12.9));//13
+		// console.log(Math.ceil(12.09));//13
+		// console.log(Math.ceil(12.03));//13
+		// console.log(Math.ceil(12.92));//13
+
+		// // Math.floor(值)//无论小数有多大，都会向下取整
+		// console.log(Math.floor(12.3));//12
+		// console.log(Math.floor(12.9));//12
+		// console.log(Math.floor(12.09));//12
+		// console.log(Math.floor(12.03));//12
+		// console.log(Math.floor(12.92));//12
+
+
+		// Math.fround(值)//小数精度到十五位
+		console.log(Math.fround(2));//12
+		console.log(Math.fround(2.1));//12
+		console.log(Math.fround(2.9));//12
+		console.log(Math.fround(3.4));//12
+		console.log(Math.fround(3.33));//12
+
+
+		//Math.max(值)//找一组数字中的最大值
+		console.log(Math.max(10,2,3,40,5,99));//99
+
+
+		// Math.min(值)//找一组数字中的最小值
+		console.log(Math.min(10,2,3,40,5,99));//2
+
+
+		// Math.pow(值,平方次)//算一组数字的平方
+		// console.log(Math.pow(10,1));//10
+
+
+		// Math.sqrt(值)//算数字的平方根
+		console.log(Math.sqrt(16));//4
+
+
+		//Math.random(值)//返回一个浮点数（伪随机数）
+		console.log(Math.random(22));//随机数：0.19632669097784916
+
+		// 因为*5，所以随机数范围是0-4之间的数
+		console.log(parseInt(Math.random()*5));//使用parseInt取随机整数
+
+		// 想要1-5之间的随机数就在后面+1，不加1就是0-4
+		console.log(parseInt(Math.random()*5)+1);
+	</script>
+</body>
+</html>

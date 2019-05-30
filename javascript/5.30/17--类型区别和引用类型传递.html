@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十七块</title>
+</head>
+<body>
+	<script>
+
+		// var num=10;
+		// var num2=num;//传递的值
+
+
+		// 识别传递的值
+		// function f1(x){
+		// 	x=100
+		// }
+		// var num = 10;
+		// f1(num);
+		// console.log(num);
+
+		// var obj={
+		// 	name:"小明"
+		// };
+		// function f2(obj2){
+		// 	obj2.name="小红";
+		// }
+		// console.log(obj.name);
+		// f2(obj);
+		// console.log(obj.name);
+
+
+
+		//一、
+		// var num1=10;
+		// var num2=num1;
+		// num1=20;
+		// console.log(num1);//20
+		// console.log(num2);//10
+
+
+		//二、
+		// var num=50;
+		// function f1(num){
+		// 	num=60;
+		// 	console.log(num);
+		// }
+		// f1(num);//60
+		// console.log(num);//50
+
+
+		//三、
+		// var num1=55;
+		// var num2=66;
+		// // 传入f1的是已经定义赋值了的num1和num2
+		// function f1(num,num1){
+		// 	num=100;
+		// 	num1=100;
+		// 	num2=100;//num2没有赋值，是一个引势全局变量
+		// 	console.log(num);
+		// 	console.log(num1);
+		// 	console.log(num2);
+		// }
+		// // 相当于在函数结束后在这个位置还有一个num2=100;
+		// f1(num1,num2);//100,100
+		// console.log(num1);//55
+		// console.log(num2);//100
+		// // console.log(num);//100
+
+
+		// 四、
+		function Person(name,age,salary){
+			this.name =name;//zs
+			this.age =age;//18
+			this.salary =salary;//1000
+		}
+		function f1(person){
+			person.name ="1s";
+			person =new Person("aa",18,10);
+		}
+		var p =new Person("zs",18,1000);
+		console.log(p.name);//zs
+		f1(p);//aa,18,10
+		console.log(p.name);//1s
+	</script>
+</body>
+</html>

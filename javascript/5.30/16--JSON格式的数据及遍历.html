@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十六块</title>
+</head>
+<body>
+	<script>
+		//对象：有属性和方法，特指的某个事物
+		//对象：一组无序属性的集合
+		
+		var obj={
+			name:"张三",
+			age:10
+		}; 
+
+		// JSON格式的数据：一般都是成对的，是键值对
+		// json也是一个对象，数据都是成对的，一般json格式的数据无论是键、值还是对都是用双'引号括起来的
+		var json={
+			"name":"王小明",
+			"age":"10",
+			"sex":"男"
+		};
+		// 而遍历对象，不能通过for循环遍历
+		// var key="sex";
+		// // 不支持逗号隔开依次输出参数
+		// console.log(json["name","age"]);
+
+		// for循环一个个遍历出来
+		// var arr=[10,20,30];
+		// for(var i=0;i<arr.length;i++){
+		// 	console.log(arr[i]);
+		// }
+		
+		// // 不支持for循环，但可以通过for-in循环遍历
+		// for(var key in json){
+		// 	console.log(key);//json对象中的属性
+		// 	console.log(json[key]);//现在key是一个变量，在其中储存这json中的内容
+		// }
+
+		// // 对象中确实有这个属性，对象.属性名字 或者对象[属性名字]
+		// 
+		// key是一个变量，这个变量中存储的是该对象的所有的属性的名字
+		// for(var key in json){
+		// 	console.log(json[key]);
+		// }
+	</script>
+</body>
+</html>
+</html>

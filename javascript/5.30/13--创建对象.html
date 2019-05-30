@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十三块</title>
+</head>
+<body>
+	<script>
+		//第一种创建对象的方式
+		//实例化对象：
+		// var obj=new Object();
+		// // 对象有特征--属性和行为---方法
+		
+		// // 添加属性---如何添加属性？  对象.名字=值；
+		// obj.name="小苏";
+		// obj.age=38;
+		// obj.sex="女";
+		// // 添加方法---如何添加方法？对象.名字=函数；
+		// obj.eat=function(){
+		// 	console.log("我就是，卡密哒！！！");
+		// }
+		// obj.play = function(){
+		// 	console.log("不但如此，我还是，你爸爸哒！！");
+		// }
+		// console.log(obj.name);
+		// console.log(obj.age);
+		// console.log(obj.sex);
+		// obj.eat();
+		// obj.play();
+		
+
+		// 练习一：有一只黄色的小狗，叫大黄，今年已经三岁了，250斤的重量每次走路都很慢，喜欢吃大骨头
+		// var dog = new Object();
+		// dog.name = "大黄";
+		// dog.age = 3;
+		// dog.weight = "250斤";
+		// dog.play=function(){
+		// 	// console.log("因为太胖所以走路很慢。");
+		// 	// 在当前对象的方法中是可以访问当前这个对象的值的
+		// 	console.log("您好吃了没，我叫"+this.name);
+		// };
+		// dog.like = function (){
+		// 	console.log("喜欢吃骨头");
+		// };
+		// console.log(dog.name);
+		// console.log(dog.age);
+		// console.log(dog.weight);
+		// dog.play();//方法的调用
+		// dog.like();
+
+		// // 练习二：创建一个手机对象，手机有型号，有颜色，可以打电话和发短信
+		// var phone = new Object();
+		// phone.mod = "小米8se";
+		// phone.solcolor = "蓝色";
+		// phone.play=function(){
+		// 	console.log("这部手机可以拿来打电话");
+		// 	console.log("这部手机还可以发短信");
+		// }
+		// console.log(phone.mod);
+		// console.log(phone.solcolor);
+		// phone.play();
+
+
+		// 创建多个对象
+		// function createObject(name,age){
+		// 	var obj = new Object();//创建对象
+		// 	// 添加属性
+		// 	obj.name=name;
+		// 	obj.age=age;
+		// 	// 添加方法
+		// 	obj.sayHi=function(){
+		// 		console.log("我即是，"+this.name);
+		// 		console.log("死吧，人类，死在我足足有 "+this.age+"米的大刀下吧");
+		// 	};
+		// 	// 返回对象
+		// 	return obj;
+		// }
+		// // 调用函数接收
+		// var per1=createObject("张三",20);
+		// per1.sayHi();
+
+		// var per2=createObject("李四",10);
+		// per2.sayHi();
+
+	</script>
+</body>
+</html>

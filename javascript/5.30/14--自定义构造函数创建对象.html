@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十四块</title>
+</head>
+<body>
+	<script>
+		// 自定义构造函数创建对象,自定义构造函数，自定义对象
+		// 函数和构造函数的区别；名字是否大写（首字母大写）
+		function Person(name,add,work,age){
+			var obj=new Object();
+			this.name=name;
+			this.add=add;
+			this.work=work;
+			this.age=age;
+			this.sayHi=function(){
+				console.log("我叫"+this.name+",我住在"+this.add+",年龄是"+this.age+"，我只是一个"+this.work);
+			};
+		}
+		// 创建对象
+		var obj = new Person("王小明","杜王町","普通上班族",20);
+		console.log(obj.name);
+		console.log(obj.age);
+		obj.sayHi();
+		// 创建对象2
+		var obj2 = new Person("岸边露伴","杜王町","普通漫画家",30);
+		obj2.sayHi();
+		// 分辨对象属于什么类型
+		// console.log(obj instanceof Person);
+		// console.log(obj2 instanceof Person);
+		
+		// 自定义狗的构造函数
+		function Dog(name,age,like){
+			var obj = new Object();
+			this.name=name;
+			this.age=age;
+			this.like=like;
+			this.sayHi=function(){
+				console.log("我是一只"+this.name+",我已经活了"+this.age+"年了，但即便如此，我还是喜欢"+this.like);
+			};
+		}
+		var obj = new Dog("老黄狗",20,"希儿");
+		obj.sayHi();
+
+
+		// 在创建对象时，系统会自己做四件事
+		// 1、在内存中开辟(申请一块空闲的空间)空间，存储创建的新的对象
+		// 2、把this设置为当前的对象
+		// 3、设置对象的属性和方法的值
+		// 4、把this这个对象返回
+		
+		// 通过自定义构造函数实现以下例子
+		// 1、创建一个图片的对象，图片有宽、高、大小（4m），图片可以展示内容
+		function Image(width,height,size){
+			var obj = new Object();
+			this.width=width;
+			this.height=height;
+			this.size=size;
+			this.action=function (){
+				console.log("这张图片宽"+this.width+"，高"+this.height+",大小为"+this.size);
+			};
+		}
+
+		var image = new Image(20,30,"4m");
+		image.action();
+		// 2、创建一个小猫的对象，猫有颜色，体重，年龄，小猫可以抓耗子，可以打架
+		// 自定义构造函数
+		function Cat(color,weight,age){
+			var obj=new Object();
+			this.color=color;
+			this.weight=weight;
+			this.age=age;
+			// this.like=like;
+			this.action=function(){
+				console.log("这是一只"+this.color+"的毛，它现在"+this.age+"岁了，并且已经有"+this.weight+"斤了");
+				console.log("它喜欢抓耗子，也喜欢打架");
+			};
+		}
+		// 创建对象----实例化一个对象，并初始化
+		var cat = new Cat("橘黄色",20,5);
+		cat.action();
+	</script>
+</body>
+</html>

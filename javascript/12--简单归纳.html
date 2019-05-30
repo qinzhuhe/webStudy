@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十二块</title>
+</head>
+<body>
+	<script>
+		// var str = prompt("请输入一个数字");
+		// if(str == "")
+		// {
+		// 	console.log("您输入有误");
+		// }else{
+		// 	if(!isNaN(parseInt(str))){
+		// 		console.log("用户输入的是一个数字");
+		// 	}else{
+		// 		console.log("用户输入的不是一个数字");
+		// 	}
+		// }
+		
+
+		// 质数判断
+		var a=8;
+		function f1(a){
+			for(var i=2;i<=a/2;i++){
+				if( a % i == 0 )
+				{
+					return false;
+				}
+				return true;
+			}
+		}
+		console.log(f1(a));
+	</script>
+</body>
+</html>
