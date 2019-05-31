@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十九块</title>
+</head>
+<body>
+	<script>
+		// var result=Math.max(10,2,30,4,5);
+		// console.log(result);
+
+		// 定义一个对象，实现系统的max方法
+		function myMax(){
+			this.getMax=function (){
+				// 所有数字中的最大值
+				var max=arguments[0];
+				for(var i=1;i<arguments.length;i++){
+					if(max<arguments[i]){
+						max=arguments[i];
+					}
+				}
+				return max;
+			};
+		}
+		// 实例化对象
+		var mt=new myMax();
+		var result=mt.getMax(20,20,31,12,40);
+		console.log(result);
+	</script>
+</body>
+</html>

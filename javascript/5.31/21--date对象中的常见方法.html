@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二十一块</title>
+</head>
+<body>
+		<script>
+			//创建实例对象
+			// var dt=new Date("2019-5-31");
+			// // 传入的时间
+			// console.log(dt);
+
+
+			//得到的时间类型
+			// var dt = new Date("2017/8/12");
+			// console.log(dt);
+
+
+			// // 数字类型，获得时间的对象，毫秒，从1970年到现在的豪秒数
+			// var dt = Date.now();
+			// console.log(dt);
+
+
+			// var dt=new Date();
+
+			// // 获取年份
+			// console.log("时间为："+dt.getYear());//从1900年到当前年份的数
+			// console.log("当前时间为："+dt.getFullYear());//获取当前时间
+
+			// //获取月份
+			// console.log("现在是"+dt.getUTCMonth()+1+"月");//返回当前Date对象基于UTC时间的月份值;注意，月份计算是从零开始的
+
+			// // 获取日期
+			// console.log("今天是"+dt.getDate()+"号");
+			// // 获取小时
+			// console.log("现在是"+dt.getHours()+"时");
+			// // 获取分钟
+			// console.log("现在是"+dt.getMinutes()+"分");
+			// // 获取秒
+			// console.log("现在是"+dt.getSeconds()+"秒");
+
+			// // 获取星期
+			// console.log("今天是星期"+dt.getDay());//星期从零开始的
+
+			var dt=new Date();
+			// console.log(dt);
+			// // 转成字符串
+			// console.log(dt.toString());
+			console.log(dt.toDateString());//英文的--日期
+			console.log(dt.toLocaleDateString());//数字格式--日期
+			console.log(dt.toTimeString());//小时分钟秒
+			console.log(dt.toLocaleTimeString());//小时分钟秒
+			console.log(dt.valueOf());//毫秒值
+		</script>
+</body>
+</html>
