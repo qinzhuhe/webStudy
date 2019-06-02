@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二十三块</title>
+</head>
+<body>
+	<script>
+		//字符串对象--string对象
+		// var str="hello";//可以看做是一个字符数组
+		// 遍历这个数组输出其中每个字符
+		// for(var i=0;i<str.length;i++){
+		// 	console.log(str[i]);
+		// }
+
+		// // 字符串的不可变性
+		// // 使用对象的方式来看待
+		// var str="原语";
+
+		// // 原来的值并没有改变，只是重新开辟了一块空间建造了一个新的值，改变了str的指向
+		// str="变语";//这里不是改变，而是重新赋值
+
+
+		// // 字符串可以通过索引访问其中的某个值
+		// // 凡是通过索引只能读取无法修改
+
+		// console.log(str[0]);
+
+
+		// 字符串的方法
+		// 一.
+		// .length--->字符串长度
+		// var str="djfj";
+		// console.log(str.length);
+
+		// 二.
+		// .charAt()--->返回值是指定索引位置的字符串
+		// var str="hello";
+		// console.log(str.charAt(1));//如果指定的索引超出了其长度，则会返回空
+
+		// 三.
+		// .fromCharCode()--->通过ASCLL表码将数字转换为相应的字母符号
+		// var str=String.fromCharCode(65);//将数字转换为相应的ASCLL表码
+		// console.log(str);//A
+		// // SOS
+		// var str2 = String.fromCharCode(83,79,83);
+		// console.log(str2);
+
+		// 四.
+		// .concat(字符串1,字符串2,...);
+		// var str = "我是霍进,";
+		// console.log(str.concat("我喜欢:","打电话、","排错、","rap、","还有敲代码"));
+
+		// 五.
+		// .indexOf("要找的字符串",从某个位置开始的索引)
+		// var str="hjz？kkp？"
+		// console.log(str.indexOf("k",5));
+
+		// 六.
+		// .lastIndexOf("要找的字符串")
+		// var str = "hello.amen";
+		// var index = str.lastIndexOf("e");
+		// console.log(index);
+
+		// 七.
+		//.replace("需要替换的字符串","替换的字符串")
+		// var str =  "霍进帮我口一下，你技术很好";
+		// if(str.indexOf("口")!=-1){
+		// 	str=str.replace("口","吹");
+		// }
+		// else{
+		// 	console.log("不存在");
+		// }
+		// console.log(str);
+
+		// 八.
+		// .slice(索引1,索引2)
+		// var str = "正义已死，混沌当立";
+		// str=str.slice(1,5);
+		// console.log(str);
+
+		// 九.
+		// .split("不需要的字符串",切割后留下的个数)
+		// var str = "天上天下，唯我，独尊";
+		// var arr = str.split("，",2);
+		// for(var i = 0 ;i<arr.length;i++)
+		// {
+		// 	console.log(arr[i]);
+		// }
+
+		// 十.
+		// .substr(开始的位置,个数)
+		// var str = "创造结束，毁灭新生";
+		// str = str.substr(5,1);
+		// console.log(str);
+
+		// 十一.
+		// .substring(开始的索引,结束的索引)
+		// var str = "创造结束，毁灭新生";
+		// str = str.substring(5,7);
+		// console.log(str);
+
+		// 十二
+		// .toLocaleLowerCase()
+		// .toLowerCase()//将大写转成小写
+		// var str= "HELLO";
+		// str = str.toLowerCase();
+		// console.log(str);
+
+		// 十三
+		// .toUpperCase()
+		// var str = "hello";
+		// str = str.toUpperCase();
+		// console.log(str);
+
+		// 十四
+		// .trim()
+		// var str = "   哈哈哈，    没啥好说的  ";
+		// str = str.trim();
+		// console.log("===="+str+"====");
+	</script>
+</body>
+</html>
