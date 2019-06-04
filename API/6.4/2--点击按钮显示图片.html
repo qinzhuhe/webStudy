@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二块</title>
+</head>
+<body>
+	<input type="button" value="图片显示" id="btn">
+	<img src="" alt="" id="im">
+	<script>
+		// //点击按钮显示图片：点击按钮的时候设置img标签的src属性有一个图片的路径
+		// //根据id获取按钮
+		// //为按钮注册点击事件，添加时间处理函数
+		// //根据id获取图片的标签，设置图片的src属性
+		// var btnObj = document.getElementById("btn");
+		// btnObj.onclick=function (){
+		// 	var imgObj=document.getElementById("im");
+		// 	imgObj.src="C:/Users/Administrator/Desktop/web学习/Image/music.png";
+		// 	// 设置图片大小
+		// 	imgObj.width="500";
+		// 	imgObj.height="300";
+		// };
+
+		// 自主练习
+		var btnObj = document.getElementById("btn");
+		// 按钮点击执行匿名函数
+		btnObj.onclick=function (){
+			// 根据id获取图片标签，设置其属性
+			var imgObj = document.getElementById("im");
+			// 设置图片(src属性)
+			imgObj.src="C:/Users/Administrator/Desktop/web学习/Image/dream.png";
+			// 设置图片宽高
+			imgObj.width="300";
+			imgObj.height="200";
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第五块</title>
+</head>
+<body>
+	<a href="http://www.baidu.com" id="a1">测试</a>
+	<input type="button" value="修改地址以及热点文字" id="btn" />
+	<script>
+		//案例：点击按钮修改a标签的地址和热点文字
+		document.getElementById("btn").onclick=function (){
+			document.getElementById("a1").href="http://www.bilibili.com";
+			document.getElementById("a1").innerText="修改成功";
+		}
+	</script>
+</body>
+</html>

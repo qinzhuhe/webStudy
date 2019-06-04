@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第六块</title>
+</head>
+<body>
+	<input type="button" value="显示效果" id="btn">
+	<div id="dv1">
+		<p>那么，游戏开始了</p>
+		<p>那么，游戏开始了</p>
+		<p>那么，游戏开始了</p>
+		<p>那么，游戏开始了</p>
+	</div>
+	<div id="dv2">
+		<p>游戏，连接</p>
+		<p>游戏，连接</p>
+		<p>游戏，连接</p>
+		<p>游戏，连接</p>
+	</div>
+	<script>
+		// // 根据id获取按钮，注册点击事件，添加事件处理函数
+		// document.getElementById("btn").onclick=function (){
+		// 	// 根据标签名字获取标签
+		// 	// var pObjs = document.getElementsByTagName("p");
+		// 	var pObjs = document.getElementById("dv1").getElementsByTagName("p");
+		// 	// 循环遍历这个数组
+		// 	for(var i=0;i<pObjs.length;i++){
+		// 		pObjs[i].innerText="撒，细数你的罪恶吧";
+		// 	}
+		// };
+
+
+		// 练习
+		// 第一步，根据按钮id获取其元素
+		var btnObj = document.getElementById("btn");
+		btnObj.onclick=function (){
+			// 第二步，获取需要的改变的标签属性
+			// 还需要获取指定的标签，因为不想将全部都修改了
+			var pObjs = document.getElementById("dv2").getElementsByTagName("p");
+			// for遍历数组，显示内容
+			for(var i=0;i<pObjs.length;i++)
+			{
+				pObjs[i].innerText="来吧，简单的通关方式，完成了";
+			}
+		}
+	</script>
+</body>
+</html>

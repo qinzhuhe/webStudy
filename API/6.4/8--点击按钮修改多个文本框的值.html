@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第八块</title>
+</head>
+<body>
+	<!-- 方法一、将要更改的内容装进一个div中，通过这div的id改变里面的input标签，但不完善 -->
+	<input type="button" value="多次修改" id="btn" />
+	<div id="dv1">
+		<input type="text" value="我！想！成！功！" /><br />
+		<input type="text" value="我！想！成！功！" /><br />
+		<input type="text" value="我！想！成！功！" /><br />
+		<input type="text" value="我！想！成！功！" />
+	</div>
+	<script>
+		var btnObj=document.getElementById("btn");
+		btnObj.onclick=function (){
+			var textObj=document.getElementById("dv1").getElementsByTagName("input");
+			for(var i=0;i<textObj.length;i++){
+				textObj[i].value="现在，才刚刚开始";
+			}
+		}
+	</script>
+	<!-- 方法二、在遍历数组的时候判断input的type属性是不是button，不是就进行更改 -->
+	<input type="button" value="多次修改" id="btn2" /><br />
+	<input type="text" value="加油！加油！继续！" /><br />
+	<input type="text" value="加油！加油！继续！" /><br />
+	<input type="text" value="加油！加油！继续！" /><br />
+	<input type="text" value="加油！加油！继续！" />
+	<script>
+		var btn2Obj = document.getElementById("btn2");
+		btn2Obj.onclick=function (){
+			// 获取所有的文本框
+				var inObj = document.getElementsByTagName("input");
+				// 遍历这个数组
+				for(var i=0;i<=inObj.length;i++){
+					// 判断文本框属性type是否是button
+					if(inObj[i].type!="button")
+					{
+						// 因为input标签不是成对显示的，所以要改变其中的值不能使用innerText，更改其中的value即可
+						inObj[i].value="还没到结束的时候";
+					}
+				}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第七块</title>
+</head>
+<body>
+	<input type="button" value="修改" id="btn" />
+	<img src="C:/Users/Administrator/Desktop/web学习/Image/dream.png" alt="终点" title="梦景" width="300" height="200">
+	<script>
+		var btnObj = document.getElementById("btn");
+		btnObj.onclick=function (){
+			// 这里不使用id，而是使用标签的方法进行改变
+			var imgObj = document.getElementsByTagName("img");
+			// 因为返回的是一个伪数组，要改变的是数组中的第一个元素，所以使用元素下标[0]
+			imgObj[0].alt="启点";
+			imgObj[0].title="春后";
+		}
+	</script>
+</body>
+</html>

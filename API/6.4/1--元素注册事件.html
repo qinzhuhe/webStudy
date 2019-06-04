@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一块</title>
+</head>
+<body>
+
+	<!-- 应该将js代码和html分离 -->
+	<!-- html代码，点击按钮弹出对话框，对话框:alert()====js的代码。
+	 html代码中嵌入了js的代码。不方便后期的修改和维护。
+	所以这种方法可以使用，但并不推荐 。
+	-->
+
+	<!-- 第一种方法：直接在html语句中写js代码 -->
+	<!-- <input type="button" value="显示效果" onclick="alert('我被点击了')" /> -->
+
+
+
+	<!-- 第二种方法，仍然不分离 -->
+	<script>
+		function f1(){
+			alert("这是一个对话框");
+		}
+	</script>
+	<!-- 在按钮onclick点击事件触发后，寻找一个名为f1的函数，并进行调用 -->
+	<input type="button" value="显示效果" onclick="f1()" />
+
+
+	<!-- 第三种方法，分离js和html代码 -->
+
+	<input type="button" value="开始分离代码" id="btn">
+
+	<script>
+		function f2(){
+			alert("开始分离html和js代码");
+		}
+		// html标签中的id属性中存储的值是唯一的，并且id属性是唯一的，不能重复
+		// 从文档中找到id值为btn的这个标签(元素)
+		var btnObj=document.getElementById("btn");
+		// 为按钮添加点滴时间
+		btnObj.onclick=f2;//不加括号
+	</script>
+
+	<!-- 第四种：最终版本 -->
+	<input type="button" value="最终版本" id="btn1" />
+	<script>
+
+		//先有按钮，才能获取，获取之后才能注册事件
+
+		//根据id属性的值从文档中获取这个元素
+		var btnObj2=document.getElementById("btn1");
+		// 为当前的这个按钮元素(对象)，注册点击事件，添加时间处理函数(匿名函数)
+		btnObj2.onclick=function (){
+			// 响应做的事情
+			alert("最终版本实现!!");
+		}
+	</script>
+
+	<!-- 报错提示：Cannot set property 'onclick' of null(onclick属性设置为空) -->
+</body>
+</html>
