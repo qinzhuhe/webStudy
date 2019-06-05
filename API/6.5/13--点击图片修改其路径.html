@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十三块</title>
+	<style>
+		img{
+			width: 180px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<a id="ak" href="images/1.jpg"><img src="images/2.png" alt="" id="im"></a>
+	<script>
+		// //点击图片标签，设置图片标签的src路径为超链接中大图的路径
+		// document.getElementById("im").onclick=function (){
+		// 	this.src=document.getElementById("ak").href;
+		// 	return false;
+		// }
+		
+		
+		// 练习
+		document.getElementById("im").onclick=function (){
+			this.src=document.getElementById("ak").href;
+			return false;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十二块</title>
+</head>
+<body>
+	<input type="button" value="嘿!" />
+	<input type="button" value="嘿!" />
+	<input type="button" value="嘿!" />
+	<input type="button" value="嘿!" />
+	<script>
+		//先获取所有的按钮，分别注册点击事件
+
+		var btnObj=document.getElementsByTagName("input");
+		for(var i=0;i<btnObj.length;i++){
+
+			// 为所有按钮注册点击事件
+			btnObj[i].onclick=function (){
+
+				// 在按钮点击时，无论是哪一个按钮触发的，都将所有的按钮value值改变
+				for(var j=0;j<btnObj.length;j++)
+				{
+					btnObj[j].value="嘿!";
+				}
+
+				//最后改变点击按钮的值
+				//因为这里要求的是点击哪个按钮哪个触发而不是让循环btnObj的某一个i值进行改变，所以使用this而不是使用btnObj[i]
+				this.value="哈!";
+
+				// for循环是在页面加载的时候执行完毕了
+				// for(var k=0;k<5;k++)
+				// {
+				//
+				// }
+				// console.log(k);
+				// 事件是在触发的时候执行的
+			}
+		}
+	</script>
+</body>
+</html>

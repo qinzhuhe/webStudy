@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十七块</title>
+	<script src="../js/myid.js"></script>
+	<style>
+		div{
+			width: 200px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="设置样式" id="btn" />
+	<br />
+	<div id="dv">
+
+	</div>
+	<script>
+		//点击按钮，修改div的样式
+		myid("btn").onclick=function (){
+			myid("dv").style.width="300px";
+			myid("dv").style.height="150px";
+			myid("dv").style.backgroundColor="pink";
+		}
+	</script>
+</body>
+</html>

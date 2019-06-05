@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第九块</title>
+	<style>
+		img{
+			width: 100px;
+			height: 150px;
+		}
+	</style>
+</head>
+<body>
+	<img src="C:/Users/Administrator/Desktop/API/API/6.5/images/1.jpg" alt="" id="im1" >
+	<img src="C:/Users/Administrator/Desktop/API/API/6.5/images/2.png" alt="" id="im2" >
+	<img src="C:/Users/Administrator/Desktop/API/API/6.5/images/3.png" alt="" id="im3" >
+	<script>
+		var imgObj=document.getElementsByTagName("img");
+		// 循环遍历数组，获取每个图片标签，注册点击事件，添加时间处理函数
+		for(var i=0;i<imgObj.length;i++)
+		{
+			imgObj[i].onclick=function (){
+				alert("触发成功");
+			}
+		}
+	</script>
+</body>
+</html>

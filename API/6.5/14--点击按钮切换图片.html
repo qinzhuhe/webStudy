@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十四块</title>
+	<script src="../js/myid.js"></script>
+	<style>
+		img{
+			width: 200px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="显示大图" id="btn" />
+	<img src="images/1.jpg" alt="" id="im">
+	<script>
+
+		var btnObj=my$("btn");
+		btnObj.onclick=function (){
+				my$("im").src="images/3.png";
+				return false;
+		}
+	</script>
+</body>
+</html>

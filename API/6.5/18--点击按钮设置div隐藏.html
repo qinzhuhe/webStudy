@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十八块</title>
+	<script src="../js/myid.js"></script>
+	<style>
+		div{
+			background-color: darkred;
+			width: 200px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+		<input type="button" value="隐匿" id="btn" />
+	<div id="dv">
+	</div>
+	<script>
+		//如果div的display属性是block的话就为按钮注册一个点击事件，点击后将div的display属性改为none，并改变按钮的value值。
+		myid("btn").onclick=function (){
+			if(this.value=="隐匿"){
+				myid("dv").style.display="none";
+				this.value="显示";
+			}
+			else if(this.value=="显示"){
+				myid("dv").style.display="block";
+				this.value="隐匿";
+			}
+		}
+	</script>
+</body>
+</html>

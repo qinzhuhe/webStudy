@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二十一块</title>
+	<script src="../js/myid.js"></script>
+	<style>
+		.cls{
+			background-color: black;
+		}
+	</style>
+</head>
+<body id="bd">
+	<input type="button" value="天降" id="btn" />
+	<script>
+		myid("btn").onclick=function (){
+			if(myid("btn").value=="天降"){
+				// myid("bd").className="cls";
+				document.body.className="cls";
+				this.value="开眼"
+			}else if(myid("btn").value=="开眼"){
+				// myid("bd").className="";
+				document.body.className="";
+				this.value="天降";
+			}
+		}
+	</script>
+</body>
+</html>

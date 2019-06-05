@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二十一块</title>
+	<script src="../js/myid.js"></script>
+	<style>
+		.cls{
+			background-color: black;
+		}
+	</style>
+</head>
+<body id="bd">
+	<input type="button" value="开关灯" id="btn" />
+	<script>
+		myid("btn").onclick=function (){
+			// 获取body标签
+			// 使用三元表达式进行代码优化
+			// 直接开关灯，节省代码量
+			document.body.className = document.body.className != "cls" ? "cls" : "";
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二十块</title>
+	<script src="../js/myid.js"></script>
+	<style>
+		div{
+			width: 200px;
+			height: 100px;
+			background-color: #FFF0F5;
+			border: 5px solid pink;
+		}
+		.cls{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="隐藏" id="btn" />
+	<div id="dv"></div>
+	<script>
+		myid("btn").onclick=function (){
+			if(myid("dv").className!="cls"){
+				// 说明现在是显示的状态，应该隐藏
+				myid("dv").className="cls";
+				this.value="显示";
+			}
+			// 否则就是已经隐藏了的状态，那么则应该将它显示出来，把clssname设置为空，去掉类样式，并且改变按钮的value
+			else{
+				myid("dv").className="";
+				this.value="隐藏";
+			}
+		}
+	</script>
+</body>
+</html>

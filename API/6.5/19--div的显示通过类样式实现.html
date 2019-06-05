@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十九块</title>
+	<script src="../js/myid.js"></script>
+	<style>
+		.cls{
+			width: 150px;
+			height: 200px;
+			background-color: yellow;
+			border: 2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="设置样式" id="btn" />
+	<div id="dv">
+
+	</div>
+	<script>
+		myid("btn").onclick=function (){
+			// var dvObj=myid("dv");
+			// dvObj.style.width="200px";
+			// dvObj.style.height="200px";
+			// dvObj.style.backgroundColor="pink";
+			// dvObj.style.border="10px solid red";
+			myid("dv").className="cls";
+		}
+	</script>
+</body>
+</html>

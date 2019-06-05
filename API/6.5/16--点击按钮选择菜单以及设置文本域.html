@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十六块</title>
+	<script src="../js/myid.js"></script>
+</head>
+<body>
+	<!-- 点击按钮选中固定的菜单 -->
+	<input type="button" value="点菜" id="btn" />
+	<select name="" id="ss">
+		<option value="1">小米豆腐</option>
+		<option value="2" id="hy">黄油豆腐</option>
+		<option value="3">麻婆豆腐</option>
+		<option value="4">煎炸豆腐</option>
+	</select>
+	<script>
+		myid("btn").onclick=function (){
+			myid("hy").selected=true;
+		}
+	</script>
+
+<!-- 设置文本域属性 -->
+	<textarea name="" id="tt" cols="30" rows="10" readonly>从前有座山，山里有座庙；庙里有个老和尚和一个小和尚。
+小和尚挑水河，老和尚不动作，结果最后，他们两人都渴死了。
+	</textarea>
+<input type="button" value="修改内容" id="btn2">
+<script>
+	myid("btn2").onclick=function (){
+		// myid("tt").innerText="那他们，如果选择一开始把对方杀掉，说不定就能多活几天了";
+		myid("tt").value="如果他们都把水给对方，说不定两边都能多活几天了";//推荐使用这种方式，因为是表单提交
+	}
+</script>
+</body>
+</html>
