@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第五块</title>
+	<script src="../js/myid.js"></script>
+</head>
+<body>
+	<input type="button" value="变换" id="btn" />
+	<ul id="uu">
+		<li>正</li>
+		<li>和</li>
+		<li>明</li>
+		<li>镜</li>
+		<li>生</li>
+		<li>玄</li>
+	</ul>
+	<script>
+		//为按钮注册点击事件
+		//奇蓝偶红
+		myid("btn").onclick=function (){
+			var objs=myid("uu").getElementsByTagName("li");
+			for(var i=0;i<objs.length;i++){
+				// if(i % 2==0){
+				// 	// 偶数
+				// 	objs[i].style.backgroundColor="#66CCFF";
+				// }
+				// else
+				// {
+				// 	// 奇数
+				// 	objs[i].style.backgroundColor="pink";
+				// }
+
+				//三元表达式
+				objs[i].style.backgroundColor = i % 2 == 0 ? "#66CCFF" : "pink";
+			}
+		}
+	</script>
+</body>
+</html>

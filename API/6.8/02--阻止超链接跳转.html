@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二块</title>
+	<script src="../js/myid.js"></script>
+</head>
+<body>
+	<!-- 第一种方法： -->
+	<a href="http://www.bilibili.com" onclick="alert('已经被点击了'); return false">bilibili</a>
+	<br />
+
+	<!-- 第二种方法： -->
+	<script>
+		function f1(){
+			alert("成功了");
+			return false;
+		}
+	</script>
+	<a href="http://www.baidu.com" onclick="return f1();">百度</a>
+	<br />
+
+	<!-- 第三种 -->
+
+	<a href="http://stuhelpr.cn" id="a">学生助理</a>
+	<script>
+		document.getElementById("a").onclick=function (){
+			alert("弹框了");
+			return false;
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一块</title>
+	<style>
+		div{
+			width: 300px;
+			height: 300px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<!-- 点击按钮禁用文本框 -->
+	<input type="button" value="启动" id="btn" />
+	<input type="text" value="文本" id="text" />
+	<input type="button" value="模改" id="btn2" />
+	<br>
+	<div class="row" id="dv"></div>
+	<script>
+		//为按钮注册点击时间，添加事件处理函数
+		document.getElementById("btn").onclick=function (){
+			document.getElementById("text").disabled=true;
+		};
+
+		// 点击按钮修改背景颜色
+		document.getElementById("btn2").onclick=function (){
+			document.getElementById("dv").style.backgroundColor="pink";
+		}
+	</script>
+</body>
+</html>
