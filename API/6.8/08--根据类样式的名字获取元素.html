@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第八块</title>
+	<script src="../js/myid.js"></script>
+	<style>
+		div{
+			width: 100px;
+			height: 50px;
+			background-color: pink;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.cls{
+			background-color: teal;
+		}
+	</style>
+</head>
+<body>
+
+	<p class="cls">这是一个p</p><br>
+	<p>这是另外一个p</p><br>
+
+	<span class="cls">这是一个span</span><br>
+	<span>这是另外一个span</span><br>
+
+	<div class="cls">这是一个div</div>
+	<div>这是另外一个div</div>
+
+	<input type="button" value="显示效果" id="btn" /><br>
+
+	<script>
+		//点击按钮设置应用cls类样式的标签的背景颜色为蓝色
+
+		myid("btn").onclick=function (){
+			// 根据类样式的名字来获取元素
+			var objs=document.getElementsByClassName("cls");
+			for(var i=0;i<objs.length;i++){
+				objs[i].style.backgroundColor="#3399FF";
+			}
+		}
+
+	</script>
+</body>
+</html>

@@ -28,12 +28,14 @@
 		{
 			// 为li注册鼠标进入事件
 			list[i].onmouseover = function (){
+				// 当鼠标移动到某个标签上时改变那行标签的颜色
 				this.style.backgroundColor = "pink";
-			}
+			};
 			// 为li注册鼠标离开事件
 			list[i].onmouseout = function (){
+				// 当鼠标离开时恢复到这个标签的默认颜色
 				this.style.backgroundColor = "";
-			}
+			};
 		}
 	</script>
 </body>

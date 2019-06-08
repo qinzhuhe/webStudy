@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第九块</title>
+	<script src="../js/myid.js"></script>
+	<style>
+		.cls{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="显示效果" id="btn" />
+	<p>这是一个p标签</p>
+	<p class="cls">这是一个p标签</p>
+	<span>这是一个span标签</span><br>
+	<span class="cls">这是一个span标签</span>
+	<script>
+		//点击按钮弹出对话框
+		//根据选择的方式获取元素
+		// var objbtn=document.querySelector("#btn");
+		// objbtn.onclick=function (){
+		// 	alert("测试成功啦！！");
+		// }
+
+		var objs=document.querySelectorAll(".cls");
+		// 返回的是多条数据，所以要使用循环遍历
+		for(var i=0;i<objs.length;i++){
+			objs[i].style.backgroundColor="green";
+		}
+
+	</script>
+</body>
+</html>
