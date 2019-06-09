@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十二块</title>
+	<script src="../js/myid.js"></script>
+</head>
+<body>
+	<input type="text" value="文本框" id="txt">
+	<script>
+		myid("txt").onblur=function (){
+			this.value="哈哈";
+			console.log(this.type);
+		};
+	</script>
+</body>
+</html>

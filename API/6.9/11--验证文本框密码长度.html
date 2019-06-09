@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十一块</title>
+	<script src="../js/myid.js"></script>
+</head>
+<body>
+	<input type="password" value="" id="txt" />
+	<script>
+
+		//当鼠标失去焦点时
+		myid("txt").onblur=function (){
+			// 判断密码的长度
+			if(this.value.length >= 6 && this.value.length <= 10)
+			{
+				this.style.backgroundColor="pink";
+			}else{
+				this.style.backgroundColor="green";
+			}
+		};
+	</script>
+</body>
+</html>

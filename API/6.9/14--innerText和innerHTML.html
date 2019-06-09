@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十四块</title>
+	<script src="../js/myid.js"></script>
+</head>
+<body>
+	<input type="button" value="显示效果" id="btn" />
+	<div id="dv">
+		哈哈
+		<p>这是一个p标签</p>
+	</div>
+
+	<script>
+
+		//设置
+
+		myid("id").onclick=function (){
+			// myid("dv").innerText="三";//设置文本
+			// myid("dv").innerText="";//设置html代码
+
+			// myid("id").innerText="哈哈";
+
+			myid("id").innerHTML="<p>这是一个p</p>";//设置Html标签的
+
+		};
+
+		//获取
+
+		// 结论：
+
+		// 如果想要(获取)标签及内容，使用innerHTML。
+
+		// 如果想要设置标签，使用innerHTML
+
+		// 想要设置文本，用innerText，或者innerHTML，或者textContent
+
+	</script>
+
+</body>
+</html>

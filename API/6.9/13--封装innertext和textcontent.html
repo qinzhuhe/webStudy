@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十三块</title>
+	<script src="../js/myid.js"></script>
+</head>
+<body>
+	<input type="button" value="设置" id="btn" />
+	<div id="dv"></div>
+
+	<script>
+		myid("btn").onclick=function (){
+			// myid("dv").textContent="这是一个div标签";
+			myid("dv").innerText="这是第二种方法";
+		};
+
+		// 设置任意的标签中间的任意文本内容
+		function setInnerText(elementsm,text){
+			// 判断浏览器是否支持这个属性
+			if(typeof elements.textContent == "undefined"){
+				elements.innerText=text;
+			}else{//支持这个属性
+				if(typeof elements.textContent=="undefined"){
+					 return elements.innerText;
+				}else{
+					return getInnerText(elements);
+				}
+			}
+		}
+
+	</script>
+
+
+</body>
+</html>

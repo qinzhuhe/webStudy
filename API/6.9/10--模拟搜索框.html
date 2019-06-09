@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十块</title>
+	<script src="../js/myid.js"></script>
+	<style>
+		input{
+			color: gray;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" value="请输入搜索内容" id="txt" />
+	<script>
+		//获取文本框
+
+		// 注册获取焦点的事件
+		myid("txt").onfocus=function (){
+			// console.log("获取");
+			if(this.value=="请输入搜索内容"){
+				this.value="";//清空文本框
+				this.style.color="black";
+			}
+		};
+		// 注册失去焦点的事件
+		myid("txt").onblur=function (){
+			// console.log("失去了");
+			if(this.value==""){
+				this.value="请输入搜索内容";
+				this.style.color="gray";
+			}
+		};
+	</script>
+</body>
+</html>
