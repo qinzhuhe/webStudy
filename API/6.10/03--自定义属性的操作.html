@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第三块</title>
+</head>
+<body>
+	<ul id="uu">
+		<li>问</li>
+		<li>心</li>
+		<li>无</li>
+		<li>愧</li>
+	</ul>
+
+	<script>
+
+		//总结：设置自定义属性：setAttribute("属性的名字","属性的值");
+		//获取自定义属性的值：getAttribute("属性的名字");
+
+		// 获取所有的li标签，然后为每个标签中动态的添加自定义属性和值
+		
+		// 获取对象，循环数组并进行遍历
+		var list=document.getElementsByTagName("li");
+		for(var i = 0 ; i < list.length ; i++){
+			
+			list[i].score=(i+1)*10;//此方式，自定义属性在DOM对象上，不在标签中
+
+			list[i].setAttribute("score",(i+1)*10);
+
+			//点击的时候获取该标签的自定义属性的值
+			list[i].onclick=function (){
+				alert(this.getAttribute("score"));
+			}
+		}
+	</script>
+</body>
+</html>

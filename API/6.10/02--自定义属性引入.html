@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二块</title>
+</head>
+<body>
+	<ul id="uu">
+		<li score="10">天</li>
+		<li score="20">地</li>
+		<li score="30">人</li>
+		<li score="40">和</li>
+		<li score="50">同</li>
+	</ul>
+	<script>
+		// 在一些情况下，html标签没有一个属性，但是自己添加的，即为自定义属性，为了存储一些数据。
+
+		// 在html标签中，添加的自定义属性，如果想要获取这个属性的值，需要使用getAttribute("自定义属性的名字")才能获取这个属性的值。
+
+		// 获取所有的li标签
+		var uobj=document.getElementsByTagName("li");
+		for(var i=0;i<uobj.length;i++){
+			// console.log(uobj[i]);
+			uobj[i].onclick=function (){
+				// alert(this.score);
+				alert(this.getAttribute("score"));
+			}
+		}
+	</script>
+</body>
+</html>

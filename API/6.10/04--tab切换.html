@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>第四块</title>
+  <style>
+	    * {
+	      margin: 0;
+	      padding: 0;
+	    }
+
+	    ul {
+	      list-style-type: none;
+	    }
+
+	    .box {
+	      width: 400px;
+	      height: 300px;
+	      border: 1px solid #ccc;
+	      margin: 100px auto;
+	      overflow: hidden;
+	    }
+
+	    .hd {
+	      height: 45px;
+	    }
+
+	    .hd span {
+	      display: inline-block;
+	      width: 90px;
+	      background-color: pink;
+	      line-height: 45px;
+	      text-align: center;
+	      cursor: pointer;
+	    }
+
+	    .hd span.current {
+	      background-color: purple;
+	    }
+
+	    .bd li {
+	      height: 255px;
+	      background-color: purple;
+	      display: none;
+	    }
+
+	    .bd li.current {
+	      display: block;
+	    }
+  </style>
+
+</head>
+<body>
+<div class="box" id="box">
+  <div class="hd">
+	    <span class="current">体育</span>
+	    <span>娱乐</span>
+	    <span>新闻</span>
+	    <span>综合</span>
+  </div>
+
+  <div class="bd">
+	    <ul>
+	      <li class="current">我是体育模块</li>
+	      <li>我是娱乐模块</li>
+	      <li>我是新闻模块</li>
+	      <li>我是综合模块</li>
+	    </ul>
+  </div>
+</div>
+	<script>
+		//获取最外面的div
+		var dv = document.getElementById("box");
+
+		//获取的是里面的第一个div
+		var hd = document.getElementsByTagName("div")[0];
+
+		//获取的是里面的第二个div
+		var bd = document.getElementsByTagName("div")[1];
+
+		// 获取所有的li标签
+		var list = document.getElementsByTagName("li");
+
+		//获取所有的span标签
+		var spans = hd.getElementsByTagName("span");
+
+	 	// 在点击之前自定义属性将索引保存在span标签中
+	 	for(var i=0;i<spans.length;i++){
+	 		spans[i].setAttribute("index",i);
+	 		spans[i].onclick=function (){
+	 			// 第一件事，所有的span的类样式全部移除，
+	 			for(var j=0;j<spans.length;j++){
+	 				spans[j].removeAttribute("class");
+	 				// 第二件事，当前被点击的span应用类样式
+	 				this.className="current";
+	 			}
+				// 在span被点击的时候获取存储的索引值
+				// alert(this.getAttribute("index"));
+				var index = this.getAttribute("index");
+				for(var k=0;k<list.length;k++){
+					// 获取所有的li标签，每个li标签先全部隐藏
+					list[k].removeAttribute("class");
+					// 当前被点击的li标签显示
+					list[index].className="current";
+				}
+
+	 		};
+		}
+	</script>
+</body>
+</html>
