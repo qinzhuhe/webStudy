@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十七块</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style-type: none;
+			cursor: pointer;
+		}
+		div{
+			width: 300px;
+			height: 400px;
+			border: 2px solid red;
+			margin: 10px 0px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="创建" id="btn" />
+	<div id="dv"></div>
+	<script src="../js/myid.js"></script>
+	<script>
+		//一个数组，里面存有想生成的列表数据
+		var listen = ["呼","嘿","哈","哦","嗯","咦","呵","呀"];
+		// 点击按钮动态的创建列表，把列表加到div中
+		myid("btn").onclick = function (){
+			// 创建ul，并把ul立刻加入到父级元素div中
+			var ulobj = document.createElement("ul");
+			myid("dv").appendChild(ulobj);
+			// 动态的创建li，并添加到ul中
+			for (var i = 0 ; i < listen.length ; i++){
+				var liobj = document.createElement("li");
+				// 设置li中间的文字内容
+				liobj.innerHTML=listen[i];
+				ulobj.appendChild(liobj);
+
+				// 第一种方法
+				// // 注册鼠标进入事件
+				// liobj.onmouseover=function (){
+				// 	this.style.backgroundColor="yellow";
+				// }
+				// // 注册鼠标退出事件
+				// liobj.onmouseout=function (){
+				// 	this.style.backgroundColor="";
+				// }
+
+				// 优化方法
+				// 鼠标进入事件
+				liobj.onmouseover=mouseroverHandle;//调用了js文件的命名函数mouseroverHandle
+				// 鼠标退出事件
+				liobj.onmouseout=mouseroutHandle;//
+				调用了js文件中的命名函数mouseoutHandle
+			}
+		};
+	</script>
+</body>
+</html>

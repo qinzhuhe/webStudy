@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>第十一块</title>
+  <style>
+	  * {
+	      margin: 0px;
+	      padding: 0px;
+	    }
+
+	    body {
+	      background-image: url("../../Image/day.png");
+	      background-size:80%;
+	    }
+
+	    #mask {
+	      background-color: rgba(255, 255, 255, 0.3);
+	      height: 200px;
+	      text-align: center;
+	    }
+
+	    #mask img {
+	      width: 200px;
+	      margin-top: 35px;
+	      cursor: pointer;
+	    }
+  </style>
+
+</head>
+<body id="bd">
+<div id="mask">
+  <img src="../../Image/day.png" alt="">
+  <img src="../../Image/dream.png" alt="">
+  <img src="../../Image/recall.jpg" alt="">
+</div>
+<script src="../js/myid.js"></script>
+
+<script>
+	//获取所有的子元素
+	var imgs = myid("mask").children;
+	// 循环遍历每个子元素并为其注册点击事件
+	for(var i = 0 ; i < imgs.length ; i++){
+
+		imgs[i].onclick = function (){
+			// 这里使用"++"是为了防止里面的数据变成字符串
+			document.body.style.backgroundImage="url("+this.src+")";
+		};
+
+	};
+</script>
+</body>
+</html>

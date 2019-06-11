@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十六块</title>
+	<style>
+		div{
+			width: 200px;
+			height: 150px;
+			border: 2px dashed pink;
+			margin: 10px 0px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="创建p" id="btn" />
+	<div id="dv"></div>
+	<script src="../js/myid.js"></script>
+	<script>
+		//创建元素
+		// 在创建完元素后还要把元素追加到父级元素中
+
+		// 点击按钮，在div中创建一个p
+		myid("btn").onclick = function (){
+			// 负责创建元素
+			var pobj = document.createElement("p");
+			// 往创建的元素中扔值
+			setInnerText(pobj,"这是封装的方法完成的");
+			// pobj.innerHTML="这是一个创建好的的p标签";
+			// 将创建好的追加到父级元素(div)中
+			myid("dv").appendChild(pobj);
+		}
+	</script>
+</body>
+</html>

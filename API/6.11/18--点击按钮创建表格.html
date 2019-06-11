@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十八块</title>
+	<style>
+		div{
+			width: 300px;
+			height: 400px;
+			border: 2px solid red;
+			margin: 10px 0px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="创建" id="btn" />
+	<div id="dv"></div>
+	<script src="../js/myid.js"></script>
+	<script>
+		// 用一个Json存数据
+		var arr = [
+			{name:"百度",href:"http://www.baidu.com"},
+			{name:"谷歌",href:"http://www.Google.com"},
+			{name:"b站",href:"http://www.bilibili.com"},
+			{name:"NGA",href:"http://bbs.nga.cn/"}
+		];
+
+		myid("btn").onclick=function (){
+			// 先来一个表格标签
+			var tableobj = document.createElement("table");
+			// 给这个表格标签设置一下
+			tableobj.border="1";
+			tableobj.cellPadding="0";
+			tableobj.cellSpacing="0";
+			// 把这个标签给它的父级元素div中去
+			myid("dv").appendChild(tableobj);
+
+			// 注册tr标签，注意，因为数组中有很多数据，所以需要循环一下
+			for(var i = 0 ; i < arr.length ; i++){
+				var dt = arr[i]// 存放所有对象
+				// 来一个tr标签
+				var trobj = document.createElement("tr");
+				tableobj.appendChild(trobj);
+
+				// 再来两个td标签
+				var td1 = document.createElement("td");
+				// 第一个td中的值应该存放的是数组中的name
+				// 注意这里因为存储的超链接，所以不能用innerText，要用innerHTML
+				td1.innerHTML = dt.name;
+				trobj.appendChild(td1);
+
+				var td2 = document.createElement("td");
+				// 来一个a标签来装里面的地址
+				td2.innerHTML = "<a href="+dt.href+">"+dt.name+"</a>"
+				trobj.appendChild(td2);
+			}
+		}
+	</script>
+</body>
+</html>

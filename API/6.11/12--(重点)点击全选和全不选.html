@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wrap {
+      width: 300px;
+      margin: 100px auto 0;
+    }
+
+    table {
+      text-align: center;
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+      width: 300px;
+    }
+
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+    }
+
+    td {
+      font: 14px "微软雅黑";
+    }
+
+    tbody tr {
+      background-color: #f0f0f0;
+    }
+
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: #fafafa;
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <input type="checkbox" id="j_cbAll"/>
+        </th>
+        <th>且看</th>
+        <th>且听</th>
+      </tr>
+    </thead>
+    <tbody id="j_tb">
+      <tr>
+        <td>
+          <input type="checkbox"/>
+        </td>
+        <td>剑来</td>
+        <td>风起</td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox"/>
+        </td>
+        <td>影去</td>
+        <td>雨凝</td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox"/>
+        </td>
+        <td>刀落</td>
+        <td>空鸣</td>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox"/>
+        </td>
+        <td>人逝</td>
+        <td>哭啼</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script src="../js/myid.js"></script>
+
+<script>
+  //获取到全选的复选框的id
+  var chobj = myid("j_cbAll");
+  // 获取到tbody所有的input值
+  var bcobj = myid("j_tb").getElementsByTagName("input");
+  // 给全选框注册点击事件
+  chobj.onclick=function (){
+    // console.log(chobj.checked);//全选框的状态
+    // 循环出所有的input
+    for(var i=0 ; i<bcobj.length ; i++){
+      // 多选框的状态赋给所有的input
+        bcobj[i].checked = this.checked;
+    }
+  };
+
+  // 获取tbody中所有的复选框,分别为其注册点击事件
+  for(var j = 0 ; j < bcobj.length ; j++){
+
+    bcobj[j].onclick = function (){
+
+      var flag = true;//默认都选中
+
+      for(var k = 0 ; k < bcobj.length ; k++){
+
+        if(!bcobj[k].checked){// 什么都没选中就进来了
+          flag = false;
+          break;
+        }
+
+      }
+      // 全选框的状态就等于flag的状态
+      chobj.checked = flag;
+    }
+  }
+</script>
+
+</body>
+</html>

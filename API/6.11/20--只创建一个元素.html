@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 200px;
+			height: 300px;
+			margin: 10px 0px;
+			border: 2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="显示" id="btn" />
+	<div id="dv"></div>
+	<script src="../js/myid.js"></script>
+
+	<script>
+		//只创建一个按钮需要两个思路：
+		// 有则创建，无则删除
+
+		myid("btn").onclick = function (){
+
+			// 方法1，先判断有没有btn2这个id，没有则创建
+			// if(myid("btn2")){
+			// 	myid("dv").removeChild(myid("btn2"));
+			// }
+
+			var obj = document.createElement("input")
+			obj.type="button";
+			obj.value="按钮";
+			obj.id="btn2";
+			// myid("dv").appendChild(obj);
+
+			//方法二，直接判断这个div中有没有第一个子元素，没有则创建
+			if(!myid("dv").firstElementChild){
+				myid("dv").appendChild(obj);
+			}
+
+
+		}
+	</script>
+</body>
+</html>

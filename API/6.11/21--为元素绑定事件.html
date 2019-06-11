@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二十一块</title>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn" />
+	<script src="../js/myid.js"></script>
+	<script>
+		//方法一：支持谷歌火狐，不支持IE
+
+		//为按钮绑定点击事件
+		// 参数1：事件的类型---事件的名字，没有on
+		// 参数2：事件处理函数---函数(可以是匿名函数，也可以是命名函数)
+		// 参数3：布尔类型，目前就写false
+		// myid("btn").addEventListener("click", function (){
+		// 	console.log("这是一个新方法哒~~");
+		// }, false);
+		// myid("btn").addEventListener("click", function (){
+		// 	console.log("我还存在着吗？？");
+		// }, false);
+		// myid("btn").addEventListener("click", function (){
+		// 	console.log("就是我dio哒！！");
+		// }, false);
+
+
+		// 方法二：支持IE，不支持火狐谷歌
+
+		//
+		//参数2：事件处理函数---函数(可以是匿名函数，也可以是命名函数)
+		attachEvent("onclick", function (){
+			myid("btn").addEventListener("click", function (){
+			console.log("这是一个新方法哒~~");
+			}, false);
+			myid("btn").addEventListener("click", function (){
+				console.log("我还存在着吗？？");
+			}, false);
+			myid("btn").addEventListener("click", function (){
+				console.log("就是我dio哒！！");
+			}, false);
+		})
+	</script>
+</body>
+</html>

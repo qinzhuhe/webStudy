@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>第十块</title>
 </head>
 <body>
 	<ul id="uu">
@@ -13,20 +13,43 @@
 		<li>第五个</li>
 	</ul>
 
+	<script src="../js/myid.js"></script>
+
 	<script>
 		// 可能会出现的兼容问题
 		//第一个节点和第一个元素的获取的代码在IE8中可能不支持
-		// 获取任意一个父级元素的一个元素
+
+
+		// 获取任意一个父级元素的第一个元素
 		function getFirstElementChild(element){
-			if(typeof element.firstElementChile){
+			if(element.firstElementChile){
 				return element.firstElementChile;
 			}else{
-				return element.firstChild; //第一个节点
-				while(node){
-
+				var node = element.firstChild; //第一个节点
+				// 将node放在括号里面代表node是存在的，有意义的
+				while(node && node.nodeType != 1){
+					node = node.nextSibling;
 				}
+				return node;
 			}
 		}
+		// 获取任意一个父级元素的最后一个子元素
+		function getLastElementChild(element){
+			if(element.lastElementChild){//true--->支持
+				return element.lastElementChild;
+			}else{
+				var node = element.lastChild; //第一个节点
+				// 将node放在括号里面代表node是存在的，有意义的
+				while(node && node.nodeType != 1){
+					node = node.previousSibling;
+				}
+				return node;
+			}
+		}
+
+		// 测试
+		console.log(getFirstElementChild(myid("uu")));
+		console.log(getLastElementChild(myid("uu")));
 
 		//最后一个节点和最后一个元素的获取的代码在IE8中可能不支持
 		//前一个节点和前一个元素的获取的代码在IE8中可能不支持

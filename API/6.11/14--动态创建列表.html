@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十四块</title>
+</head>
+<body>
+	<input type="button" value="来个图片" id="btn" />
+	<div id="dv"></div>
+	<!-- <img src="../../Image/day.png" alt=""> -->
+	<script src="../js/myid.js"></script>
+	<script>
+		//点击按钮,在div中创建一个图片
+		myid("btn").onclick = function (){
+			// document.body.innerHTML="<p>这是一个p标签</p>";
+			myid("dv").innerHTML = "<img src='../../Image/day.png'>";
+		}
+	</script>
+</body>
+</html>

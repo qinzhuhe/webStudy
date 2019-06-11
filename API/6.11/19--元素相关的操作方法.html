@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十九块</title>
+	<style>
+		div{
+			width: 200px;
+			height: 300px;
+			margin: 10px 0px;
+			border: 2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="创建" id="btn" />
+	<input type="button" value="移除第一个子元素" id="btn2" /><input type="button" value="移除所有元素" id="btn3" />
+	<div id="dv">
+		<!-- <input type="button" value="按钮0" id="btn" /> -->
+	</div>
+	<script src="../js/myid.js"></script>
+	<script>
+		//给div添加一个按钮
+		var i=0;
+		myid("btn").onclick=function (){
+			i++;
+			var sumbit = document.createElement("input");
+			sumbit.type="button";
+			sumbit.value="按钮"+i;
+			// myid("dv").appendChild(sumbit);
+
+			// 元素操作方法
+
+			// 把新的子元素插入到第一个子元素前面
+			myid("dv").insertBefore(sumbit,myid("dv").firstElementChild);
+
+			// 把新的元素替换参照的元素
+			// myid("dv").replaceChild(sumbit,myid("dv").lastElementChild);
+
+		}
+
+		// 移除父级元素中第一个子级元素
+		myid("btn2").onclick=function (){
+			myid("dv").removeChild(myid("dv").firstElementChild);
+		}
+
+		// 移除所有子元素
+		myid("btn3").onclick = function (){
+			// 点击按钮删除div中所有的子级元素
+			// 判断父级元素中存不存在第一个子级元素
+			while(myid("dv").firstElementChild){
+				myid("dv").removeChild(myid("dv").firstElementChild);
+			}
+		}
+	</script>
+</body>
+</html>

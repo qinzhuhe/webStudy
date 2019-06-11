@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十五块</title>
+	<style>
+		div{
+			background-color: green;
+			width: 300px;
+			height: 400px;
+			margin: 10px 0px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="创建列表" id="btn" />
+	<div id="dv"></div>
+	<script src="../js/myid.js"></script>
+	<script>
+		// 太死板了不行
+		// myid("btn").onclick = function (){
+		// 	myid("dv").innerHTML="<ul><li>哈哈</li>  <li>没错</li>  <li>还是我</li></ul>";
+		// };
+
+		// 换个方法
+		var names = ["自杀","他杀","毒杀","枪杀","溺死","烧死"];
+		// 创建一个ul标签开头
+		myid("btn").onclick = function (){
+			var str = "<ul style='list-style-type: none;cursor: pointer'>";
+			// ul标签中的li标签所需要的内容
+			// 根据循环创建对应对数的li标签
+			for(var i = 0 ; i < names.length ; i++){
+				str += "<li>"+names[i]+"</li>"
+			}
+			// ul标签的结束
+			str += "</ul>"
+			myid("dv").innerHTML = str;
+			// 代码执行到这里，li已经有了
+			// 获取所有的li，遍历，添加鼠标进入事件，以及鼠标离开事件
+			var list = myid("dv").getElementsByTagName("li");
+			for(var j = 0 ; j < list.length ; j++){
+				// 鼠标进入事件
+				list[j].onmouseover=function (){
+					this.style.backgroundColor="pink";
+				};
+				// 鼠标离开事件
+				list[j].onmouseout=function (){
+					this.style.backgroundColor="";
+				};
+			}
+		};
+	</script>
+</body>
+</html>

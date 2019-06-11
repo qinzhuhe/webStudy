@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十三块</title>
+</head>
+<body>
+	<input type="button" value="创建一个p" id="btn" / >
+	<div id="dv"></div>
+	<script src="../js/myid.js"></script>
+	<script>
+
+		var btnobj = myid("btn")
+		btnobj.onclick = function (){
+			// 第一种方式：document.write("标签代码及内容")
+			// document.write("<p>这是一个p标签</p>");
+
+			// 第二种元素的创建方式：对象.innerHTML="标签及代码"
+			myid("dv").innerHTML="<p>这是一个p标签</p>";
+		};
+
+
+		// document.write("<p>这是一个p标签</p>");
+
+
+
+	</script>
+</body>
+</html>
