@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第四块</title>
+</head>
+<body>
+	<input type="button" value="来吧" id="btn">
+	<ul id="uu">
+		<li>杀人</li>
+		<li>放火</li>
+		<li>挖坟</li>
+		<li>埋坑</li>
+		<li>完啦</li>
+	</ul>
+	<script src="../js/myid.js"></script>
+
+	<script>
+		myid("btn").onclick=function (){
+			var count = 0 //记录有多少个li
+			// 获取ul中的所有子节点
+			var nodes = myid("uu").childNodes;
+			for(var i = 0 ; i < nodes.length ; i++){
+				// 判断这个子节点是不是li标签
+				if(nodes[i].nodeType == 1 && nodes[i].nodeName == "LI"){
+					nodes[i].style.backgroundColor = count % 2 == 0 ? "pink" : "yellow" ;
+					count++;//一共八个li标签
+					
+					// nodes[i].style.backgroundColor = i % 2 != 0 ? "red" : "yellow";
+				}
+			}
+		}
+	</script>
+</body>
+</html>

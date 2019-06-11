@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="uu">
+		<li>第一个</li>
+		<li>第二个</li>
+		<li>第三个</li>
+		<li>第四个</li>
+		<li>第五个</li>
+	</ul>
+
+	<script>
+		// 可能会出现的兼容问题
+		//第一个节点和第一个元素的获取的代码在IE8中可能不支持
+		// 获取任意一个父级元素的一个元素
+		function getFirstElementChild(element){
+			if(typeof element.firstElementChile){
+				return element.firstElementChile;
+			}else{
+				return element.firstChild; //第一个节点
+				while(node){
+
+				}
+			}
+		}
+
+		//最后一个节点和最后一个元素的获取的代码在IE8中可能不支持
+		//前一个节点和前一个元素的获取的代码在IE8中可能不支持
+		//后一个节点和后一个元素的获取的代码的IE8中可能不支持
+	</script>
+</body>
+</html>

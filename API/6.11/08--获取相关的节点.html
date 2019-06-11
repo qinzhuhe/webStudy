@@ -1,0 +1,61 @@
+<!doctype html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>第2块</title>
+	</head>
+	<body>
+	<div id="dv">没有
+		<span>这是div中的第一个span标签</span>
+		<p>这是div中的第二个元素，第一个p标签</p>
+		<ul id="uu">见
+			<li>人</li>
+			<li>同</li>
+			<li>大</li>莫
+			<li id="ll">异</li>得
+			<li>存</li>没
+		</ul>
+	</div>
+	<script src="../js/myid.js"></script>
+	<script>
+
+		//十二行代码，用来获取元素和节点
+		//ul
+		var ulobj=myid("uu");
+		// 父节点
+		console.log(ulobj.parentNode);
+		// 父级元素
+		console.log(ulobj.parentElement);
+		// 子节点
+		console.log(ulobj.childNodes);
+		// 子元素
+		console.log(ulobj.children);
+
+
+		console.log("===================================================");
+		
+		// 在IE8中，不支持以下的关于元素的方法，而获取节点的方法将会变成获取元素的方法。 
+		
+		// 第一个子节点
+		console.log(ulobj.firstChild);
+		// 第一个子元素 
+		console.log(ulobj.firstElementChild);
+		// 最后一个子节点
+		console.log(ulobj.lastChild);
+		// 最后一个子元素
+		console.log(ulobj.lastElementChild);
+		// 某个元素的前一个兄弟节点
+		console.log(myid("ll").previousSibling);
+		// 某个元素的前一个兄弟元素
+		console.log(myid("ll").previousElementSibling);
+		// 某个元素的后一个兄弟节点
+		console.log(myid("ll").nextSibling);
+		// 某个元素的后一个兄弟元素
+		console.log(myid("ll").nextElementSibling);
+
+		// 总结：凡是获取节点的代码在谷歌和火狐得到的都是   相关的节点；凡是获取元素的代码在谷歌和火狐得到的都是  相关的元素。
+		
+		// 从子节点和兄弟节点开始，凡是获取节点的代码在IE8中得到的是元素，凡是获取元素的代码在IE8中得到的都是undefined----元素的代码，ie中不支持。
+	</script>
+	</body>
+	</html>	
