@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二块</title>
+</head>
+<body>
+	<input type="button" value="the world" id="btn" />
+	<input type="button" value="木大木大木大" id="btn2" />
+	<script src="../js/myid.js"></script>
+
+	<script>
+
+		function f1(){
+			console.log("第一个");
+		}
+		function f2(){
+			console.log("第二个");
+		}
+
+
+		// 第三种
+		myid("btn").attachEvent("onclick",f1);
+		myid("btn").attachEvent("onclick",f2);
+
+		myid("btn2").onclick = function (){
+			myid("btn").detachEvent("onclick", f1);
+		}
+
+
+
+
+		// // 第二种方式
+
+		// myid("btn").addEventListener("click",f1, false);
+		// myid("btn").addEventListener("click",f2, false);
+
+		// myid("btn2").onclick = function (){
+		// 	myid("btn").removeEventListener("click", f1, false);
+		// }
+
+		// //1  对象.on事件名字=事件处理函数---绑定事件
+		// myid("btn").onclick = function (){
+		// 	console.log("哈哈，我又回来啦");
+		// };
+		// myid("btn2").onclick = function (){
+		// 	// 解绑事件
+		// 	// 第一种方式
+		// 	// 这一块地方相当于是将第一个按钮的触发事件指向地址清空了，所以在第二个按钮点击时第一个按钮将无法使用。
+		// 	myid("btn").onclick = null;
+		// }
+	</script>
+</body>
+</html>

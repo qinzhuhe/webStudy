@@ -75,6 +75,7 @@ function mouseroutHandle(){
 }
 
 //为任意元素.绑定任意的事件，任意的元素，时间的类型，事件处理函数
+// 绑定函数的浏览器兼容方法
 function addEventListener(element,type,fn){
 	// 判断浏览器是否支持这个方法
 	if(element.addEventListener){
@@ -83,5 +84,17 @@ function addEventListener(element,type,fn){
 		element.attachEvent("on"+type,fn);
 	}else{
 		element["on"+type]=fn;
+	}
+}
+
+
+// 解绑事件的浏览器兼容方法
+function removeEventListener(element,type,fname){
+	if(element.removeEventListener){
+		element.removeEventListener(type, fname, false);
+	}else if(element.detachEvent){
+		element.detachEvent("on"+type, fname);
+	}else{
+		element["on"+type]=null;
 	}
 }
