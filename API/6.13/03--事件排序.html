@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第三块</title>
+	<style>
+		#dv1{
+			width: 300px;
+			height: 200px;
+			background-color: red;
+		}
+		#dv2{
+			width: 250px;
+			height: 150px;
+			background-color: pink;
+		}
+		#dv3{
+			width: 200px;
+			height: 100px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div id="dv1">
+		<div id="dv2">
+			<div id="dv3"></div>
+		</div>
+	</div>
+	<script src="../js/myid.js"></script>
+	<script>
+
+		//三个对象处于层叠关系并且有同一事件时，点击最里面的那一层就能触发三个事件。
+		myid("dv1").onclick = function (){
+			console.log(this.id);
+		};
+
+		// 阻止事件冒泡
+		// 火狐方法
+		myid("dv2").onclick = function (e){
+			console.log(this.id);
+			e.stopPropagation();
+		};
+
+		// 事件处理参数对象
+		// e是一个参数，在事件触发的时候生成的一个对象，其中包含了很多的属性
+		// myid("dv3").onclick = function (e){
+		// 	console.log(this.id);
+		// 	console.log(e);
+		// };
+
+		// 阻止事件冒泡
+		// IE方法
+		myid("dv3").onclick = function (){
+			console.log(this.id);
+			window.event.cancelBubble = true;
+		}
+
+		// document.body.onclick = function (){
+		// 	console.log("没办法，都要恰饭的吗");
+		// };
+
+
+	</script>
+</body>
+</html>

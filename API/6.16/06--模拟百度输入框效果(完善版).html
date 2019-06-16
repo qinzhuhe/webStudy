@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>第六块</title>
+  <style>
+	    #box {
+	      width: 450px;
+	      margin: 200px auto;
+	    }
+
+	    #txt {
+	      width: 350px;
+	    }
+
+	    #pop {
+	      width: 350px;
+	      border: 1px solid red;
+	    }
+
+	    #pop ul {
+	      margin: 10px;
+	      padding: 0px;
+	      width: 200px;
+	      list-style-type: none;
+
+	    }
+
+	    #pop ul li {
+
+	    }
+  </style>
+</head>
+<body>
+
+<div id="box">
+  <input type="text" id="txt" value="">
+  <input type="button" value="搜索" id="btn">
+
+</div>
+
+<script src="../js/myid.js"></script>
+<script>
+	var keywords = ["天道酬勤","为人为何","天地不仁","万物刍狗","笑兮悲兮","无用无德"];
+
+	// 获取文本框注册键盘抬起事件
+	myid("txt").onkeyup = function (){
+
+		if(myid("dv")){
+			// 删除一次
+			myid("box").removeChild(myid("dv"));
+		}
+
+		// console.log("抬起");
+		// 获取文本框的内容
+		var text = this.value;
+		var tempArr = [];//临时数组--空数组------>存放对应上的数据
+		// 把文本框输入的内容和数组中的每个数据做对比
+
+		for(var i = 0 ; i < keywords.length ; i++){
+			// 是否是最开始出现的
+			if(keywords[i].indexOf(text)==0){
+				tempArr.push(keywords[i]);//追加
+			}
+		}
+
+		// 先判断数组是否有数据,如果文本框是空的，临时数组是空的，不用创建div
+		if(this.value.length == 0 || tempArr.length == 0){
+			// 如果页面中有这个div，删除这个div
+			if(myid("dv")){
+				myid("box").removeChild(myid("dv"));
+			}
+			return;
+			// console.log("垃圾终究是垃圾");
+		}
+
+		// 如果有数据那么就注册相应的数据
+		// 在输入框的下面添加一个div，里面装的是数组中的数据。
+		var dvobj = document.createElement("div");
+		myid("box").appendChild(dvobj);
+		dvobj.id = "dv";
+		dvobj.style.width = "350px";
+		dvobj.style.height = "100px";
+		dvobj.style.border = "1px solid pink";
+		// 循环遍历临时数组,创建对应的p标签
+		for(var i = 0 ; i < tempArr.length ; i++){
+			// 创建p标签
+			var pObj = document.createElement("p");
+			// 把p加到div中
+			dvobj.appendChild(pObj);
+			setInnerText(pObj,tempArr[i]);
+			pObj.style.margin = 0;
+			pObj.style.padding = 0;
+			pObj.style.cursor = "pointer";
+			pObj.style.marginTop = "5px";
+			pObj.style.marginLeft = "5px";
+			// 鼠标进入
+			pObj.onmouseover = function (){
+				this.style.backgroundColor = "pink"
+			};
+			// 鼠标离开
+			pObj.onmouseout = function (){
+				this.style.backgroundColor = "";
+			}
+		}
+	};
+
+</script>
+
+</body>
+</html>

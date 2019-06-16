@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第五块</title>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn" />
+	<script src="../js/myid.js"></script>
+	<script>
+		//为同一个元素绑定多个不同的事件，指向相同的事件处理函数
+		myid("btn").onclick = f1;
+		myid("btn").onmouseover = f1;
+		myid("btn").onmouseout = f1;
+
+		function f1(e){
+			switch (e.type){
+				case "click":
+					alert("成仁");
+					break;
+				case "mouseover":
+					this.style.backgroundColor="pink";
+					break;
+				case "mouseout":
+					this.style.backgroundColor="slateblue";
+					break;
+			}
+		}
+	</script>
+</body>
+</html>
