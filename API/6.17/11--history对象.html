@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十一块</title>
+</head>
+<body>
+	<input type="button" value="跳过去" id="btn1">
+	<input type="button" value="前进" id="btn2">
+	<script src="../js/myid.js"></script>
+	<script>
+		 //跳转的
+		 myid("btn1").onclick = function (){
+		 	window.location.href = "11.5--history对象方法测试.html";
+		 };
+
+		 // 前进
+		 myid("btn2").onclick = function (){
+		 	window.history.forward();
+		 };
+	</script>
+</body>
+</html>

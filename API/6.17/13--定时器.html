@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十三块</title>
+</head>
+<body>
+	<input type="button" value="停止" id="btn">
+	<script>
+
+		// 定时器：
+		var timeid = setInterval(function (){
+			alert("hello");
+		}, 1000)
+
+		// 停止定时器
+		document.getElementById("btn").onclick = function (){
+			// 参数：要清理的定时器的id的值
+			window.clearInterval(timeid);
+		}
+	</script>
+</body>
+</html>

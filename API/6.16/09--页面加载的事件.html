@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第九块</title>
+	<script>
+		//页面加载的时候，按钮还没出现，页面没有加载完毕
+
+		//页面记载完毕了，再获取按钮
+		//只要页面加载完毕，这个事件就会触发---页面中的所有内容：标签，属性，文本，包括外部引入的js文件
+		window.onload = function (){
+		document.getElementById("btn").onclick = function (){
+			alert("Helloween");
+			};
+		};
+
+		// 扩展的事件--页面关闭之后才触发的事件
+		window.onunload = function (){
+			alert("哈哈");
+		}
+		// 扩展事件---页面关闭之前触发的
+		// window.onbeforeunload = function (){
+		// 	alert("哈哈");
+		// }
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn" />
+
+</body>
+</html>

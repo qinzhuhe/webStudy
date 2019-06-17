@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十四块</title>
+	<style>
+		img{
+			width: 300px;
+			height: 200px;
+		}
+		div{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="摇动" id="btn1">
+	<input type="button" value="停止" id="btn2">
+	<div id="dv">
+		<img src="../../Image/day.png" alt="">
+		<img src="../../Image/dream.png" alt="">
+	</div>
+	<script src="../js/myid.js"></script>
+	<script>
+		//点击按钮图片晃动
+		var timeid = "";
+		myid("btn1").onclick = function (){
+			// 这里不能使用局部变量，要使用全局变量
+				timeid = setInterval(function (){
+				var x = parseInt(Math.random() * 100 + 1);
+				var y = parseInt(Math.random() * 100 + 1);
+				myid("dv").style.left = x + "px";
+				myid("dv").style.top = y + "px";
+			}, 150);
+		};
+
+		//点击按钮停止
+		myid("btn2").onclick = function (){
+			clearInterval(timeid);
+		};
+	</script>
+</body>
+</html>
