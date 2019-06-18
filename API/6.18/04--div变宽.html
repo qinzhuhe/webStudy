@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第四块</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="dv"></div>
+	<input type="button" value="膨胀" id="btn">
+	<script src="../js/myid.js"></script>
+	<script>
+		myid("btn").onclick = function (){
+			var width = 200;
+			var timeId = setInterval(function (){
+				width += 10;
+				if(width == 800)
+				{
+					clearInterval(timeId);
+				}
+				myid("dv").style.width=width+"px";
+			}, 100);
+		};
+	</script>
+</body>
+</html>

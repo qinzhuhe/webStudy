@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十五块</title>
+	<style>
+		div{
+			width: 300px;
+			height: 500px;
+			border: 2px solid yellow;
+			background-color: black;
+			position: relative;
+		}
+		span{
+			font-size: 30px;
+			color: pink;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="晃动" id="btn" />
+	<div id="dv"></div>
+	<script src="../js/myid.js"></script>
+	<script>
+		myid("btn").onclick = function (){
+			setInterval(function (){
+				myid("dv").innerHTML = "<span>☆</span>";
+				var x = parseInt(Math.random() * 100 + 1);
+				var y = parseInt(Math.random() * 100 + 1);
+				myid("dv").firstElementChild.style.left = x + "px";
+				myid("dv").firstElementChild.style.top = y + "px";
+			}, 100);
+		}
+	</script>
+</body>
+</html>

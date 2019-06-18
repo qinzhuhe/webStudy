@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二块</title>
+</head>
+<body>
+	<textarea name="texta" id="" cols="30" rows="10">
+		非同凡响、响彻云霄、潇潇雨细、细雨无声、声势浩荡、荡气回肠、唱过人心、心心所念
+	</textarea>
+	<input type="button" value="请仔细阅读协议(5)" id="btn" disabled>
+	<script src="../js/myid.js"></script>
+	<script>
+		var time=5;
+		var timeId = setInterval(function (){
+			time--;
+			myid("btn").value = "请仔细阅读本协议("+time+")";
+			if(time<=0){
+				clearTimeout(timeId);
+				// 按钮可以被点击了
+				myid("btn").disabled = false;
+				myid("btn").value = "同意";
+			}
+
+		}, 1000);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一块</title>
+</head>
+<body>
+	<input type="button" value="停止" id="btn">
+	<script src="../js/myid.js"></script>
+	<script>
+		var timeId = window.setTimeout(function (){
+			alert("初次");
+		},100);
+
+		// 停止定时器
+		myid("btn").onclick = function (){
+			clearTimeout(timeId);
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第三块</title>
+	<style>
+		div{
+			width: 300px;
+			height: 200px;
+			background-color: hotpink;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="dv"></div>
+	<input type="button" value="渐变" id="btn">
+	<script src="../js/myid.js"></script>
+	<script>
+		var oper = 10;
+		// 案例的点击事件
+		myid("btn").onclick = function (){
+			// 透明化了
+			var timtId = setInterval(function (){
+				oper--;
+				if(oper<=0)
+				{
+					clearInterval(timtId);
+				}
+				myid("dv").style.opacity = oper/10;
+			}, 200);
+		}
+	</script>
+</body>
+</html>
