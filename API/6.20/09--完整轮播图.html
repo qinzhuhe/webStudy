@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      border: 0;
+    }
+
+    .all {
+      width: 500px;
+      height: 200px;
+      padding: 7px;
+      border: 1px solid #ccc;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    .screen {
+      width: 500px;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screen li {
+      width: 500px;
+      height: 200px;
+      overflow: hidden;
+      float: left;
+    }
+
+    .screen ul {
+      position: absolute;
+      left: 0;
+      top: 0px;
+      width: 3000px;
+    }
+
+    .all ol {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      line-height: 20px;
+      text-align: center;
+    }
+
+    .all ol li {
+      float: left;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .all ol li.current {
+      background: #DB192A;
+    }
+
+    #arr {
+      display: none;
+    }
+
+    #arr span {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      margin-top: -20px;
+      background: #000;
+      cursor: pointer;
+      line-height: 40px;
+      text-align: center;
+      font-weight: bold;
+      font-family: '黑体';
+      font-size: 30px;
+      color: #fff;
+      opacity: 0.3;
+      border: 1px solid #fff;
+    }
+
+    #arr #right {
+      right: 5px;
+      left: auto;
+    }
+  </style>
+</head>
+<body>
+<div class="all" id='box'>
+  <div class="screen"><!--相框-->
+    <ul>
+      <li><img src="../../Image/B1.jpg" width="500" height="200"/></li>
+      <li><img src="../../Image/B2.jpg" width="500" height="200"/></li>
+      <li><img src="../../Image/B3.jpg" width="500" height="200"/></li>
+    </ul>
+    <ol>
+    </ol>
+  </div>
+  <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+</div>
+<script src="../js/myid.js"></script>
+<script src="../js/animation.js"></script>
+<script>
+
+    var pic = 0;
+
+    // 第一步：拿到所有想要的元素
+
+    // 拿到外面的box
+    var box = myid("box");
+
+    // 拿到相框
+    var obj = box.children[0];
+    // 获取相框的宽度
+    var imgwidth = obj.offsetWidth;
+
+    // 拿到相框中的ul
+    var ulobj = obj.children[0];
+    // 获取ul中的li
+    var list = ulobj.children;
+
+    // 拿到相框中的ol
+    var olobj = obj.children[1];
+
+    // 拿到左右焦点按钮
+    var zy = myid("arr");
+
+    // 第二步：根据li标签个数创建小按钮，然后给按钮注册事件
+    for(var i = 0 ; i < list.length ; i++){
+      var liobj = document.createElement("li");
+      olobj.appendChild(liobj);
+      liobj.innerHTML = (i+1);
+
+      // 注册鼠标进入事件
+      // 清除ol标签中所有li标签的样式
+      // 在每个ol中的li标签上添加一个自定义属性，存储索引值
+      liobj.setAttribute("index", i);
+      liobj.onmouseover =function (){
+        for(var j = 0 ; j < olobj.children.length  ; j++){
+            olobj.children[j].removeAttribute("class");
+          }
+          // 设置鼠标进入时当前鼠标的li的背景颜色
+          this.className = "current";
+          // 获取鼠标进入的li的当前索引值
+          pic = this.getAttribute("index");
+          animate(ulobj,-pic * imgwidth);
+      };
+    }
+    olobj.children[0].className = "current";
+
+    // 第三步：左右焦点点击事件
+
+    // 克隆ul中的第一个li，将它拿到ul中的最后
+    ulobj.appendChild(ulobj.children[0].cloneNode(true));
+
+    // 定时器，自动播放
+    var timeId = setInterval(clickRight, 2000);
+
+    // 鼠标进入到box的div显示左右焦点的div
+    box.onmouseover = function (){
+      arr.style.display = "block";
+      // 停止定时器
+      clearInterval(timeId);
+    };
+
+    // 点击右边按钮
+    myid("right").onclick = clickRight;
+    function clickRight(){
+      if(pic == list.length-1)
+      {
+        pic = 0;
+        ulobj.style.left = 0 + "px";
+      }
+      pic++;
+      animate(ulobj,-pic*imgwidth);
+      // 代码进行到这一步，说明了此时显示的是第六张图片（内容是第一张图片）
+      // 进行一个判断，判断pic是不是5，也就是第六张图片
+      if(pic == list.length-1)
+      {
+        // 如果是，就清空第三个按钮的颜色
+        olobj.children[olobj.children.length-1].className="";
+        // 在这时候第一个按钮赋上颜色
+        olobj.children[0].className="current";
+      }
+      // 说明是其他几张图片
+      else{
+        // 将剩下的内容循环出来
+        for(var i = 0 ; i < olobj.children.length ; i++)
+        {
+          // 先去除所有的按钮颜色
+          olobj.children[i].removeAttribute("class");
+        }
+        // 只将当前的按钮赋上颜色
+        olobj.children[pic].className="current";
+      }
+    };
+
+    // 点击左边按钮
+    myid("left").onclick = function (){
+      if(pic == 0){
+        pic = 3;
+        ulobj.style.left = -pic * imgwidth + "px";
+      }
+      pic--;
+      animate(ulobj,-pic * imgwidth);
+
+      // 设置按钮颜色
+      for(var i = 0 ; i < olobj.children.length ; i++){
+        olobj.children[i].removeAttribute("class");
+      }
+      olobj.children[pic].className="current";
+
+    };
+
+    // 鼠标到box的div隐藏左右焦点的div
+    box.onmouseout = function (){
+      arr.style.display = "none";
+      // 设置自动效果
+      timeId = setInterval(clickRight, 2000);
+    };
+
+</script>
+</body>
+</html>

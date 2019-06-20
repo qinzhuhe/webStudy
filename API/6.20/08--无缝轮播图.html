@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>第八块</title>
+  <style>
+	    * {
+	      margin: 0;
+	      padding: 0;
+	    }
+
+	    ul {
+	      list-style: none;
+
+	    }
+
+	    img {
+	      vertical-align: top;
+	    }
+
+	    /*取消图片底部3像素距离*/
+	    .box {
+	      width: 300px;
+	      height: 200px;
+	      margin: 100px auto;
+	      background-color: pink;
+	      border: 1px solid red;
+	      position: relative;
+	      overflow: hidden;
+	    }
+
+	    .box ul li {
+	      float: left;
+	    }
+
+	    .box ul {
+	      width: 1500px;
+	      position: absolute;
+	      left: 0;
+	      top: 0;
+	    }
+  </style>
+</head>
+<body>
+<div class="box" id="screen">
+  <ul>
+    <li><img src="../../Image/day-small.png" alt=""/></li>
+    <li><img src="../../Image/dream-small.png" alt=""/></li>
+    <li><img src="../../Image/music-small.png" alt=""/></li>
+    <li><img src="../../Image/day-small.png" alt=""/></li>
+  </ul>
+</div>
+<script src="../js/myid.js"></script>
+<script>
+	// 声明一个变量，用来存储刚开始数值
+	var current = 0;
+	// 定义一个命名函数存储函数
+	function f1(){
+		// 获取到screen下面的子元素li
+		var sp = myid("screen").children[0];
+		// 向右-10
+		current -= 10;
+		// 判断当前的数值是否小于1200
+		if(current < -1200)
+			{
+				sp.style.left = 0 + "px";
+				current = 0;
+			}else{
+				sp.style.left = current + "px";
+			}
+	}
+	// 使用定时器来自动加载图片
+	var timeId = setInterval(f1, 20);
+
+	// 鼠标滑入时停止加载
+	myid("screen").onmouseover = function (){
+		clearInterval(timeId);
+	};
+	// 鼠标退出时继续加载
+	myid("screen").onmouseout = function (){
+		timeId = setInterval(f1, 30);
+	}
+</script>
+
+</body>
+</html>

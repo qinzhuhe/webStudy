@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十块</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		input{
+			margin-top: 10px;
+		}
+		#dv1{
+			width: 200px;
+			height: 200px;
+			background-color: #FFF0F5;
+		}
+		#dv2{
+			width: 100px;
+			height: 50px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="dv1">
+		<div id="dv2"></div>
+	</div>
+	<input type="button" value="获取" id="btn">
+	<script src="../js/myid.js"></script>
+	<script>
+		myid("btn").onclick = function (){
+			console.log(myid("dv2").offsetWidth);
+		console.log(myid("dv2").offsetHeight);
+		console.log(myid("dv1").offsetTop);
+		console.log(myid("dv1").offsetParent);
+		};
+	</script>
+</body>
+</html>

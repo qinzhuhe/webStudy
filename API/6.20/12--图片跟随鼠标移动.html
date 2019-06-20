@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十二块</title>
+	<style>
+		img{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<img src="../../Image/bird.png" alt="" id="img" >
+	<script src="../js/myid.js"></script>
+	<script>
+		// 鼠标在页面中移动，图片也移动
+		document.onmouseover = function (e){
+			myid("img").style.left = e.clientX + "px";
+			myid("img").style.top = e.clientY + "px";
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>第七块</title>
+  <style>
+    body, ul, ol, li, img {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #box {
+      width: 824px;
+      height: 300px;
+      padding: 5px;
+      position: relative;
+      border: 1px solid #ccc;
+      margin: 100px auto 0;
+    }
+
+    .ad {
+      width: 824px;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #box img {
+      width: 824px;
+    }
+
+    .ad ol {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
+
+    .ad ol li {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      border: 1px solid #ccc;
+      text-align: center;
+      background: #fff;
+      float: left;
+      margin-right: 10px;
+      cursor: pointer;
+      _display: inline;
+    }
+
+    .ad ol li.current {
+      background: yellow;
+    }
+
+    .ad ul li {
+      float: left;
+    }
+
+    .ad ul {
+      position: absolute;
+      top: 0;
+      width: 2940px;
+    }
+
+    .ad ul li.current {
+      display: block;
+    }
+
+    #focusD {
+      display: none;
+    }
+
+    #focusD span {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      margin-top: -20px;
+      background: #000;
+      cursor: pointer;
+      line-height: 40px;
+      text-align: center;
+      font-weight: bold;
+      font-family: '黑体';
+      font-size: 30px;
+      color: #fff;
+      opacity: 0.3;
+      border: 1px solid #fff;
+    }
+
+    #focusD #right {
+      right: 5px;
+      left: auto;
+    }
+  </style>
+</head>
+<body>
+<div id="box" class="all">
+  <div class="ad">
+    <ul id="imgs">
+      <li><img src="../../Image/B1.jpg"/></li>
+      <li><img src="../../Image/B2.jpg"/></li>
+      <li><img src="../../Image/B3.jpg"/></li>
+    </ul>
+  </div><!--相框-->
+  <div id="focusD"><span id="left">&lt;</span><span id="right">&gt;</span>
+  </div>
+</div>
+<script src="../js/myid.js"></script>
+<script src="../js/animation.js"></script>
+<script>
+    //获取最外面的div
+    var box = myid("box");
+    //获取相框
+    var bd = box.children[0];
+    // 获取相框的宽度
+    var imgwidth = bd.offsetWidth;
+    // 获取ul
+    var ulobj = bd.children[0];
+    // 获取左右的焦点div
+    var zy = myid("focusD");
+
+    // 显示隐藏左右焦点的div---为box注册鼠标进入退出事件
+    box.onmouseover = function (){
+      myid("focusD").style.display = "block";
+    };
+    box.onmouseout = function (){
+      myid("focusD").style.display = "none";
+    };
+
+    // 点击右边按钮
+    var index = 0;
+    myid("left").onclick = function (){
+      if(index>0){
+        index--;
+        animate(ulobj,-index * imgwidth);
+      }
+    };
+
+    // 点击左边按钮
+    myid("right").onclick = function (){
+      if(index<ulobj.children.length-1){
+        index++;
+        animate(ulobj,-index * imgwidth);
+      }
+    };
+</script>
+
+</body>
+</html>
