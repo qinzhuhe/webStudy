@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第四块</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			margin: 30px 0px;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="dv"></div>
+	<input type="button" value="移动到400px" id="btn1">
+	<input type="button" value="移动到800px" id="btn2">
+	<script src="../js/myid.js"></script>
+	<script src="../js/animation.js"></script>
+	<script src="../js/vspeed.js"></script>
+	<script>
+		myid("btn1").onclick = function (){
+			vspeed(myid("dv"),400);
+		};
+		myid("btn2").onclick = function (){
+			vspeed(myid("dv"),800);
+		};
+	</script>
+</body>
+</html>

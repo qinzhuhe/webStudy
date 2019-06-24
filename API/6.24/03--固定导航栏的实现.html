@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>第三块</title>
+  <style>
+	    * {
+	      margin: 0;
+	      padding: 0
+	    }
+
+	    img {
+	      vertical-align: top;
+	    }
+
+	    .main {
+	      margin: 0 auto;
+	      width: 1000px;
+	      margin-top: 10px;
+
+	    }
+
+	    .fixed {
+	      position: fixed;
+	      top: 0;
+	      left: 0;
+	    }
+  </style>
+</head>
+<body>
+	<div class="top" id="topPart">
+	  <img src="images/top.png" alt=""/>
+	</div>
+	<div class="nav" id="navBar">
+	  <img src="images/nav.png" alt=""/>
+	</div>
+	<div class="main" id="mainPart">
+	  <img src="images/main.png" alt=""/>
+	</div>
+	<script src="../js/myid.js"></script>
+	<script src="../js/getScroll.js"></script>
+
+	<script>
+		// window.onscroll = function (){
+		// 	console.log(getScroll().top);
+		// };
+
+		// 浏览器的滚动事件
+		window.onscroll = function (){
+			// 向上卷曲出去的距离和最上面的图片的高度对比
+			if(getScroll().top >= myid("topPart").offsetHeight){
+				myid("navBar").className = "nav fixed";
+				myid("mainPart").style.marginTop = myid("navBar").offsetHeight+"px";
+			}else{
+				myid("navBar").className = "nav";
+				myid("mainPart").style.marginTop = "10px";
+			}
+		};
+
+	</script>
+</body>
+</html>

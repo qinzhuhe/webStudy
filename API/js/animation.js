@@ -23,7 +23,7 @@ function animate (element,target){
 		}
 		else{
 			clearInterval(element.tim);
-			element.style.left = current + "px";
+			element.style.left = target + "px";
 		}
 	}, 20);
 }

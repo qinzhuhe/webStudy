@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二块</title>
+<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 100px;
+			border: 2px solid pink;
+			overflow: auto;
+		}
+		input{
+			left: 300px;
+			position: absolute;
+			top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="dv">
+		天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下天上天下
+	</div>
+	<input type="button" value="显示" id="btn">
+	<script src="../js/myid.js"></script>
+	<script src="../js/getScroll.js"></script>
+	<script>
+		// //div的滚动事件
+		// myid("dv").onscroll = function (){
+		// 	// console.log("滚动事件触发");
+		// 	console.log(this.scrollTop);//在当前滚动事件触发时获取元素中内容距向上卷曲的内容
+		// }
+
+		// 测试封装方法是否正确
+		myid("dv").onscroll = function (){
+			console.log(getScroll().top);
+		};
+	</script>
+</body>
+</html>

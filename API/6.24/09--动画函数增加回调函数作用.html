@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第九块</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			margin: 30px 0px;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="dv"></div>
+	<input type="button" value="移动到400px" id="btn1">
+	<script src="../js/myid.js"></script>
+	<script src="../js/vspeed.js"></script>
+	<script>
+		//点击按钮改变一个属性的目标值
+		myid("btn1").onclick = function (){
+			var json1 = {"width" : 400 , "height" : 200 , "left" : 300 , "top" : 200};
+			vspeed(myid("dv"),json1,function (){
+				var json2 = {"width" : 40 , "height" : 20 , "left" : 30 , "top" : 20};
+				vspeed(myid("dv"),json2,function (){
+					var json3 = {"width" : 450 , "height" : 250 , "left" : 350 , "top" : 250};
+					vspeed(myid("dv"),json3);
+				});
+			});
+		};
+	</script>
+</body>
+</html>

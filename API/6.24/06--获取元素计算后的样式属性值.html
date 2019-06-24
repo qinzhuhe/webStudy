@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第六块</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 100px;
+			background-color: purple;
+			left: 100px;
+			top: 0px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="显示效果" id="btn">
+	<div id="dv"></div>
+	<script src="../js/myid.js"></script>
+	<script src="../js/getstyle.js"></script>
+	<script>
+		myid("btn").onclick = function (){
+			// console.log(myid("dv").offsetLeft);
+			// 返回的是包含着所有的css属性的一个对象
+
+			// 火狐谷歌支持
+			// console.log(window.getComputedStyle(myid("dv"),null).left);
+
+			// IE支持
+			// console.log(myid("dv").currentStyle.left);
+
+
+			// 测试函数
+			console.log(getstyle(myid("dv"),"top"));
+		};
+	</script>
+</body>
+</html>
