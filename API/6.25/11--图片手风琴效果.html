@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>第十一块</title>
+  <style>
+
+	    ul {
+	      list-style: none;
+	    }
+
+	    * {
+	      margin: 0;
+	      padding: 0;
+	    }
+
+	    div {
+	      width: 1150px;
+	      height: 400px;
+	      margin: 50px auto;
+	      border: 1px solid red;
+	      overflow: hidden;
+	    }
+
+	    div li {
+	      width: 240px;
+	      height: 400px;
+	      float: left;
+	    }
+
+	    div ul {
+	      width: 1300px;
+	    }
+  </style>
+</head>
+<body>
+<div id="box">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+<script src="../js/myid.js"></script>
+<script src="../js/vspeed.js"></script>
+<script>
+	// 获取所有的li标签，用作循环显示出所有的图片
+	var list = myid("box").getElementsByTagName("li");
+	// 循环遍历出所有的图片
+	for(var i = 0 ; i < list.length ; i++)
+	{
+		// 显示所有的图片,图片显示要用括号包起来
+		list[i].style.backgroundImage = "url(images/"+(i+1)+".jpg)";
+		// 为所有的图片注册鼠标进入事件
+		list[i].onmouseover = mouseroverHandle;
+		// // 为所有的图片注册鼠标退出事件
+		list[i].onmouseout = mouseroutHandle;
+	}
+	// 函数使用
+	function mouseroverHandle(){
+		// 循环li，为其注册鼠标进入动画
+		for(var j = 0 ; j < list.length ; j++){
+			// 先将所有的图片都置为100px
+			vspeed(list[j],{"width" : 100});
+		}
+		vspeed(this,{"width" : 800});
+	}
+	function mouseroutHandle(){
+		// 在鼠标退出时便将所有的图片宽度复原
+		for(var j = 0 ; j < list.length ; j++)
+		{
+			vspeed(list[j],{"width" : 240});
+		}
+	}
+</script>
+</body>
+</html>
