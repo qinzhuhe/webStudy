@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>旋转木马轮播图</title>
+  <link rel="stylesheet" href="css/css.css"/>
+  <script src="../js/myid.js"></script>
+  <script src="../js/vspeed.js"></script>
+  <script>
+  	 var config = [
+	      {
+	        width: 400,
+	        top: 20,
+	        left: 50,
+	        opacity: 0.2,
+	        zIndex: 2
+	      },//0
+	      {
+	        width: 600,
+	        top: 70,
+	        left: 0,
+	        opacity: 0.8,
+	        zIndex: 3
+	      },//1
+	      {
+	        width: 800,
+	        top: 100,
+	        left: 200,
+	        opacity: 1,
+	        zIndex: 4
+	      },//2
+	      {
+	        width: 600,
+	        top: 70,
+	        left: 600,
+	        opacity: 0.8,
+	        zIndex: 3
+	      },//3
+	      {
+	        width: 400,
+	        top: 20,
+	        left: 750,
+	        opacity: 0.2,
+	        zIndex: 2
+	      }//4
+     ];
+     // 因为代码是从上往下运行的，所以需要使用页面加载事件
+     window.onload = function (){
+      // 在一开始自定义一个变量，将其假装为所有的li标签已经加载完毕
+      var flag = true;
+
+      // 获取所有的li标签，并将它们循环出来加上加载动画
+      // 获取
+      var list = myid("slide").getElementsByTagName("li");
+      // console.log(list);
+      // 循环出所有的li标签
+      function assign(){//==========================使用内置函数
+      for(var i = 0 ; i < list.length ; i++)
+        {
+          // 给所有的li标签加上动画效果
+          vspeed(list[i] , config[i] , function (){
+            flag = true;
+          });
+        }
+      }
+
+      assign();
+
+
+      // 注册左右按钮点击
+        myid("arrLeft").onclick = function (){
+          if(flag){
+            // 在点击时将flag设为false，使其必须在上一个动画加载完后才能加载第二次
+            flag = false;
+            config.push(config.shift()); //=====追加一个值到数组的最后，然后删除数组中的第一个元素。
+            // 重新分配
+            assign();
+          }
+        };
+
+        myid("arrRight").onclick = function (){
+          if(flag)
+          {
+            flag = false;
+            config.unshift(config.pop()); //=====在数组的第一个元素前插入一个新的元素，然后删除数组中的最后一个元素。
+            assign();
+          }
+        };
+
+        // 此时可能会因为点击过快而导致图片位置重叠
+
+      // 获取左右焦点按钮,并将在鼠标移到li上时将左右焦点按钮显示出来
+
+        // 鼠标进入事件，显示左右焦点按钮
+        myid("slide").onmouseover = function (){
+          // 注册动画,将可见度调为1
+          vspeed(myid("arrow"),{"opacity" : 1});
+        };
+
+        // 鼠标退出事件，隐藏
+        myid("slide").onmouseout = function (){
+          // 注册动画，将可见度置为0
+          vspeed(myid("arrow"),{"opacity" : 0});
+        };
+
+
+
+     };
+
+
+  </script>
+
+</head>
+<body>
+<div class="wrap" id="wrap">
+  <div class="slide" id="slide">
+    <ul>
+      <li><a href="#"><img src="images/slidepic1.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/slidepic2.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/slidepic3.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/slidepic4.jpg" alt=""/></a></li>
+      <li><a href="#"><img src="images/slidepic5.jpg" alt=""/></a></li>
+    </ul>
+    <div class="arrow" id="arrow">
+      <a href="javascript:;" class="prev" id="arrLeft"></a>
+      <a href="javascript:void(0);" class="next" id="arrRight"></a>
+    </div>
+  </div>
+</div>
+<!-- a标签的三种写法
+	<a href="地址">
+	<a href="#name">
+	<a href="javascript:void(0);">
+ -->
+</body>
+</html>

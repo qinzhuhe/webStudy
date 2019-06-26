@@ -12,7 +12,7 @@ function getstyle(element,attr){
  * [vspeed description]
  * @param  {[type]}   element [description]--->元素
  * @param  {[type]}   json    [description]--->对象--->多个属性及多个目标值
- * @param  {Function} fn      [description]--->函数
+ * @param  {Function} fn      [description]--->回调函数
  * @return {[type]}           [description]
  */
 function vspeed(element,json,fn){

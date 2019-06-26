@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十五块</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<img src="../../Image/bird.png" alt="" id="img">
+	<script src="../js/myid.js"></script>
+	<script>
+		// 文档的鼠标移动事件
+		// 对象  事件  事件处理函数，事件触发了，函数的代码就会执行，执行的时候，函数执行的时候
+		document.onmousemove = function (e){
+			// console.log(arguments[0]);
+			// console.log(e);
+
+			e = window.event || e;
+
+			// pageX和pageY在谷歌火狐可以使用，IE8不能使用
+
+			// document.title = e.clientX+"======"+e.clientY;
+			var img = myid("img");
+			// 可视区域的横坐标
+			// 可视区域的纵坐标
+			img.style.left = e.clientX + "px";
+			img.style.top = e.clientY + "px";
+		};
+	</script>
+</body>
+</html>

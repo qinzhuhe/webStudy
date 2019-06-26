@@ -3,8 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title>第十四块</title>
+	<style>
+		div{
+			width: 200px;
+			height: 100px;
+			border: 20px solid red;
+			border-left-width: 10px;
+		}
+	</style>
 </head>
 <body>
+	<div id="dv"></div>
 	<script src="../js/myid.js"></script>
+	<script>
+		console.log(myid("dv").clientWidth);
+		console.log(myid("dv").clientHeight);
+
+		console.log(myid("dv").clientLeft);
+		console.log(myid("dv").clientTop);
+	</script>
 </body>
 </html>

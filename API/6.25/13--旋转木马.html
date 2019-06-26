@@ -44,55 +44,54 @@
 	        zIndex: 2
 	      }//4
      ];
-
-     // 页面加载事件
+           // 页面加载事件
      window.onload = function (){
-     	var flag = true // 假设所有的动画执行完毕才允许继续运行
-     	// 散开图片
-     	
-     	// 获取所有的li标签
-     	var list = myid("slide").getElementsByTagName("li");
-     	// 循环遍历
-     	function assign(){
-	     	for(var i = 0 ; i < list.length ; i++)
-	     	{
-	     		// 创造动画
-	     		vspeed(list[i],config[i],function (){
-	     			flag = true;
-	     		});
-	     	}
-     	}
-     	assign();
+      var flag = true // 假设所有的动画执行完毕才允许继续运行
+      // 散开图片
 
-     	// 左边按钮
-     	myid("arrLeft").onclick = function (){
-     		if(flag){
-     			flag = false;
-	     		config.push(config.shift());
-	     		// 重新分配
-	     		assign();
-     		}
-     	};
+      // 获取所有的li标签
+      var list = myid("slide").getElementsByTagName("li");
+      // 循环遍历
+      function assign(){
+        for(var i = 0 ; i < list.length ; i++)
+        {
+          // 创造动画
+          vspeed(list[i],config[i],function (){
+            flag = true;
+          });
+        }
+      }
+      assign();
 
-     	// 右边按钮
-     	myid("arrRight").onclick = function (){
-     		if(flag){
-     			flag=false;
-     			config.unshift(config.pop());
-     			assign();
-     		}
-     	};
+      // 左边按钮
+      myid("arrLeft").onclick = function (){
+        if(flag){
+          flag = false;
+          config.push(config.shift());
+          // 重新分配
+          assign();
+        }
+      };
 
-     	// 鼠标进入显示左右焦点的div显示
-     	myid("slide").onmouseover = function (){
-     		vspeed(myid("arrow"),{"opacity" : 1})
-     	};
-     	// 鼠标离开隐藏左右焦点的div显示
-     	myid("slide").onmouseout = function (){
-     		vspeed(myid("arrow"),{"opacity" : 0});
-     	};
+      // 右边按钮
+      myid("arrRight").onclick = function (){
+        if(flag){
+          flag=false;
+          config.unshift(config.pop());
+          assign();
+        }
+      };
+
+      // 鼠标进入显示左右焦点的div显示
+      myid("slide").onmouseover = function (){
+        vspeed(myid("arrow"),{"opacity" : 1})
+      };
+      // 鼠标离开隐藏左右焦点的div显示
+      myid("slide").onmouseout = function (){
+        vspeed(myid("arrow"),{"opacity" : 0});
+      };
      };
-     
+
   </script>
 
 </head>

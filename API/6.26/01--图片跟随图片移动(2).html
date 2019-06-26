@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 200px;
+		}
+		img{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<img src="../../Image/bird.png" alt="" id="img">
+	<script src="../js/myid.js"></script>
+	<script src="../js/getScroll.js"></script>
+	<script>
+		// 页面的鼠标移动事件
+		document.onmousemove = function (e){
+			// 此处是为了IE8的兼容性考虑使用了页面兼容手段
+			e = window.event || e;
+
+			// 鼠标相于页面的可视区域的横坐标
+			myid("img").style.left = e.clientX + "px";
+
+			// 鼠标相于页面的可视区域的纵坐标
+			myid("img").style.top = e.clientY + "px";
+		};
+
+	</script>
+</body>
+</html>
