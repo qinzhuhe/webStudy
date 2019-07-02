@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>第十一块</title>
+
+</head>
+<body>
+<input type="button" value="拼接吧" id="btn"/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+
+<script>
+  document.getElementById("btn").onclick = function (){
+    var str = [];
+    // 虎丘所有的文本框
+    var inputs = document.getElementsByTagName("input");
+    for(var i = 0 ; i < inputs.length ; i++){
+      if(inputs[i].type!="button"){
+        str.push(inputs[i].value);
+      }
+    }
+    console.log(str.join("|"));//字符串
+  };
+</script>
+
+</body>
+</html>

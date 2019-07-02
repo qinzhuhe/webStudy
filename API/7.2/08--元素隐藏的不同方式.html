@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第八块</title>
+	<style>
+		div{
+			width: 300px;
+			height: 200px;
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="显示效果" id="btn">
+	<div id="dv"></div>哈哈
+	<script src="../js/myid.js"></script>
+	<script>
+		document.getElementById("btn").onclick = function (){
+			// 隐藏div
+			// 不占位
+			// myid("dv").style.display = "none";
+
+			// 占位
+			// myid("dv").style.visibility = "hidden";
+
+			// 占位
+			// myid("dv").style.opacity = "0";
+
+			// 占位
+			// myid("dv").style.height = "0px";
+			myid("dv").style.border = "0px solid red";
+		};
+	</script>
+</body>
+</html>

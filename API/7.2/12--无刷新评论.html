@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>第十二块</title>
+</head>
+<body>
+<table id="tb" border="1">
+  <tbody id="tbd">
+  <tr>
+    <td>错误:</td>
+    <td>错误源自于对于知识的掌握程度不够，还需要继续努力</td>
+  </tr>
+  </tbody>
+</table>
+<div>
+  昵称:<input type="text" value="" id="userName"/><br/>
+  <textarea name="" id="tt" cols="30" rows="10"></textarea><br/>
+  <input type="button" value="评论一下" id="btn"/><br/>
+</div>
+<script>
+  // 获取按钮，注册点击事件
+  document.getElementById("btn").onclick = function (){
+    // 获取昵称的元素
+    var userName = document.getElementById("userName");
+    // 获取评论的元素
+    var tt = document.getElementById("tt");
+
+    // 创建行
+    var tr = document.createElement("tr");
+    // 把行加入到tbody中
+    document.getElementById("tbd").appendChild(tr);
+    // 创建列
+    var td1 = document.createElement("td");
+    tr.appendChild(td1);
+    td1.innerHTML = userName.value;
+    // 创建列
+    var td2 = document.createElement("td");
+    tr.appendChild(td2);
+    td2.innerHTML = tt.value;
+
+    // 清空
+    userName.value = "";
+    tt.value = "";
+  };
+</script>
+
+</body>
+</html>
