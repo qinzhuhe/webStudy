@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第四块</title>
+	<script>
+		// function Person(name,age){
+		// 	this.name = name;
+		// 	this.age = age;
+		// 	this.eat = function (){
+		// 		console.log("今天排骨糊了");
+		// 	};
+		// }
+
+		// var per1 = new Person("小黑",10);
+		// var per2 = new Person("小白",8);
+		// per1.eat();
+		// per2.eat();
+		// console.log(per1.eat == per2.eat);
+		// for(var i = 0 ; i < 100 ; i++)
+		// {
+		// 		var per = new Person("大黄",20);
+		// 	per.eat();
+		// }
+		// 如果有多个对象需要使用eat这个方法，就要在内存中创建多个空间存储这个方法，这种方法太浪费。
+
+		//这种方法虽然解决了，但是会存在命名重复的影响
+		function myEat(){
+			console.log("今天排骨糊了");
+		}
+		var myEat = 10;
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+			this.eat = myEat;
+		}
+
+		var per1 = new Person("小黑",10);
+		var per2 = new Person("小白",8);
+		console.dir(per1);
+		console.dir(per2);
+		console.log(per1.eat == per2.eat);
+
+		// 可以通过原型来解决
+		// 原型的作用之一：数据共享，节省内存空间
+	</script>
+</head>
+<body>
+
+</body>
+</html>

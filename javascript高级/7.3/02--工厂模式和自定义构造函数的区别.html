@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二块</title>
+	<script>
+		// 工厂模式
+		function createObject(name,age){
+			var obj = new Object();
+			obj.name = name;
+			obj.age = age;
+			obj.sayHi = function (){
+				console.log("你好");
+			};
+			return obj;
+		}
+		var per1 = createObject("小明",20);
+
+
+		// 自定义构造函数
+		function Person(name,sex,age){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+			this.play = function (){
+				console.log("天天打游戏");
+			};
+		}
+		var per = new Person("生","女",18);
+		console.log(per instanceof Person);
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

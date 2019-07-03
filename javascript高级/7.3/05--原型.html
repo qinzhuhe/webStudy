@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第五块</title>
+	<script>
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		// 通过原型来添加方法
+		Person.prototype.eat = function (){
+			console.log("测试");
+		};
+
+		var p1 = new Person("小明",20);
+		var p2 = new Person("小红",30);
+		console.log(p1==p2);//不是同一个对象
+		console.log(p1.eat == p2.eat)//是同一个方法
+
+		console.dir(p1);
+		console.dir(p2);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
