@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十六块</title>
+	<script>
+		// 一共三个对象，地图是一个，小方块是一个，随机数也是一个
+		// 产生随机数对象的
+		(function (window){
+			function Random(){};
+			Random.prototype.getRandom = function (min,max){
+				return Math.floor(Math.random()*(max-min)+min);
+			};
+			// 把局部对象暴露给window顶级对象，就成了全局的对象
+			window.Random = new Random();
+		})(window);//自定义构造函数的方式，分号一定要加上
+	</script>
+</head>
+<body>
+
+</body>
+</html>

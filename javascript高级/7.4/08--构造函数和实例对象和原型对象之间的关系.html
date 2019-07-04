@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第八块</title>
+	<script>
+		// 通过构造函数实例对象，并初始化
+		// var arr = new Array(10,20,30,40);
+		// // join是方法，实例对象调用的方法
+		// arr.join("|");
+		// console.dir(arr);
+		// // join方法在实例对象__proto__原型中
+		// console.log(arr.__proto__==Array.prototype);
+	</script>
+	<script>
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		// 通过构造函数的原型添加一个方法
+		Person.prototype.eat = function (){
+			console.log("喜欢大白菜吗？");
+		};
+		var per = new Person("小何",20);
+		// per.__proto__.eat();
+		per.eat();
+		// 原型对象中的方法可以给实例对象进行共享
+	</script>
+</head>
+<body>
+
+</body>
+</html>

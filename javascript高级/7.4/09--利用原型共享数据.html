@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第九块</title>
+	<script>
+		// 什么样子的数据是需要写在原型中?
+		// 需要共享的数据就可以写在原型中
+		// 原型的作用之一：数据共享
+
+		// 属性需要共享，方法也需要共享
+		// 不需要共享的数据写在构造函数中
+
+
+		// 构造函数
+		function Student(name,age,sex){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+		}
+		// 假设学生每个人都是180，体重都是55kg
+		// 所有学生都要每天八点起床上学
+		// 所有学生每天都需要吃三顿饭
+		// 原型对象
+		Student.prototype.height = "180cm";
+		Student.prototype.weight = "55kg";
+		Student.prototype.move = function (){
+			console.log("每天都要八点起床去上学");
+		};
+		Student.prototype.eat = function (){
+			console.log("早饭，午饭，晚饭，一顿都不能少");
+		};
+		// 实例化对象，并初始化
+		var stu = new Student("小红",20,"女");
+		console.dir(Student);
+		console.dir(stu);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

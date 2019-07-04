@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十三块</title>
+	<script>
+		// 为内置对象添加原型方法
+
+		// var arr = new Array(10,20,30,40);
+		// arr.join("|");
+		// console.dir(arr);
+
+		// var str = new String("哈,你死了");
+		// str.indexOf("哈");
+		// console.dir(str);
+
+		// var dt = new Date();
+		// dt.getFullYear();
+		// console.dir(dt);
+
+		// 那么，是否能为系统的对象的原型中添加方法，这就相当于是在改变源码
+		// 例如：自己创建一个倒序字符串的方法
+		// String.prototype.myReverse = function (){
+		// 	for(var i = this.length - 1 ; i >= 0 ; i--){
+		// 		console.log(this[i]);
+		// 	}
+		// };
+		// var str = "abcdefg";
+		// str.myReverse();
+
+		String.prototype.sayHi = function (){
+			console.log(this + "继续");
+		};
+
+		// 字符串的自定义方法
+		var str = "小明";
+		str.sayHi();
+	</script>
+</head>
+<body>
+
+</body>
+</html>

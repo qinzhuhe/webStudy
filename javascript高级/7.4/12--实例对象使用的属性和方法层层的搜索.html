@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十二块</title>
+	<script>
+		function Person(age,sex){
+			this.age = age;
+			this.sex = sex;
+			this.eat = function (){
+				console.log("构造函数中的吃");
+			};
+		}
+		Person.prototype.sex = "女";
+		Person.prototype.eat = function (){
+			console.log("原型对象中的吃")
+		};
+
+		var per = new Person(10,"男");
+		console.log(per.sex);//男
+		per.eat();
+		console.dir(per);
+
+		// 实例对象中使用的属性或者方法，首先会去实例对象中去找，找到了就直接使用；如果实例对象中不存在，则会在原型对象中去找；如果还找不到，则会报错。
+	</script>
+</head>
+<body>
+
+</body>
+</html>

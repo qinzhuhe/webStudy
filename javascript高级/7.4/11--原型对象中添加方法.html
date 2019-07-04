@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十一块</title>
+	<script>
+		// function Person(age){
+		// 	this.age = age;
+		// 	this.sayHi = function (){
+		// 		console.log("你好");
+		// 	};
+		// 	this.eat = function (){
+		// 		console.log("进行准备");
+		// 	};
+		// }
+
+		// // 实例化对象，并初始化
+		// var per = new Person(20);
+		// // 调用方法
+		// per.sayHi();
+		// per.eat();
+	</script>
+	<script>
+		function Animal(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		// 从原型中添加方法
+		Animal.prototype.eat = function (){
+			console.log("喜欢吃东西");
+			this.like();
+		};
+		Animal.prototype.like = function (){
+			console.log("打游戏");
+			this.home();
+		};
+		Animal.prototype.home = function (){
+			console.log("黄土高坡");
+		};
+
+		var an = new Animal("小山",10);
+		an.eat();
+	</script>
+</head>
+<body>
+
+</body>
+</html>
