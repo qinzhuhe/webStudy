@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二块</title>
+</head>
+<body>
+	<script>
+		// 构造函数中的this就是实例对象
+		// 原型对象中方法中的this就是实例对象
+		function Person(age){
+			this.age = age;
+			console.log(this);
+		}
+		Person.prototype.eat = function (){
+			console.log(this);
+			console.log("代码测试");
+		};
+		var per = new Person(20);
+		console.log(per);
+		per.eat();
+	</script>
+</body>
+</html>
