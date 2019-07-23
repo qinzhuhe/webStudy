@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第八块</title>
+</head>
+<body>
+	<script>
+		// var Obj1 = {
+		// 	name : "大牛",
+		// 	age : 20,
+		// 	sleep : function (){
+		// 		console.log("睡觉了");
+		// 	}
+		// };
+
+		// 改变了地址的指向
+		// // var Obj2 = Obj1;
+		// // console.log(Obj2.name,Obj2.age);
+		// // Obj2.sleep();
+
+		// var Obj2 = {};
+		// for(var key in Obj1){
+		// 	Obj2[key] = Obj1[key];
+		// }
+		// console.log(Obj2.name);
+
+
+		function Person(){
+
+		}
+		Person.prototype.name = "小红";
+		Person.prototype.age = 10;
+		Person.prototype.play = function (){
+			console.log("我还有很多舍不得的东西啊");
+		};
+
+		var per = {};
+
+		// 在以上例子中，Person的构造函数中有原型prototype，prototype就是一个对象，那么里面的name,age,play都是该对象中的属性、方法
+
+		for(var key in Person.prototype){
+			per[key] = Person.prototype[key];
+		}
+		console.dir(per);
+
+	</script>
+</body>
+</html>

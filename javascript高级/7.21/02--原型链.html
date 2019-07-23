@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二块</title>
+</head>
+<body>
+	<div id="dv"></div>
+	<script>
+		// 原型链：实例对象和原型对象之间的关系，通过__proto__来联系
+		var divobj = document.getElementById("dv");
+		console.dir(divobj);
+		// divobj.__proto__--->HTMLDivElement.prototype的__proto__--->HTMLElement.prototype的__proto__--->Element.prototype的__proto__--->Node.prototype--->EventTarget.__proto__--->Object.prototype--->没有__proto__，所以，Object.prototype中的__proto__是null
+
+
+	</script>
+</body>
+</html>

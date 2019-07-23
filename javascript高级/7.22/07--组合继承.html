@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第七块</title>
+</head>
+<body>
+	<script>
+		// 原型实现继承
+		// 借用构造函数实现继承
+		// 组合继承：原型继承+借用构造函数继承
+		function Person(name,age,sex){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+		}
+		Person.prototype.sayHi = function (){
+			console.log("下午好");
+		};
+		function Student(name,age,sex,score){
+			Person.call(this,name,age,sex);
+			this.score = score;
+		}
+		// 改变原型指向---继承
+		Student.prototype = new Person();//这种方法不需要在这一步进行传值了
+		Student.prototype.eat = function (){
+			console.log("吃东西");
+		};
+		var stu = new Student("小明",20,"男",120);
+		console.log(stu.name,stu.age,stu.sex,stu.score);
+		stu.sayHi();
+		stu.eat();
+
+		console.log("以下为第二个例子调用");
+
+		var stu2 = new Student("小霞",19,"女",110);
+		console.log(stu2.name,stu2.age,stu2.sex,stu2.score);
+		stu2.sayHi();
+		stu2.eat();
+
+		// 属性和方法都被继承了
+	</script>
+</body>
+</html>

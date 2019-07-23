@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第六块</title>
+</head>
+<body>
+	<script>
+		function Person(name,age,sex,weight){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+			this.weight = weight;
+		}
+		Person.prototype.sayHi = function (){
+			console.log("你好");
+		};
+		function Student(name,age,sex,weight,score){
+			// 借用构造函数
+			Person.call(this,name,age,sex,weight);
+			this.score = score;
+		}
+		// // 希望人的类别中的数据可以共享给学生====>继承
+		// Student.prototype = new Person("小明",12,"男","50kg");
+		var stu1 = new Student("小明",18,"男","100kg","100");
+		console.log(stu1.name,stu1.age,stu1.sex,stu1.weight,stu1.score);
+		// stu2.sayHi();
+
+		console.log("以下是第二个同学的信息");
+		var stu2 = new Student("大刚",17,"女","120kg","150");
+		console.log(stu2.name,stu2.age,stu2.sex,stu2.weight,stu2.score);
+		// stu2.sayHi();//报错，无法调用
+
+		console.log("以下为第三个同学的信息");
+		var stu3 = new Student("和光",18,"男","110kg","200");
+		console.log(stu3.name,stu3.age,stu3.sex,stu3.weight,stu3.score);
+
+
+		// 以上便是为了数据共享，改变了原型指向，做到了继承---通过改变原型指向实现的继承
+		// 缺陷：因为改变原型指向的同时实现继承，初始化了属性，继承过来的属性都是一样的了。
+		// 只能重新调用对象的属性进行重新赋值
+
+		// 解决方案：继承的时候，不改变原型的指向，而是直接调用父级的构造函数的方式为属性赋值就可以了--->借用构造函数：把要继承的父级的构造函数拿过来，试用一下就行了。
+
+		// 借用构造函数:构造函数名字.call(当前对象,属性,属性,属性...);
+		// 解决了属性继承，并且值不会重复的问题
+		// 父级类别中的方法不能继承
+	</script>
+</body>
+</html>

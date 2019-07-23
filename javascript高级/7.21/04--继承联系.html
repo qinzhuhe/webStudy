@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第四块</title>
+</head>
+<body>
+	<script>
+		// 动物有名字，有体重，有吃东西的行为
+		// 小狗有名字，有体重，有毛色，有吃东西的行为，有咬人的行为
+		// 哈士奇有名字，体重，毛色,还有性别，有吃东西的东西，有咬人的行为，还有拆家的行为
+
+		function Animal(name,weight){
+			this.name = name;
+			this.weight = weight;
+		}
+		Animal.prototype.eat = function (){
+			console.log("都逃脱不了吃吃吃");
+		};
+
+		// 小狗的构造函数
+		function Dog(color){
+			this.color = color;
+		}
+		Dog.prototype = new Animal("大黄","10斤");
+		Dog.prototype.bite = function (){
+			console.log("咬咬死人呐！！！");
+		};
+
+		// 哈士奇
+		function Husky(sex){
+			this.sex = sex;
+		}
+		Husky.prototype = new Dog("黑白色");
+		Husky.prototype.Dhome = function (){
+			console.log("你小子又开始了啊啊啊");
+		};
+
+		var erHa = new Husky("雄性");
+		console.log(erHa.name,erHa.weight,erHa.color);
+		erHa.eat();
+		erHa.bite();
+		erHa.Dhome();
+	</script>
+</body>
+</html>

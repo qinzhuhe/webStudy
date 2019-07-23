@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承案例</title>
+</head>
+<body>
+	<script>
+		// 例子：
+		// 人，都有姓名，性别，年龄，吃饭，睡觉，玩
+		// 学生，都有姓名，性别，年龄，成绩，吃饭，睡觉，玩，学习的行为
+
+		// js中通过原型来实现继承
+
+		// 人
+		function Person(name,age,sex){
+			this.name = name;
+			this.sex = sex;
+			this.age = age;
+		}
+		Person.prototype.eat = function (){
+			console.log("人都会吃东西");
+		};
+		Person.prototype.sleep = function (){
+			console.log("人都会睡觉");
+		};
+		Person.prototype.play = function (){
+			console.log("你我的差别在于行为");
+		};
+
+		// 学生
+		function Student(score){
+			this.score = score;
+		}
+		// 改变学生的圆形的指向即可--->这一步，学生和人之间已经有了关系
+		Student.prototype = new Person("小明",10,"男");
+		Student.prototype.study = function (){
+			console.log("学无止境，漫无边际");
+		};
+
+		// 相同的代码太多，导致了代码冗余
+
+		var stu = new Student(100);
+		console.log(stu.name);
+		console.log(stu.age);
+		console.log(stu.sex);
+		stu.eat();
+		stu.play();
+		stu.sleep();
+		console.log("以下是学生对象中自己有的");
+		console.log(stu.score);
+		stu.study();
+	</script>
+</body>
+</html>

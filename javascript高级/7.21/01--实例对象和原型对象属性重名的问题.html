@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一块</title>
+</head>
+<body>
+	<script>
+		function Person(age,sex){
+			this.age = age;
+			this.sex = sex;
+		}
+		Person.prototype.sex = "女";
+		var per = new Person(10,"男");
+		console.log(per.sex);
+		// console.dir(per);
+		console.log(per.fhshhsh);//结果不会报错，是undefined
+		// 因为JS是一门动态类型的语言，对象没有一个指定的属性，但只要点了，那么对象就将会获得这个属性，但是，该属性没有复制，所以结果会是：undefined
+
+		console.log(sfsdfsd)//这里没有这个变量，所以将会报错
+
+		// 实例对象访问这个属性，应该先从实例对象中找，找到了就直接使用，找不到就去指向的原型对象中找，找到了就使用，找不到则作废
+		// 通过实例对象能否改变原型对象中的属性值？不能
+		// 改变原型对象中属性的值？直接通过原型对象.属性=值；可以改变
+		Person.prototype.sex = "哈哈";
+		per.sex = "人";
+		console.log(per.sex);
+		console.log(Person);
+	</script>
+</body>
+</html>
