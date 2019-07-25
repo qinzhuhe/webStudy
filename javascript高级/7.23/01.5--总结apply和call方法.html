@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>总结1</title>
+</head>
+<body>
+	<script>
+		function f1(x,y){
+			console.log((x+y) + ":====>" + this);
+			return "这是函数的返回值";
+		}
+		// apply和call调用
+		var r1 = f1.apply(null,[10,20]);//此时f1中的this是window
+		console.log(r1);
+		var r2 = f1.call(null,10,20);//此时f1中的this是window
+		console.log(r2);
+
+		console.log("======");
+
+		// 改变this的指向
+		var obj = {
+			sex : "男"
+		};
+		// 本来f1函数是window对象的，但是传入obj之后，f1此时就是obj对象的
+		var r3 = r1.apply(obj,[1,2]);//此时f1中的this是obj
+		console.log(r3);
+		var r4 = r1.call(obj,1,2);//此时f1中的this是obj
+		console.log(r4);
+
+	</script>
+</body>
+</html>

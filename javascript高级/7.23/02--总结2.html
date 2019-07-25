@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>总结2</title>
+</head>
+<body>
+	<script>
+		function Person(age){
+			this.age = age;
+		}
+		Person.prototype.sayHi = function (x,y){
+			console.log((x + y) + ":====>" + this.age);//是实例对象
+		};
+		function Student(){
+
+		}
+		var per = new Person(10);//实例对象
+		var stu = new Student();//实例对象
+		// sayHi方法是【er实例对象的
+		per.sayHi.apply(stu,[10,20]);
+		per.sayHi.call(stu,10,20);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第三块</title>
+</head>
+<body>
+	<script>
+		function f1(){
+			console.log(this+":===>调用了");
+		}
+		// f1是函数，f1也是对象
+		 console.dir(f1);
+		 // 对象调用方法，说明，该对象中有这个方法
+		 f1.apply();
+		 f1.call();
+		 console.log(f1.__proto__==Function.prototype);
+		 // 所有的函数都是Function的实例对象
+		 console.log(Function.prototype);//ƒ () { [native code] }
+		 console.dir(Function);
+		 // apply和call方法实际上并不在函数这个实例对象中，而是在Function的prototype。
+
+
+		 // function Person(){
+		 // 	this.sayHi = function (){
+		 // 		console.log("您好");
+		 // 	};
+		 // }
+		 // Person.prototype.eat = function (){
+		 // 	console.log("吃");
+		 // };
+		 // var per = new Person();
+		 // per.sayHi();
+		 // per.eat();
+		 // console.dir(per);
+		 // 实例对象调用方法，方法要么在实例对象中存在，要么是在原型对象中存在
+
+	</script>
+</body>
+</html>

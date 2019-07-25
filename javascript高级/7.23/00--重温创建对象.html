@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复习</title>
+</head>
+<body>
+	<script>
+		//继承的代码
+	    function Animal(age,sex) {
+	      this.age=age;//年龄
+	      this.sex=sex;//性别
+	    }
+	    //通过原型添加属性
+	    Animal.prototype.color="黄色";
+	    //通过原型添加方法
+	    Animal.prototype.eat=function () {
+	      console.log("中秋的时候没吃到月饼,但是,吃到了馒头,也是一样的");
+	    };
+
+	    //小狗的构造函数
+	    function Dog(age,sex,name) {
+	      //借用构造函数
+	      Animal.call(this,age,sex);
+	      this.name=name;
+	    }
+	    //改变原型指向,为了继承方法的
+	    Dog.prototype=new Animal();
+
+	    var dog=new Dog(10,"女","小苏");
+	    console.log(dog.name);
+	    console.log(dog.age);
+	    console.log(dog.sex);
+	    console.log(dog.color);
+	    //调用方法
+	    // dog.eat();
+	</script>
+</body>
+</html>
