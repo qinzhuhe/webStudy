@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第八块</title>
+</head>
+<body>
+	<script>
+		function f1(fn){
+			setInterval(function(){
+				console.log("定时器开始");
+				fn();
+				console.log("定时器结束");
+			}, 1000);
+		}
+		f1(function (){
+			console.log("不知为何");
+		});
+	</script>
+</body>
+</html>

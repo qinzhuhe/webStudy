@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十一块</title>
+</head>
+<body>
+	<script>
+		// 排序，每个文件都有名字，大小，时间，都可以按照某个属性的值进行排序
+		// 三部电影，电影有名字，大小，上映时间
+		function File(name,size,time){
+			this.name = name;//电影名字
+			this.size = size;//电影大小
+			this.time = time;//上映时间
+		}
+		var f1 = new File("大圣归来","18GB","2015-07-10");
+		var f2 = new File("白蛇","17GB","2019-1-11");
+		var f3 = new File("哪吒","16GB","2019-7-26");
+
+		var arr = [f1 ,f2,f3];
+
+		function fn(attr){
+			return function getSort(a,b){
+				if(a[attr] > b[attr]){
+					return 1;
+				}else if(a[attr] == b[attr]){
+					return 0;
+				}else{
+					return -1;
+				}
+			}
+		}
+		var ff = fn("time");
+		arr.sort(ff);
+		for(var i = 0 ; i < arr.length ; i++){
+			console.log(arr[i].name+"===>"+arr[i].size+"===>"+arr[i].time);
+		}
+
+	</script>
+</body>
+</html>
