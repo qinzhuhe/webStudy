@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十六块</title>
+</head>
+<body>
+	<script>
+		// (function (){
+		// 	var num = 10;
+		// 	console.log(num);
+		// })();
+
+		// // 这便是一个沙箱---小环境
+		// (function (){
+		// 	var num = 20;
+		// 	console.log(num+10);
+		// }());
+
+		var num = 100;
+		(function (){
+			var num = 10;
+			console.log(num);//10
+		}());
+		console.log(num);//100
+
+		(function (){
+			var str = "实验形态第一种，看看是否成功";
+			str = str.substr(2);
+			console.log(str);
+		}());
+
+		(function (){
+			var str = "试验形态第二种，成功啦！";
+			str = str.substr(3);
+			console.log(str);
+		}());
+
+	</script>
+</body>
+</html>

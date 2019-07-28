@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十三块</title>
+</head>
+<body>
+	<script>
+
+		// 函数模式的闭包：在一个函数中有一个函数
+		// function f1(){
+		// 	var num = 10;
+		// 	// 函数的声明
+		// 	function f2(){
+		// 		console.log(num);
+		// 	}
+		// 	// 函数的调用
+		// 	f2();
+		// }
+		// f1();
+
+		// 对象模式的闭包:函数中有一个对象
+		// function f3(){
+		// 	var num = 10;
+		// 	var obj = {
+		// 		age : num
+		// 	};
+		// 	console.log(obj.age);
+		// }
+		// f3();
+
+
+		// 函数闭包
+		// function f1(){
+		// 	var num = 10;
+		// 	return function (){
+		// 		console.log(num);
+		// 	}
+		// }
+		// var ff = f1();
+		// ff();
+
+
+		// 对象闭包
+		// function f2(){
+		// 	var num = 100;
+		// 	return {
+		// 		age:num
+		// 	}
+		// }
+		// var obj = f2();
+		// console.log(obj.age);
+
+
+		// 闭包案例
+		// function f1(){
+		// 	var num = 10;
+		// 	num++;
+		// 	console.log(num);
+		// }
+		// f1();//--->11
+		// f1();//--->11
+		// f1();//--->11
+
+		function f2(){
+			var num = 10;
+			return function (){
+				num++;
+				return num;
+			}
+		}
+		var ff = f2();//函数闭包
+		console.log(ff());//--->11
+		console.log(ff());//--->12
+		console.log(ff());//--->13
+
+	</script>
+</body>
+</html>

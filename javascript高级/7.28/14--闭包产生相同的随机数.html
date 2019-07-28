@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十四块</title>
+</head>
+<body>
+	<script>
+		function showRandom(){
+			var num = parseInt(Math.random()*10+1);
+			console.log(num);
+		}
+
+		showRandom();
+		showRandom();
+		showRandom();
+
+		// 闭包的方式，产生三个随机数，但是结果都是相同的
+		function f1(){
+			var num = parseInt(Math.random()*10+1);
+			return function (){
+				console.log(num);
+			}
+		}
+
+		var ff = f1();
+		ff();
+		ff();
+		ff();
+
+	</script>
+</body>
+</html>

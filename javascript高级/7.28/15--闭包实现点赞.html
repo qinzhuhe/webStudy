@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>第十五块</title>
+  <style>
+	    ul {
+	      list-style-type: none;
+	    }
+
+	    li {
+	      float: left;
+	      margin-left: 10px;
+	    }
+
+	    img {
+	      width: 200px;
+	      height: 180px;
+	    }
+
+	    input {
+	      margin-left: 30%;
+	    }
+  </style>
+  <script>
+    //$永远都是24k纯帅的十八岁的杨哥$
+  </script>
+</head>
+<body>
+	<ul>
+	  <li><img src="../../Image/day.png" alt=""><br/><input type="button" value="哈(1)"></li>
+	  <li><img src="../../Image/dream.png" alt=""><br/><input type="button" value="哈(1)"></li>
+	  <li><img src="../../Image/music.png" alt=""><br/><input type="button" value="哈(1)"></li>
+	  <li><img src="../../Image/recall.jpg" alt=""><br/><input type="button" value="哈(1)"></li>
+	</ul>
+	<script src="../js/myid.js"></script>
+	<script>
+		function myid(tagName){
+			return document.getElementsByTagName(tagName);
+		}
+
+		// 闭包缓存数据
+		function getValue(){
+			var value = 1;
+			return function (){
+				this.value = "呼("+(value++)+")";
+			}
+		}
+		// 获取所有的按钮
+		var btnObjs = myid("input");
+		// 循环遍历每个按钮，注册事件
+		for(var i = 0 ; i < btnObjs.length ; i++){
+			// 注册事件
+			btnObjs[i].onclick = getValue();//这里并不是传过来的一个函数，而是将函数的返回值传了过来，而该函数的返回值恰恰才是一个函数，使用闭包函数进行操作
+		}
+
+
+		// var btnObjs = myid("input");
+		// var value = 1;
+		// // 循环遍历每个按钮
+		// for(var i = 0 ; i <btnObjs.length ; i++){
+		// 	// 为每个按钮注册点击事件
+		// 	btnObjs[i].onclick = function (){
+		// 		console.log("123")
+		// 		this.value = "呼("+(value++)+")";
+		// 	};
+		// }
+	</script>
+</body>
+</html>
