@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第三块</title>
+	<script src="../js/jQuery/jquery-1.12.2.js"></script>
+	<script>
+		// DOM加载
+		// window.onload = function (){
+		// 	// 此时btnObj就是DOM对象
+		// 	var btnObj = document.getElementById("btn");
+
+		// 	// btnObj.onclick = function (){
+		// 	// 	this.style.backgroundColor = "red";
+		// 	// };
+
+		// 	// DOM对象转换成jQuery对象，只需要把DOM对象放在$(dom对象)--->jQuery对象
+		// 	// $(btnObj).click(function (){
+		// 	// 	$(this).css("backgroundColor","red");
+		// 	// });
+
+		// 	// 把jQuery对象转DOM对象两种方式：
+		// 	// 1、$(btnObj).get(0);--->DOM对象
+		// 	// 2、$(btnObj)[0];--->DOM对象
+
+		// 	// 方法一
+		// 	// var btnObj = $(btnObj).get(0);
+		// 	// btnObj.onclick = function (){
+		// 	// 	this.style.backgroundColor = "green";
+		// 	// };
+
+		// 	// 方法二
+		// 	// var btnObj = $(btnObj)[0];
+		// 	// btnObj.onclick = function (){
+		// 	// 	this.style.backgroundColor = "#2EFE64";
+		// 	// };
+
+		// };
+
+		// jQuery加载
+		$(function (){
+			// $("#btn")--->jQuery对象
+			// $("#btn").click(function (){
+			// 	$("#btn").css({"backgroundColor":"pink"});
+			// });
+
+			// $("#btn").onclick = function (){
+			// 	this.style.backgroundColor = "pink";
+			// };//错误
+
+			$("#btn").get(0).onclick = function (){
+				this.style.backgroundColor = "pink";
+			};//正确
+
+		});
+
+	</script>
+</head>
+<body>
+	<input type="button" value="显示效果" id="btn">
+</body>
+</html>

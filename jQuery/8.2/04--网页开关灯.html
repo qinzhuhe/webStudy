@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第四块</title>
+	<script src="../js/jQuery/jquery-1.12.2.js"></script>
+	<!-- <script>
+		// 点击按钮设置body的背景颜色，实现网页开关灯效果
+		// 先使用DOM的方式来操作
+		window.onload = function (){
+			// 获取按钮，注册点击事件，设置body的背景颜色
+			document.getElementById("btn").onclick = function (){
+				// 这里进行一个判定，根据按钮value值判断是否开灯关灯
+				if(this.value=="关灯"){
+					this.value = "开灯";
+					document.body.style.backgroundColor = "black";
+				}else{
+					this.value = "关灯";
+					document.body.style.backgroundColor = "white";
+				}
+			};
+		};
+	</script> -->
+	<script>
+		// 使用jQuery的方法
+		$(function (){
+			// 获取按钮注册点击事件
+			$("#btn").click(function (){
+				// .val()方法--->获取按钮的value属性的值
+				// .val("内容");是设置按钮的value属性的值
+				if($(this).val()=="关灯"){
+					$("body").css({"backgroundColor":"black"});
+					$(this).val("开灯");
+				}else{
+					$("body").css({"backgroundColor":"white"});
+					$(this).val("关灯");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="关灯" id="btn">
+</body>
+</html>

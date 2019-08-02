@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二块</title>
+	<script>
+		// 页面的加载事件
+		// window.onload = function (){
+		// 	console.log("DOM页面加载事件的方法");
+		// };
+		// window.onload = function (){
+		// 	console.log("DOM页面加载事件的方法");
+		// };
+	</script>
+	<script src="../js/jQuery/jquery-1.12.2.min.js"></script>
+	<script>
+		// jQuery的代码---和DOM中的window.onload事件是相同的
+		// $(window).load(function (){
+		// 	console.log("window方法测试");
+		// });
+
+
+		// 页面中所有的内容(标签，图片，文字内容...)加载完毕后才触发
+		// 第二种页面加载的写法---都是方法了
+		// 页面中的基本的标签加载完毕后就可以触发了
+
+
+		// $(document).ready(function (){
+		// 	console.log("document方法测试");
+		// });
+
+		// 页面中基本的标签加载完后就执行
+
+		jQuery(function (){
+			console.log("jQuery加载方法测试1");
+		});
+		jQuery(function (){
+			console.log("jQuery加载方法测试2");
+		});
+
+		// 最佳方法
+
+		$(function (){
+			console.log("最终版本测试");
+		});
+
+		$(function (){
+			console.log("最终版本测试");
+		});
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

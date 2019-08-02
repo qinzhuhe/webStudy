@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第七块</title>
+</head>
+<body>
+	<input type="button" value="奇数行变色" id="btn1">
+	<input type="button" value="偶数行变色" id="btn2">
+	<ul>
+		<li>我是第1个li</li>
+		<li>我是第2个li</li>
+		<li>我是第3个li</li>
+		<li>我是第4个li</li>
+		<li>我是第5个li</li>
+		<li>我是第6个li</li>
+		<li>我是第7个li</li>
+		<li>我是第8个li</li>
+		<li>我是第9个li</li>
+		<li>我是第10个li</li>
+	</ul>
+	<script src="../js/jQuery/jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 单数行变色
+			$("#btn1").click(function (){
+				$("li:even").css({"backgroundColor":"cyan"});//针对偶数
+			});
+
+			// 偶数行变色
+			$("#btn2").click(function (){
+				$("li:odd").css({"backgroundColor":"pink"});//针对奇数
+			});
+
+			$("li:first").css("fontSize","30px");//first--->首个
+
+			$("li:last").css("fontSize","30px");//first--->最后一个
+
+			$("li:eq(1)").css({"fontSize":"30px"});//eq()--->下标
+
+			$("li:gt(1)").css({"fontSize":"30px"});//gt()--->大于下标()的;
+
+			$("li:lt(1)").css({"fontSize":"30px"});//lt()--->小于下标()的;
+
+		})
+	</script>
+</body>
+</html>
