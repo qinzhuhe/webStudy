@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第二块</title>
+	<style>
+		.basic{
+			background-color: pink;
+		}
+		.bigger{
+			font-size: 20px;
+		}
+	</style>
+</head>
+<!-- <body>
+	<input type="button" value="添加类" id="btn">
+	<div id="box" class="aa bb cc ee"></div>
+	<script src="../js/jQuery/jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 删除cc这个类
+			var btn = document.getElementById("btn");
+			var box = document.getElementById("box");
+			btn.onclick = function (){
+				box.className = "aa bb dd";
+			};
+		});
+	</script>
+</body> -->
+<body>
+	<input type="button" value="basic类样式添加">
+	<input type="button" value="bigger类样式添加">
+	<input type="button" value="bigger类样式移除">
+	<input type="button" value="判断类">
+	<input type="button" value="切换类">
+
+	<ul>
+		<li class="aa bb cc">1</li>
+		<li class="aa bb cc">2</li>
+		<li class="aa bb cc">3</li>
+		<li class="aa bb cc">4</li>
+		<li class="aa bb cc">5</li>
+	</ul>
+	<script src="../js/jQuery/jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 添加一个类
+			$("input").eq(0).click(function (){
+				$("li").addClass("basic");
+			});
+
+			// 添加一个类
+			$("input").eq(1).click(function (){
+				$("li").addClass("bigger");
+			});
+
+			// 移除一个类
+			$("input").eq(2).click(function (){
+				$("li").removeClass("bigger");
+			});
+
+			// 判断一个类--->作用：
+			$("input").eq(3).click(function (){
+				console.log($("li").hasClass("bigger"));
+			});
+
+			// 切换类
+			$("input").eq(4).click(function (){
+				// 先判断li有没有basic类，如果有，就移除它，没有就添加上
+				if($("li").hasClass("basic")){
+					$("li").removeClass("basic");
+				}else{
+					$("li").addClass("basic");
+				}
+			});
+		});
+	</script>
+</body>
+</html>

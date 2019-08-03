@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第四块</title>
+</head>
+<body>
+	<img src="../../Image/dream-small.png" alt="梦" title="你猜呢">
+	<script src="../js/jQuery/jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 设置单个属性
+			// attr(name,value)
+			$("img").attr("alt","就此，完结");
+			$("img").attr("title","54321");
+
+			// 设置多个属性
+			// attr({obj})
+			$("img").attr({"alt":"什么","title":"开玩笑的吧","aa":"bb"});
+		});
+	</script>
+</body>
+</html>

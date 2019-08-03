@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第六块</title>
+</head>
+<body>
+	<input type="button" value="全选">
+	<input type="button" value="全不选">
+	<input type="checkbox" id="ck">
+	<script src="../js/jQuery/jquery-1.12.2.js"></script>
+	<script>
+
+		// 对于布尔类型的属性进行操作时，不要使用attr方法，应该使用prop方法，两者使用方法一样
+		$("input").eq(0).click(function (){
+			$("#ck").prop("checked",true);
+		});
+		$("input").eq(1).click(function (){
+			$("#ck").prop("checked",false);
+		});
+	</script>
+</body>
+</html>

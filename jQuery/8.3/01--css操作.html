@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一块</title>
+</head>
+<body>
+	<ul>
+		<li>哈哈</li>
+		<li>呵呵</li>
+		<li>咳咳</li>
+		<li>啦啦</li>
+		<li>哒哒</li>
+	</ul>
+	<script src="../js/jQuery/jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// $("li")
+			// .css({"backgroundColor":"pink"})
+			// .css({})
+			// .css({});
+
+			// 设置多个样式
+			// css(obj);
+			$("li").css({
+				"backgroundColor":"pink",
+				"color":"red",
+				"font-size":"20px",
+				"border":"1px solid black"
+			});
+
+			// 获取样式
+			// css(name);
+			// name:想要获取的样式
+			$("li").eq(0).css("fontSize","20px");
+			$("li").eq(1).css("fontSize","21px");
+			$("li").eq(2).css("fontSize","22px");
+			$("li").eq(3).css("fontSize","23px");
+
+			// 隐式迭代
+			// 设置操作的操作：会给jq内部的所有对象都设置上相同的值
+			// 获取的时候：只会返回第一个元素对应的值
+			console.log($("li").css("fontSize"));
+
+		});
+	</script>
+</body>
+</html>
