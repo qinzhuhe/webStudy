@@ -1,12 +1,9 @@
-
-
-
 <!DOCTYPE html>
 <html>
 
 <head lang="en">
   <meta charset="UTF-8">
-  <title></title>
+  <title>第十五块</title>
   <style>
     select {
       width: 200px;
@@ -14,7 +11,7 @@
       height: 200px;
       font-size: 20px;
     }
-    
+
     .btn-box {
       width: 30px;
       display: inline-block;
@@ -42,32 +39,32 @@
 <select id="tar-city" name="tar-city" multiple>
 </select>
 
-<script src="jquery-1.12.4.js"></script>
+<script src="../js/jQuery/jquery-1.12.2.js"></script>
 <script>
-  
-  $(function () {
-    $("#btn1").click(function () {
+  $(function (){
+    // 左边到右边
+    $("#btn1").click(function (){
       $("#src-city>option").appendTo("#tar-city");
     });
-    
-    $("#btn2").click(function () {
-      $("#src-city").append($("#tar-city>option"));
+
+    // 右边到左边
+    $("#btn2").click(function (){
+      $("#tar-city>option").appendTo("#src-city");
     });
-    
-    $("#btn3").click(function () {
+
+    // 选中的到右边
+    $("#btn3").click(function (){
       $("#src-city>option:selected").appendTo("#tar-city");
     });
-  
-    $("#btn4").click(function () {
+
+
+    // 选中的到左边
+    $("#btn4").click(function (){
       $("#src-city").append($("#tar-city>option:selected"));
     });
-  });
 
+  });
 </script>
 
 </body>
-
-
-
-
 </html>

@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>第十三块</title>
   <style>
     div {
       width: 400px;
@@ -12,23 +12,14 @@
   </style>
 </head>
 <body>
-<!--<a href="http://web.itcast.cn" target="_blank">传智大前端</a>-->
 <div id="box"></div>
 
 
-<script src="jquery-1.12.4.js"></script>
+<script src="../js/jQuery/jquery-1.12.2.js"></script>
 <script>
   $(function () {
-//    var box = document.getElementById("box");
-//
-//    var a = document.createElement("a");
-//    box.appendChild(a);
-//    a.setAttribute("href", "http://web.itcast.cn");
-//    a.setAttribute("target", "_blank");
-//    a.innerHTML = "传智大前端";
-    
-    $("#box").append('<a href="http://web.itcast.cn" target="_blank">传智大前端</a>');
-    
+    // 动态创建节点
+    $("#box").append('<a href="https://www.oschina.net/" target="_blank">开源社区<a>');
   });
 </script>
 </body>

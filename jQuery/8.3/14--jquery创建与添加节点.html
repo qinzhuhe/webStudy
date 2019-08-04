@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>第十四块</title>
   <style>
     div {
       width: 400px;
@@ -19,29 +19,27 @@
 
 <p>我是外面的p元素</p>
 
-<script src="jquery-1.12.4.js"></script>
+<script src="../js/jQuery/jquery-1.12.2.js"></script>
 <script>
   $(function () {
-    
-    
-//    //创建jq对象
-//    var $li = $('<a href="http://web.itcast.cn" target="_blank">传智大前端</a>');
-//    console.log($li);
-//
-//
-//    $("div").append('<a href="http://web.itcast.cn" target="_blank">传智大前端</a>');
-    
-    //添加到子元素的最后面
-    //$("div").append($("p"));
-    //$("p").appendTo($("div"));
-    
-    //$("div").prepend($("p"));
-    //$("p").prependTo($("div"));
-    
-//    $('div').after($("p"));
-//    $('div').before($("p"));
-    
-    
+    append()--->添加到子元素的最后面
+    // $("div").append($("p"));
+
+    // appendTo()--->同样也是添加到子元素的最后面，但是更推荐
+    // $("p").appendTo($("div"));
+
+    // prepend()--->添加到子元素的最前面
+    // $("div").prepend($("p"));
+
+    // prependTo()--->同样添加到子元素的最前面，更推荐
+    // $("p").prependTo($("div"));
+
+    // after()--->添加到标签元素的后面，组成兄弟元素
+    // $("div").after($("p"));
+
+    // before()--->添加到标签元素的前面
+    $("div").before($("p"));
+
   });
 </script>
 
