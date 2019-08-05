@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第一块</title>
+</head>
+<body>
+	<input type="button" value="呵呵" id="btn">
+	<input type="text" value="洋酒" id="txt">
+	<script src="../js/jQuery/jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// console.log($("#btn").val());
+			// $("#btn").val("哈哈");
+			// console.log($("#btn").attr("value"));
+			// $("#txt").val("123");
+			$("#txt").focus(function (){
+				if($(this).val() === "洋酒")
+				{
+					$(this).val("");
+				}
+			});
+
+			$("#txt").blur(function (){
+				if($(this).val() === "")
+				{
+					$(this).val("洋酒");
+				}
+			});
+
+		});
+	</script>
+</body>
+</html>

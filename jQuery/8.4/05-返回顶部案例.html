@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>第五块</title>
+  <style>
+	    body {
+	      height: 8000px;
+	    }
+
+	    a {
+	      color: #FFF;
+	    }
+
+	    .actGotop {
+	      position: fixed;
+	      bottom: 50px;
+	      right: 50px;
+	      width: 150px;
+	      height: 195px;
+	      display: none;
+	      z-index: 100;
+	    }
+
+	    .actGotop a, .actGotop a:link {
+	      width: 150px;
+	      height: 195px;
+	      display: inline-block;
+	      background: url(../images/gotop.png) no-repeat;
+	      outline: none;
+	    }
+
+	    .actGotop a:hover {
+	      width: 150px;
+	      height: 195px;
+	      background: url(../images/gotop.gif) no-repeat;
+	      outline: none;
+	    }
+  </style>
+
+
+</head>
+<body>
+<!-- 返回顶部小火箭 -->
+<div class="actGotop"><a href="javascript:;" title="Top"></a></div>
+<script src="../js/jQuery/jquery-1.12.2.js"></script>
+<script>
+	$(function (){
+		// 当页面超出去1000px的时候，让小火箭显示出来
+		$(window).scroll(function (){
+			if($(window).scrollTop() >= 1000)
+			{
+				$(".actGotop").fadeIn();
+			}else{
+				$(".actGotop").fadeOut();
+			}
+		});
+
+		// 给小火箭注册点击事件，点击后返回最顶部，同时注意要在外面注册
+		$(".actGotop").click(function (){
+			$("html,body").animate({scrollTop:0},2000);//这里之所以是给html和body设置，是因为window本身是没有scroll方法，只有只读属性的，所以使用这两个标签。而写html的同时还写了body是为了兼容性。
+		});
+
+	});
+</script>
+
+</body>
+</html>
