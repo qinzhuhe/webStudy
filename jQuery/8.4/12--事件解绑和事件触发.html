@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十二块</title>
+</head>
+<body>
+	<p>这是一个p元素</p>
+	<p>这是一个p元素</p>
+	<p>这是一个p元素</p>
+	<script src="../js/jQuery/jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			$("p").on("click mouseenter",function (){
+				alert("p元素事件触发");
+			});
+			// 移除p元素的mouseenter事件
+			$("p").off("mouseenter");
+		});
+
+		$("#btn").on("click",function (){});
+
+	</script>
+</body>
+</html>

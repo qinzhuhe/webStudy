@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第十块</title>
+	<style>
+		div{
+			width: 300px;
+			height: 500px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p>111</p>
+		<p>222</p>
+		<p>333</p>
+		<p>444</p>
+		<p>555</p>
+	</div>
+	<script src="../js/jQuery/jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			$("p").click(function (){
+				alert("这里是p元素自己注册的事件");
+			});
+			$("div").on("click","p",function (){
+				alert("这里是通过代理委托注册的事件");
+			});
+			$("div").on("click",function (){
+				alert("这里是div自己执行的事件");
+			});
+
+			// 这里点击p元素过后三个事件的执行顺序为：p元素的事件--->委托事件--->div的事件
+		});
+	</script>
+</body>
+</html>

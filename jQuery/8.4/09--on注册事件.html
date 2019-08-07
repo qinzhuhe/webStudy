@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>第九块</title>
+</head>
+<body>
+	<input type="button" value="增加" id="btn">
+	<div>
+		<p>111</p>
+		<p>222</p>
+		<p>333</p>
+		<p>444</p>
+		<p>555</p>
+	</div>
+	<script src="../js/jQuery/jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+
+			// 这里是p自己注册的事件,是一个简单事件
+			// $("p").on("click",function (){
+			// 	alert("呵呵");
+			// });
+
+			// 这里是一个委托事件,使用div创建的
+			$("div").on("click","p",function (){
+				alert("呵呵");
+			});
+
+			$("#btn").on("click",function (){
+				$("<p>我是新建的p元素</p>").appendTo("div");
+			});
+		});
+	</script>
+</body>
+</html>
