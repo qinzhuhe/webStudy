@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>同步与异步分析</title>
+	<script>
+		/**
+		 * js事件处理机制：
+		 * 单线程+事件队列
+		 *
+		 * 事件队列中的人物执行的条件：
+		 * 1、主线程已经空闲
+		 * 2、人物满足触发条件
+		 * 		一、定时函数(延时时间已经达到)
+		 * 		二、事件函数(特定事件被触发)
+		 * 		三、ajax的回调函数(服务器端有数据)
+		 *
+		 */
+
+		// console.log(1);
+
+		// setTimeout(function(){
+		// 	console.log(2)
+		// },0);
+
+		// var sum = 0;
+		// for(var i = 0;i < 10000000;i++){
+		// 	sum += i;
+		// }
+		// console.log(sum);
+
+		// console.log(3);
+
+
+		window.onload = function (){
+			var btn = document.getElementById('btn');
+			btn.onclick = function (){
+				console.log(this.value);
+			};
+			console.log(3);
+		};
+
+
+	</script>
+</head>
+<body>
+	<input type="button" value="点击" id="btn">
+</body>
+</html>

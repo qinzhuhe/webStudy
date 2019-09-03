@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>post提交方式</title>
+    <script type="text/javascript">
+    window.onload = function(){
+        var btn = document.getElementById('btn');
+        btn.onclick = function(){
+            var uname = document.getElementById('username').value;
+            var pw = document.getElementById('password').value;
+
+            // 1、创建XMLHttpRequest对象
+            var xhr = null;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();//标准
+            }else{
+                xhr = new ActiveXObject("Microsoft");//IE6
+            }
+
+            // 2、准备发送
+            var param = 'username='+uname+'&password='+pw;
+            xhr.open('post','04post.php',true);
+            // 3、执行发送动作
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            xhr.send(param);//post请求参数在这里传递，并且不需要转码
+
+            // 4、指定回调函数
+            // 这一步表示服务器返回的数据已经可以使用了，大师数据不一定是正常的，所以需要进行判定
+
+            // 该函数调用的条件就是readystate状态发生变化（不包括从0变成1）
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        var data = xhr.responseXML();
+                    }
+                }
+            }
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <form>
+        用户名：
+        <input type="text" name="username" id="username"><span id="info"></span>
+        <br> 密码：
+        <input type="text" name="password" id="password">
+        <input type="button" value="登录" id="btn">
+    </form>
+</body>
+
+</html>

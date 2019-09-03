@@ -1,0 +1,12 @@
+{
+	"name":"张三",
+	"sex":"男",
+	"age":12,
+	"lover":["coding","singing","dancing"],
+	"friend":{
+		"high":"180cm",
+		"weight":"80kg",
+		"lover":["swimming","singing","dancing"],
+		"friend":{}
+	}
+}

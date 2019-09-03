@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>json数据格式</title>
+    <script type="text/javascript">
+    /*
+    json数据和普通的js对象的区别：
+    1、json数据没有变量
+    2、jason形式的数据结尾没有分号
+    3、json数据中的键必须用双引号包住
+    */
+   /**
+    * json形式的字符串转成对象
+    * JSON.parse(str);
+    * 将对象转成字符串
+    * JSON.string(obj);
+    */
+    window.onload = function(){
+        var btn = document.getElementById('btn');
+        btn.onclick = function(){
+            var uname = document.getElementById('username').value;
+            var pw = document.getElementById('password').value;
+
+            // 1、创建XMLHttpRequest对象
+            var xhr = null;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();//标准
+            }else{
+                xhr = new ActiveXObject("Microsoft");//IE6
+            }
+            // readyState=0表示xhr对象创建完成
+            // 2、准备发送
+            var param = 'username='+uname+'&password='+pw;
+            // xhr.open('post','data.xml',true);
+            xhr.open('post','ceshi.php',true);
+            // 3、执行发送动作
+            xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xhr.send(param);//post请求参数在这里传递，并且不需要转码
+            // 4、指定回调函数
+            // 该函数调用的条件就是readyState状态发生变化（不包括从0变为1）
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                    	var data = xhr.responseText;
+                    	var d = JSON.parse(data);
+
+                    	// ceshi.php
+                    	// console.log(data[0],data[1],data[2]);//这里返回的是一个字符串
+
+                    	console.log(d.name1);
+                    	console.log(d.name2);
+                    	console.log(d.name3);
+
+
+                    	// var d = JSON.eval("("+data+")");//eval的作用就是吧字符串解析成js代码并执行
+                    	// console.log(d.name);
+                    	// console.log(d.age);
+                    	// console.log(d.friend.high);
+                    	// console.log(d.friend.weight);
+                    	// console.log(d.friend.lover);
+
+                    	// // 例如
+                    	// var tag = '<div><span>'+d.name+'</span><span>'+d.age+'</span><span>'+d.lover+'</span><span>'+d.friend.high+'</span></div>';
+                    	// document.getElementById("showInfo").innerHTML = tag;
+                    }
+                }
+            }
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <form>
+        用户名：
+        <input type="text" name="username" id="username"><span id="info"></span>
+        <br> 密码：
+        <input type="text" name="password" id="password">
+        <input type="button" value="登录" id="btn">
+    </form>
+    <div id="showInfo"></div>
+</body>
+
+</html>

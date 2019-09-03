@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax--get提交详解</title>
+	<script>
+	window.onload = function(){
+        var btn = document.getElementById('btn');
+        btn.onclick = function(){
+            var uname = document.getElementById('name').value;
+            var pw = document.getElementById('pass').value;
+
+            // 1、创建XMLHttprequest对象
+            // var xhr = new XMLHttpRequest();
+
+                var xhr = null;
+
+                // 第一种IE6兼容处理
+                if(window.XMLHttpRequest){
+                    xhr = new XMLHttpRequest();//标准
+                }else{
+                    xhr = new ActiveXObject("Microsoft");//IE6
+                }
+
+                // 第二种兼容处理，兼容IE6
+                // try{
+                //     xhr = new XMLHttpRequest();
+                // }catch(e){
+                //     xhr = new ActiveXObject("Microsoft");
+                // }
+
+            // 2、准备发送
+            /**
+             * 参数一：请求方式(get获取数据；post提交数据)
+             * 参数二：请求地址
+             * 参数三：同步或异步标志位，默认是true表示异步，false表示同步
+             *
+             * 如果是get请求那么请求参数必须在url中传递
+             * encodeURI()用来对中文参数进行编码，防止乱码
+             */
+            var param = 'username='+uname+'&password='+pw;
+            xhr.open('get','02get.php?'+encodeURI(param),true);
+
+            // 3、执行发送动作
+            xhr.send(null);//get请求这里需要添加null参数
+
+            // 4、指定回调函数
+            xhr.onreadystatechange = function (){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        alert(xhr.responseText);
+                    }
+                }
+            };
+
+        }
+    }
+	</script>
+</head>
+<body>
+	<div>
+		<form>
+			用户名：<input type="text" name="username" id="name">
+			<span id="info"></span><br>
+			密码：<input type="text" name="password" id="pass">
+			<input type="button" value="登录" id="btn">
+		</form>
+	</div>
+</body>
+</html>

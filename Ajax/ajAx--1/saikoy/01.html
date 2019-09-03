@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装应用案例</title>
+	<style>
+		#container{
+			width: 360px;
+			min-height: 100px;
+			background-color: lightgreen;
+			position: absolute;
+			left: 50%;
+			top: 10px;
+			margin-left: -180px;
+		}
+	</style>
+	<script src="../encap/ajax.js"></script>
+	<script>
+		/**
+		 * 功能需求：页面输入图书编号，查询服务器端的图书信息并且解析渲染
+		 */
+			window.onload = function (){
+			var btn = document.getElementById('btn');
+			btn.onclick = function (){
+				var code = document.getElementById('code').value;
+				ajax('../saikoy/01.php','get','code='+code,'json',function (data){
+					// 解析数据并且渲染页面
+					var info = document.getElementById('info');
+
+					if(data.flag == 0 ){
+						info.innerHTML = '此书不存在本库中';
+					}else{
+						var tag = '<ul><li>书名：'+data.bookname+'</li><li>'+data.author+'</li><li>'+data.desc+'</li></ul>';
+						info.innerHTML = tag;
+
+					}
+				});
+			}
+		};
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div>
+			图书编号：<input type="text" name="code" id="code">
+			<input type="button" value="查询" id="btn">
+		</div>
+		<div id="info"></div>
+	</div>
+</body>
+</html>
