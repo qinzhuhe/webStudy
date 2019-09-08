@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jsonp--jQuery封装方法调用</title>
+	<script src="../jquery-3.4.1.min.js"></script>
+	<script>
+		/**
+		 * jQuery的ajax方法中针对jsonp设定的两个参数：
+		 * jsonp
+		 * jsonpCallback
+		 */
+		$(function (){
+			$('#btn').click(function (){
+				$.ajax({
+					type : 'get',
+					url : 'http://ceshi.me:8080/1/jsonp.php',
+					dataType : 'jsonp',
+					jsonp : 'ac',//jsonp属性的作用就是自定义参数名字(callback = abc 这里的名字指的是等号前面的键，而后端根据这个键获取方法名，jQuery的默认参数名称是callback)
+					jsonpCallback : 'abc',//这个属性的作用就是自定义回调函数的名字(callback='abc'，将后端返回的函数调用改成你设定的值)
+					data : {},
+					success : function (data){
+						console.log(data.username,data.password);
+					},
+					error : function (data){
+						console.dir(data);
+						console.log('flietrue');
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="点击" id="btn">
+</body>
+</html>

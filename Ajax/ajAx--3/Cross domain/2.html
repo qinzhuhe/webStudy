@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jsonp原理分析</title>
+	<script src="http://ceshi.io/1/1.php">
+		// var data = {"username":"张三","password":"123"};
+	</script>
+	<script>
+		/**
+		 * script标签里面的async属性表示异步加载资源，默认情况下是同步加载
+		 *
+		 * 这种方式存在的两个主要的问题：
+		 * 1、必须保证加载的顺序
+		 * 2、不方便通过程序传递顺序
+		 */
+		console.log(data);// 这里已经将后台传送的json数据直接解析传递了过来，所以可以直接输出其中的属性内容
+		console.log(data.username);
+		console.log(data.password);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

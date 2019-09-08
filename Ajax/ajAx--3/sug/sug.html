@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试使用</title>
+	<style>
+		#dv{
+			width: 300px;
+			min-height: 300px;
+			background-color: lightgreen;
+			margin: auto;
+			text-align: center;
+			padding: 10px;
+		}
+		#dv ul{
+			margin: 0;
+		}
+		#dv li{
+			list-style: none;
+			background-color: lightGray;
+			text-align: center;
+			padding-left: 45px;
+			height: 25px;
+			line-height: 25px;
+			cursor: pointer;
+		}
+	</style>
+	<script src="../jquery-3.4.1.min.js"></script>
+	<script>
+		$(function (){
+			$('#keyword').keyup(function (){
+				var kw = $(this).val();
+				$.ajax({
+					url : 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+					jsonp : 'cb',
+					data : {wd : kw},
+					dataType : 'jsonp',
+					success : function (data){
+						var sug = data.s;
+						var tag = '<ul>';
+						$.each(sug,function (i,e){
+							tag += '<li>'+e+'</li>';
+						});
+						tag += '</ul>'
+						$("#info").html(tag);
+						$("#info").find("li").hover(function(){
+							$(this).css('background-color','lightblue');
+						},function (){
+							$(this).css('background-color','lightGray');
+						});
+					}
+
+				});
+			});
+		})
+	</script>
+</head>
+<body>
+	<div id="dv">
+		<input type="text" name="keyword" id="keyword">
+		<input type="button" value="搜索" id="btn">
+		<div id="info"></div>
+	</div>
+</body>
+</html>

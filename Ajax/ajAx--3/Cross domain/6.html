@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试封装jsonp方法</title>
+	<script src="ajax.js"></script>
+	<script>
+		ajax({
+			url : 'http://ceshi.me:8080/1/jsonp.php',
+			dataType : 'jsonp',
+			data : {username:'zhangsan',password:'123'},
+			jsonp : 'cb',
+			jsonpCallback : 'abc', 
+			success : function (data){//这里是形参
+				console.log(data.username,data.password);
+			}
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>初识跨域</title>
+	<script src="../ajax.js"></script>
+	<script src="../jquery-3.4.1.min.js"></script>
+	<script>
+		window.onload = function (){
+			var btn = document.getElementById("btn");
+			btn.onclick = function (){
+				$.ajax({
+					type : 'get',
+					url : 'http://ceshi.io/1/1.php',
+					success:function (data){
+						console.log(data);
+					},
+					error:function (){
+						console.log('faliure')
+					}
+				});
+			};
+		};
+	</script>
+</head>
+<body>
+	<input type="button" value="id" id="btn">
+</body>
+</html>

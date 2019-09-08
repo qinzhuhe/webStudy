@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jsonp原理分析--动态创建script标签</title>
+	<script>
+		/**
+		 * abc就是毁掉函数
+		 * 这就是jsonp的本质：动态创建script标签，然后通过他的src属性发送跨域请求，然后服务器端响应的数据格式为【函数调用(函数名(实参){})】，所以在发送请求钱必须先声明一个函数，并且函数的名字与参数中传递的名字要一致。
+		 * 注意：这里声明的函数是由服务器响应的内容（响应的内容实际就是一段js代码-由函数来调用）来调用的
+		 * @type {[type]}
+		 */
+		var script = document.createElement('script');
+		script.src = 'http://ceshi.me:8080/1/1.php?callback=abc&username=zhangsan&password=123';
+		var head = document.getElementsByTagName('head')[0];
+		head.appendChild(script);
+
+		function abc(data){
+			console.log(data.username,data.password);
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

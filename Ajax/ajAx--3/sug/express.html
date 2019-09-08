@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>快递查询</title>
+	<style>
+		#container{
+			width: 400px;
+			min-height: 300px;
+			background-color: lightgreen;
+			margin: auto;
+			padding: 10px;
+			text-align: center;
+		}
+	</style>
+	<script src="../jquery-3.4.1.min.js"></script>
+	<script>
+		$(function (){
+			$("#btn").click(function (){
+				var code = $("#code").val();
+				$.ajax({
+					// url : 'https://sp0.baidu.com/9_Q4sjW91Qh3otqbppnN2DJv/pae/channel/data/asyncqury',
+					url : 'http://ceshi.io/1/express.php',
+					data : {code : code},
+					jsonp : 'cb',
+					dataType : 'jsonp',
+					success : function (data){
+						// console.log(data);
+						var ems = data.data.info.context;
+						// console.log(ems);
+						var tag = '<url>';
+						$.each(ems,function (i,e){
+							// 时间格式 ： 2019年9月7日 下午5:18:01
+							var time = e.time;
+							var t = new Date();
+							t.setTime(time + '000');
+							var data = t.getFullYear() + '年'  + (t.getMonth() + 1) + '月' + t.getDay() + (t.getHours() > 12 ? '上午' : '下午') + (t.getHours() % 12) + ':' + t.getMinutes() + ':' + t.getSeconds();
+							tag += '<li><div>' + data + '</div><div>' + e.desc + '</div></li>';
+							tag += '</ul>';
+							$("#info").html(tag);
+						});
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="container">
+		快递单号：<input type="" name="code" id="code">
+		<input type="button" value="查询" id="btn">
+		<div id="info"></div>
+	</div>
+</body>
+</html>

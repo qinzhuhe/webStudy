@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试整合ajax方法</title>
+	<script src="../ajax1.js"></script>
+	<script>
+		// ajax({
+		// 	type : 'get',
+		// 	url : 'http://rons.io:8080/Cross domain/data.php',
+		// 	dataType : 'json',
+		// 	success : function (data){
+		// 		console.log(data);
+		// 	}
+		// });
+		
+		ajax({
+			type : 'get',
+			// url : 'http://rons.io:8080/Cross domain/data.php',
+			url : 'http://ceshi.me:8080/1/jsonp.php',
+			dataType : 'jsonp',
+			data : {username : 'lisi',password : '123456'},
+			jsonp : 'cb',
+			jsonpCallback : 'ac',
+			success : function (data){
+				console.log(data.username,data.password);
+			}
+		});
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

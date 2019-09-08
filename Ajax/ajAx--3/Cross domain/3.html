@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态创建script标签</title>
+	<script>
+		/**
+		 * 动态创建script发出去的请求是异步请求
+		 */
+
+				var script = document.createElement('script');
+				script.src = 'http://ceshi.io/1/1.php';
+				var head = document.getElementsByTagName('head')[0];
+				head.appendChild(script);
+				// console.log(data);
+				// 这里的foo函数由谁调用？实际上由服务器相应的内容（这就是一种函数调用）调用
+				function foo(data){
+					console.log(data.username,data.password);
+				}
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
