@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>art模板引擎形式使用</title>
+	<script src="../template-web.js"></script>
+	<script type="text/html" id="template">
+		<h1>{{title}}</h1>
+		{{if books}}
+			{{each books as value i}}
+				<div>{{value}}</div>
+			{{/each}}
+		{{/if}}
+	</script>
+	<script>
+		window.onload = function (){
+			var data = {
+				title : '图书信息',
+				books : ['三国演义','水浒传','西游记','红楼梦']
+			}
+			// template的作用就是把模板和数据拼接在一块生成一个静态html片段，实际上就是该方法的返回值
+			// 参数一：模板ID
+			// 参数二：用来渲染的数据
+			var html = template('template',data);
+			var con = document.getElementById('container');
+			con.innerHTML = html;
+		};
+	</script>
+</head>
+<body>
+	<div id="container"></div>
+</body>
+</html>
