@@ -1,0 +1,257 @@
+/**
+ * 八个背景颜色
+ */
+
+#fp-nav ul li a span { /*  提高层叠性 */
+	background: #f40!important;
+}
+/*第一屏幕制作 start*/
+.section1{
+	background: #fadd67 url(../images/bj1.png) no-repeat center bottom;
+}
+.fly{
+	position: absolute;
+	right: 20%;
+	top: 10%;
+}
+.shirt01{
+	position: absolute;
+	left: 50%;
+	margin-left: -200px;
+	bottom: 335px;
+}
+.goods{
+	position: absolute;
+	left: 50%;
+	margin-left: -420px;
+	bottom: 150px;
+}
+/*第一屏屏幕制作 end*/
+/*第二屏屏幕制作 start*/
+.section2{
+	background: #84a2d4 url(../images/bj2.png) no-repeat center bottom;
+	z-index: 2;
+}
+.computer{
+	width: 990px;
+	height: 500px;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	/*background: rgba(0,0,0,.3);*/
+	bottom: 0;
+}
+.search{
+	width: 222px;
+	height: 42px;
+	background: url(../images/search.png) no-repeat;
+	right: -30px;
+	bottom: 300px;
+	position: absolute;
+	display: none;
+}
+.search-wrods{
+	position: absolute;
+	right: 35px;
+	top: 5px;
+	opacity: 0; /*因为后面需要淡入淡出的效果，所以需要使用透明度，而不是使用display*/
+}
+.search-02-1{
+	position: absolute;
+	bottom: 300px;
+	right: 380px;
+	display: none; /*这里不需要淡入淡出，要么显示要么隐藏*/
+}
+.goods-02{
+	height: 100px;
+	position: absolute;
+	bottom: 217px;
+	right: 270px;
+	display: none; /*在jQuery中使用show | hide隐藏*/
+}
+.words-01,.word-02{
+	position: absolute;
+	left: 50%;
+	bottom: 550px;
+	transform: translateX(-50%);
+}
+.word-02{
+	opacity: 0;
+}
+.shirt-02{
+	position: absolute;
+	bottom: 345px;
+	left: 395px;
+	width: 100px;
+	display: none;
+	z-index: 10;
+}
+.cover{
+	position: absolute;
+	bottom: 334px;
+	right: 495px;
+	width: 101px;
+	height: 90px;
+	z-index: 5;
+	background-color: #fff;
+	display: none;
+}
+/*第二屏幕制作 end*/
+/*第三屏制作 start*/
+.section3{
+	background: #ef674d;
+	z-index: 1;
+}
+.main{
+	position: absolute;
+	width: 700px;
+	height: 500px;
+	/*background-color: pink;*/
+	background: url(../images/main.png) no-repeat center center;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 50px;
+}
+.select{
+	width: 300px;
+	height: 250px;
+	position: absolute;
+	bottom: 0;
+	right: 8px;
+	/*background-color: pink;*/
+}
+.img{
+	position: absolute;
+	top: 0;
+}
+.img-01-a{
+	opacity: 0; /*这里先不用display，而是使用opacity淡入效果*/
+}
+.btn{
+	position: absolute;
+	bottom: 20px;
+}
+.btn-01-a{
+	opacity: 0;
+}
+/*沙发*/
+.shirt-03,.tlf{
+	position: absolute;;
+	left: 115px;
+	bottom: 200px;
+	display: none;
+}
+/*第三屏制作 end*/
+/*第四屏制作 start*/
+.section4{
+	background: #fed url(../images/bj4.png) no-repeat center bottom;
+}
+.cloud{
+	position: absolute;
+	left: 50%;
+	bottom: 550px;
+}
+.word{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 500px;
+}
+.word-04-a{
+	opacity: 0;
+}
+.car{
+	width: 500px;
+	position: absolute;
+	/*background-color: pink;*/
+	bottom: 50px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.car-img{
+	position: absolute;
+	bottom: 200px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: -1; /*负值 向下叠加*/
+	display: none;
+}
+.note{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: pink;
+	bottom: 180px;
+	display: none;
+}
+.note-img{
+	position: absolute;
+	top: 60px;
+	left: 60px;
+	opacity: 0; /*淡入淡出效果，使用opacity*/
+}
+/*第四屏制作 end*/
+.section5{
+	background: #d04759 url(../images/bj5.png);
+}
+.section6{
+	background: #84d9ed url(../images/bj6.png) no-repeat 25% 100%;
+}
+.section7{
+	background: #8ac060 url(../images/bj7.png) no-repeat 50% 100%;
+}
+.section8{
+	background: url(../images/bj8.png);
+}
+
+/*直接进入购物中心*/
+.go{
+	position: fixed;
+	top: 5%;
+	right: 5%;
+	z-index: 99;
+}
+
+
+/*动画组*/
+.updown{ /*类似与js的调用函数*/
+	animation: fly 3s linear infinite; /*匀速*/
+}
+
+.shirt-updown{
+	animation: shirt01 2.5s linear infinite; /*匀速*/
+}
+
+@keyframes fly{ /*类似于js的声明函数 function*/
+	0% {
+		top: 10%;
+	}
+	50% {
+		top: 20%;
+	}
+	100% {
+		top: 10%;
+	}
+}
+
+@keyframes shirt01{ /*类似于js的声明函数 function*/
+	50%{
+		bottom: 360px;
+	}
+	100%{
+		bottom: 335px;
+	}
+}
+
+/*云彩第一组*/
+.cloud-back1{
+	animation: cloud 50s linear infinite; /*匀速*/
+}
+@keyframes cloud{
+	50%{
+		left: -10%;
+	}
+	100%{
+		left: 50%;
+	}
+}
