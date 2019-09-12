@@ -2,6 +2,12 @@
  * 八个背景颜色
  */
 
+html,body,.section{
+	min-height: 600px;
+	min-width: 1000px;
+	/*最小的宽度和高度，防止图片变形*/
+}
+
 #fp-nav ul li a span { /*  提高层叠性 */
 	background: #f40!important;
 }
@@ -167,6 +173,7 @@
 	bottom: 50px;
 	left: 50%;
 	transform: translateX(-50%);
+	z-index: 50;
 }
 .car-img{
 	position: absolute;
@@ -176,6 +183,7 @@
 	z-index: -1; /*负值 向下叠加*/
 	display: none;
 }
+
 .note{
 	position: absolute;
 	left: 50%;
@@ -191,18 +199,176 @@
 	opacity: 0; /*淡入淡出效果，使用opacity*/
 }
 /*第四屏制作 end*/
+/*第五屏制作 start*/
 .section5{
 	background: #d04759 url(../images/bj5.png);
+	/*overflow: hidden;*/
+	z-index: 1;
 }
+.words-05{
+	position: absolute;
+	left: 20%;
+	top: 10%;
+	opacity: 0;
+}
+.card-05{
+	position: absolute;
+	left: 20%;
+	bottom: 200px;
+	z-index: 10;
+}
+.order-05 {
+	position: absolute;
+	left: 27%;
+	bottom: 270px;
+}
+.t1f-05 {
+	position: absolute;
+	bottom: 800px;
+	left: 25%;
+	display: none;
+}
+.mouse, .mouse-a{
+	position: absolute;
+	right: 20%;
+	bottom: 200px;
+}
+.mouse-a{
+	opacity: 0;
+}
+.hand-05{
+	position: absolute;
+	right: 24%;
+	bottom: -375px;
+}
+/*为了不让其他页面重复显示鼠标和手*/
+.overFlow{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+/*第五屏制作 end*/
+/*第六屏制作 start*/
 .section6{
 	background: #84d9ed url(../images/bj6.png) no-repeat 25% 100%;
 }
+.box-06{
+	position: absolute;
+	left: 123px;
+	bottom: 500px;
+	z-index: 50;
+}
+.car-06{
+	position: absolute;
+	bottom: 0;
+	right: 50%;
+	z-index: 60;
+}
+.cloud-06{
+	position: absolute;
+	left: 50%;
+	bottom: 550px;
+	animation: cloud6 30s;
+}
+.pop-06{
+	position: absolute;
+	bottom: 119px;
+	right: 48%;
+	display: none;
+	z-index: 50;
+}
+.man{
+	right: 50%;
+	bottom: 0;
+	position: absolute;
+	height: 100px;
+}
+.women{
+	position: absolute;
+	right: 315px;
+	bottom: 116px;
+	height: 123px;
+	display: none;
+	z-index: 50;
+}
+.door{
+	position: absolute;
+	right: 285px;
+	bottom: 116px;
+	/*display: none;*/
+	opacity: 0;
+}
+.pop-07{
+	position: absolute;
+	right: 445px;
+	bottom: 400px;
+	z-index: 40;
+	display: none;
+}
+.words-06-a{
+	position: absolute;
+	left: 10%;
+	bottom: 479px;
+	display: none;
+}
+/*第六屏制作 end*/
+/*第七屏制作 start*/
 .section7{
 	background: #8ac060 url(../images/bj7.png) no-repeat 50% 100%;
 }
+.start{
+	position: absolute;
+	left: 50%;
+	bottom: 439px;
+	margin-left: -295px;
+	width: 0;
+	height: 20px;
+	background: url(../images/star.png) no-repeat;
+	background-size: 97px;
+}
+.good-07{
+	position: absolute;
+	bottom: 382px;
+	left: 50%;
+	margin-left: -289px;
+	display: none;
+}
+/*第七屏制作 end*/
+
+/*第八屏制作 start*/
 .section8{
 	background: url(../images/bj8.png);
 }
+.beginShoping{
+	position: absolute;
+	bottom: 365;
+	left: 50%;
+	transform: translateX(-50%);
+
+}
+.btn-08-a{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.again-08{
+	position: absolute;
+	bottom: 403px;
+	left: 50%;
+	margin-left: 240px;
+	cursor: pointer;
+}
+.hand-08{
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+
+}
+/*第八屏制作 end*/
 
 /*直接进入购物中心*/
 .go{
@@ -253,5 +419,22 @@
 	}
 	100%{
 		left: 50%;
+	}
+}
+
+/*字体翻转3D动画*/
+.words-05-a{
+	animation: words5 3s forwards;
+}
+@keyframes words5 {
+	100%{
+		opacity: 1;
+		transform: translateZ(100px) rotateY(360deg);
+	}
+}
+/*第六屏云动画*/
+@keyframes cloud6 {
+	50%{
+		left: 10%;
 	}
 }
