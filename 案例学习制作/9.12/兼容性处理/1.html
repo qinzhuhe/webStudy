@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>兼容性处理</title>
+	<style type="text/css">
+		header, footer, nav, section, article{
+			width: 200px;
+			height: 200px;
+			margin: 10px;
+			background-color: pink;
+			display: block;
+		}
+	</style>
+	<script type="text/javascript" src=""></script>
+</head>
+<body>
+	<!-- 1、想要ie低版本能够认识html5新标签 创建标签的方式 -->
+	<!-- <script>
+		document.createElement("header");
+		document.createElement("footer");
+	</script> -->
+	<header>123</header>
+	<footer>abc</footer>
+	<nav>456</nav>
+	<section>def</section>
+	<article>789</article>
+</body>
+</html>
