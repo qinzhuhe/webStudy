@@ -13,7 +13,8 @@
   <script>NProgress.start()</script>
 
   <div class="main">
-    <?php include 'inc/navbar.php' ?>
+    <?php include 'inc/navbar.php'; ?>
+
     <div class="container-fluid">
       <div class="page-title">
         <h1>所有文章</h1>

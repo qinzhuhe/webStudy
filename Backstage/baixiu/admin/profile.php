@@ -13,7 +13,8 @@
   <script>NProgress.start()</script>
 
   <div class="main">
-    <?php include 'inc/navbar.php' ?>
+    <?php include 'inc/navbar.php'; ?>
+
     <div class="container-fluid">
       <div class="page-title">
         <h1>我的个人资料</h1>
@@ -71,7 +72,7 @@
   </div>
 
   <?php $current_page = 'profile'; ?>
-  <?php include 'inc/sidebar.php' ?>
+  <?php include 'inc/sidebar.php'; ?>
 
   <script src="/static/assets/vendors/jquery/jquery.js"></script>
   <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
