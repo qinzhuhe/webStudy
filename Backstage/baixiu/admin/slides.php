@@ -13,8 +13,7 @@
   <script>NProgress.start()</script>
 
   <div class="main">
-    <?php include 'inc/navbar.php'; ?>
-
+    <?php include 'inc/navbar.php' ?>
     <div class="container-fluid">
       <div class="page-title">
         <h1>图片轮播</h1>
@@ -88,7 +87,7 @@
   </div>
 
   <?php $current_page = 'slides'; ?>
-  <?php include 'inc/sidebar.php'; ?>
+  <?php include 'inc/sidebar.php' ?>
 
   <script src="/static/assets/vendors/jquery/jquery.js"></script>
   <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>

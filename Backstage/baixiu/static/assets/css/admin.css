@@ -1,3 +1,7 @@
+#btn-batch, #btn_delete, #thumbnail, #p_denger{
+  display: none;
+}
+
 .nprogress-busy {
   cursor: wait;
 }

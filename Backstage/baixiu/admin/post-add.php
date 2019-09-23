@@ -13,8 +13,7 @@
   <script>NProgress.start()</script>
 
   <div class="main">
-    <?php include 'inc/navbar.php'; ?>
-
+    <?php include 'inc/navbar.php' ?>
     <div class="container-fluid">
       <div class="page-title">
         <h1>写文章</h1>
@@ -23,7 +22,7 @@
       <!-- <div class="alert alert-danger">
         <strong>错误！</strong>发生XXX错误
       </div> -->
-      <form class="row">
+      <form class="row" action=" <?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="col-md-9">
           <div class="form-group">
             <label for="title">标题</label>
@@ -31,7 +30,7 @@
           </div>
           <div class="form-group">
             <label for="content">标题</label>
-            <textarea id="content" class="form-control input-lg" name="content" cols="30" rows="10" placeholder="内容"></textarea>
+            <script id="content" name="content" type="text/plain">这是初识值</script>
           </div>
         </div>
         <div class="col-md-3">
@@ -43,7 +42,7 @@
           <div class="form-group">
             <label for="feature">特色图像</label>
             <!-- show when image chose -->
-            <img class="help-block thumbnail" style="display: none">
+            <img id="thumbnail" class="help-block thumbnail">
             <input id="feature" class="form-control" name="feature" type="file">
           </div>
           <div class="form-group">
@@ -72,11 +71,16 @@
     </div>
   </div>
 
-  <?php $current_page = 'post-add'; ?>
-  <?php include 'inc/sidebar.php'; ?>
+  <?php $current_page = 'post_add'; ?>
+  <?php include 'inc/sidebar.php' ?>
 
   <script src="/static/assets/vendors/jquery/jquery.js"></script>
   <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="/static/assets/vendors/ueditor/ueditor.config.js"></script>
+  <script src="/static/assets/vendors/ueditor/ueditor.all.js"></script>
+  <script>
+    UE.getEditor('content')
+  </script>
   <script>NProgress.done()</script>
 </body>
 </html>

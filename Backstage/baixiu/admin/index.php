@@ -1,27 +1,32 @@
 <?php
 
-// // 校验数据当前访问用户的 箱子（session）有没有登录的登录标识
-// session_start();
+  // 校验数据当前访问用户的箱子(session)有没有登录的标识
+    // session_start();
+    // if(empty($_SESSION['current_login_user'])){
+    //   // 没有当前登录用户信息，意味着没有进行登录
+    //   header('Location: /admin/login.php');
+    // }
 
-// if (empty($_SESSION['current_login_user'])) {
-//   // 没有当前登录用户信息，意味着没有登录
-//   header('Location: /admin/login.php');
-// }
+    require_once '../function.php';
+    // 判断用户是否登陆一定是最先去做的
+    bx_get_current_user();
 
-require_once '../functions.php';
+    // 获取页面所需要的数据
+    // 如果有重复的操作一定要封装起来
 
-// 判断用户是否登录一定是最先去做
-xiu_get_current_user();
+    // 文章总量
+    $posts = bx_fetch_one('select count(1) as num from posts;')['num'];
+    // 草稿总量
+    $posts_cao = bx_fetch_one('select count(1) as num from posts where status = "drafted"')['num'];
+    // 分类
+    $cate = bx_fetch_one('select count(1) as num from categories')['num'];
+    // 评论
+    $comments = bx_fetch_one('select count(1) as num from comments')['num'];
+    // 待审核评论
+    $comments_held = bx_fetch_one('select count(1) as num from comments where status = "held"')['num'];
 
-// 获取界面所需要的数据
-// 重复的操作一定封装起来
-$posts_count = xiu_fetch_one('select count(1) as num from posts;')['num'];
 
-$categories_count = xiu_fetch_one('select count(1) as num from categories;')['num'];
-
-$comments_count = xiu_fetch_one('select count(1) as num from comments;')['num'];
-
-?>
+ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -37,8 +42,7 @@ $comments_count = xiu_fetch_one('select count(1) as num from comments;')['num'];
   <script>NProgress.start()</script>
 
   <div class="main">
-    <?php include 'inc/navbar.php'; ?>
-
+    <?php include 'inc/navbar.php' ?>
     <div class="container-fluid">
       <div class="jumbotron text-center">
         <h1>One Belt, One Road</h1>
@@ -52,16 +56,16 @@ $comments_count = xiu_fetch_one('select count(1) as num from comments;')['num'];
               <h3 class="panel-title">站点内容统计：</h3>
             </div>
             <ul class="list-group">
-              <li class="list-group-item"><strong><?php echo $posts_count; ?></strong>篇文章（<strong>2</strong>篇草稿）</li>
-              <li class="list-group-item"><strong><?php echo $categories_count; ?></strong>个分类</li>
-              <li class="list-group-item"><strong><?php echo $comments_count; ?></strong>条评论（<strong>1</strong>条待审核）</li>
+              <li class="list-group-item"><strong><?php echo $posts ?></strong>篇文章（<strong><?php echo $posts_cao ?></strong>篇草稿）</li>
+              <li class="list-group-item"><strong><?php echo $cate ?></strong>个分类</li>
+              <li class="list-group-item"><strong><?php echo $comments ?></strong>条评论（<strong><?php echo $comments_held ?></strong>条待审核）</li>
             </ul>
           </div>
         </div>
-        <div class="col-md-4">
-          <canvas id="chart"></canvas>
-        </div>
         <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <canvas id="chart" height="400px" width="400px"></canvas>
+        </div>
       </div>
     </div>
   </div>
@@ -71,7 +75,7 @@ $comments_count = xiu_fetch_one('select count(1) as num from comments;')['num'];
 
   <script src="/static/assets/vendors/jquery/jquery.js"></script>
   <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
-  <script src="/static/assets/vendors/chart/Chart.js"></script>
+  <script src="/static/assets/vendors/chart/Chart.min.js"></script>
   <script>
     var ctx = document.getElementById('chart').getContext('2d');
     var myChart = new Chart(ctx, {
@@ -79,29 +83,25 @@ $comments_count = xiu_fetch_one('select count(1) as num from comments;')['num'];
       data: {
         datasets: [
           {
-            data: [<?php echo $posts_count; ?>, <?php echo $categories_count; ?>, <?php echo $comments_count; ?>],
+            data: [<?php echo $posts ?>,<?php echo $posts_cao ?>,<?php echo $cate ?>,<?php echo $comments_held ?>,<?php echo $comments ?>],
             backgroundColor: [
+              '#7401DF',
               'hotpink',
               'pink',
-              'deeppink',
+              '#298A08',
+              '#086A87'
             ]
           },
-          {
-            data: [<?php echo $posts_count; ?>, <?php echo $categories_count; ?>, <?php echo $comments_count; ?>],
-            backgroundColor: [
-              'hotpink',
-              'pink',
-              'deeppink',
-            ]
-          }
         ],
 
         // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [
-          '文章',
-          '分类',
-          '评论'
-        ]
+            '文章',
+            '草稿文章',
+            '分类',
+            '待审核评论',
+            '评论'
+        ],
       }
     });
   </script>

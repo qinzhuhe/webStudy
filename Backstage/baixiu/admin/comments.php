@@ -1,3 +1,11 @@
+<?php
+  session_start();
+  if(empty($_SESSION['current_login_user'])){
+    // 没有当前登录用户信息，意味着没有进行登录
+    header('Location: /admin/login.php');
+  }
+
+ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -8,13 +16,82 @@
   <link rel="stylesheet" href="/static/assets/vendors/nprogress/nprogress.css">
   <link rel="stylesheet" href="/static/assets/css/admin.css">
   <script src="/static/assets/vendors/nprogress/nprogress.js"></script>
+  <style>
+    #loading {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,.7);
+      z-index: 999;
+    }
+
+    .lds-ellipsis {
+      display: inline-block;
+      position: relative;
+      width: 64px;
+      height: 64px;
+    }
+    .lds-ellipsis div {
+      position: absolute;
+      top: 27px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #fff;
+      animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+    .lds-ellipsis div:nth-child(1) {
+      left: 6px;
+      animation: lds-ellipsis1 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(2) {
+      left: 6px;
+      animation: lds-ellipsis2 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(3) {
+      left: 26px;
+      animation: lds-ellipsis2 0.6s infinite;
+    }
+    .lds-ellipsis div:nth-child(4) {
+      left: 45px;
+      animation: lds-ellipsis3 0.6s infinite;
+    }
+    @keyframes lds-ellipsis1 {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    @keyframes lds-ellipsis3 {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(0);
+      }
+    }
+    @keyframes lds-ellipsis2 {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(19px, 0);
+      }
+    }
+  </style>
 </head>
 <body>
   <script>NProgress.start()</script>
 
   <div class="main">
-    <?php include 'inc/navbar.php'; ?>
-
+    <?php include 'inc/navbar.php' ?>
     <div class="container-fluid">
       <div class="page-title">
         <h1>所有评论</h1>
@@ -25,17 +102,12 @@
       </div> -->
       <div class="page-action">
         <!-- show when multiple checked -->
-        <div class="btn-batch" style="display: none">
+        <div class="btn-batch">
           <button class="btn btn-info btn-sm">批量批准</button>
           <button class="btn btn-warning btn-sm">批量拒绝</button>
           <button class="btn btn-danger btn-sm">批量删除</button>
         </div>
         <ul class="pagination pagination-sm pull-right">
-          <li><a href="#">上一页</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">下一页</a></li>
         </ul>
       </div>
       <table class="table table-striped table-bordered table-hover">
@@ -47,56 +119,124 @@
             <th>评论在</th>
             <th>提交于</th>
             <th>状态</th>
-            <th class="text-center" width="100">操作</th>
+            <th class="text-center" width="150">操作</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="danger">
-            <td class="text-center"><input type="checkbox"></td>
-            <td>大大</td>
-            <td>楼主好人，顶一个</td>
-            <td>《Hello world》</td>
-            <td>2016/10/07</td>
-            <td>未批准</td>
-            <td class="text-center">
-              <a href="post-add.html" class="btn btn-info btn-xs">批准</a>
-              <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center"><input type="checkbox"></td>
-            <td>大大</td>
-            <td>楼主好人，顶一个</td>
-            <td>《Hello world》</td>
-            <td>2016/10/07</td>
-            <td>已批准</td>
-            <td class="text-center">
-              <a href="post-add.html" class="btn btn-warning btn-xs">驳回</a>
-              <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center"><input type="checkbox"></td>
-            <td>大大</td>
-            <td>楼主好人，顶一个</td>
-            <td>《Hello world》</td>
-            <td>2016/10/07</td>
-            <td>已批准</td>
-            <td class="text-center">
-              <a href="post-add.html" class="btn btn-warning btn-xs">驳回</a>
-              <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-            </td>
-          </tr>
         </tbody>
       </table>
     </div>
   </div>
 
   <?php $current_page = 'comments'; ?>
-  <?php include 'inc/sidebar.php'; ?>
+  <?php include 'inc/sidebar.php' ?>
 
+  <div id="loading">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+  </div>
+
+  <script id="comments_tmpl" type="text/x-jsrender">
+    {{for comments}}
+      <tr {{if status == 'held'}} class = "warning" {{else status == 'rejected'}} class = "danger" {{/if}} data-id = {{:id}}>
+        <td class="text-center"><input type="checkbox"></td>
+        <td>{{:author}}</td>
+        <td>{{:content}}</td>
+        <td>{{:post_title}}</td>
+        <td>{{:created}}</td>
+        <td>{{:status}}</td>
+        <td class="text-center">
+          {{if status == 'held'}}
+            <a href="post-add.html" class="btn btn-info btn-xs">批准</a>
+            <a href="post-add.html" class="btn btn-warning btn-xs">拒绝</a>
+          {{/if}}
+          <a href="javascript:;" class="btn btn-danger btn-xs btn-delete">删除</a>
+        </td>
+      </tr>
+    {{/for}}
+  </script>
   <script src="/static/assets/vendors/jquery/jquery.js"></script>
   <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="/static/assets/vendors/jsrender/jsrender.js"></script>
+  <script src="/static/assets/vendors/twbs-pagination/jquery.twbsPagination.js"></script>
+
+  <script>
+    $(document)
+     .ajaxStart(function () {
+       NProgress.start()
+       $('#loading').css('display','flex');
+     })
+     .ajaxStop(function () {
+       NProgress.done()
+       $('#loading').css('display','none');
+     })
+
+     var currentPage = 1;
+
+    function loadPageData (page){
+       $('tbody').fadeOut();
+       $.getJSON('/admin/api/comments.php', { page : page }, function(data) {
+          if (page > data.total_pages)
+          {
+            loadPageData(data.total_pages);
+            return
+          }
+          $('.pagination').twbsPagination('destroy');
+          $('.pagination').twbsPagination({
+            first: '&laquo;',
+            last: '&raquo;',
+            prev: '&lt;',
+            next: '&gt;',
+            startPage: page,
+            totalPages : data.total_pages,
+            visiablePages : 5,
+            initiateStartPageClick : false,
+            onPageClick : function (e, page){
+              loadPageData(page);
+            }
+          })
+          var html = $('#comments_tmpl').render({ comments : data.comments });
+          $('tbody').html(html).fadeIn();
+          currentPage = page;
+      });
+    }
+
+    // 在页面进行改变后重定位到当前页码的地点
+    loadPageData(currentPage);
+
+    // $('.pagination').twbsPagination({
+    //     first: '&laquo;',
+    //     last: '&raquo;',
+    //     prev: '&lt;',
+    //     next: '&gt;',
+    //     totalPages : 100,
+    //     visiablePages : 5,
+    //     onPageClick : function (e, page){
+    //         loadPageData(page);
+    //     }
+    // })
+
+
+
+    // 删除功能
+    // ==================================
+    // 由于删除按钮是动态添加的，而且执行动态添加的代码是在此之后执行的，过早注册不上，故此使用委托事件
+    $('tbody').on('click','.btn-delete',function (){
+      // 删除单条数据的时机
+      // 1、拿到需要删除的数据 ID
+      var $tr = $(this).parent().parent();
+      var id = $tr.data('id');
+      // 2、发送一个 AJAX 请求 告诉服务端要删除哪一条具体的数据
+      $.get('/admin/api/comments-delete.php',{ id : id },function (res){
+        if(!res) return
+        // 3、根据服务端返回的删除是否成功决定是否在界面上移除该元素
+        // 3、重新再载入当前这一页的数据
+        // $tr.remove();
+        loadPageData(currentPage);
+      })
+    });
+
+
+  </script>
   <script>NProgress.done()</script>
 </body>
 </html>

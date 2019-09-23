@@ -14,7 +14,7 @@ if (empty($_GET['email'])) {
 $email = $_GET['email'];
 
 // 2. 查询对应的头像地址
-$conn = mysqli_connect(XIU_DB_HOST, XIU_DB_USER, XIU_DB_PASS, XIU_DB_NAME);
+$conn = mysqli_connect(BX_DB_HOST, BX_DB_USER, BX_DB_PASS, BX_DB_NAME);
 if (!$conn) {
   exit('连接数据库失败');
 }

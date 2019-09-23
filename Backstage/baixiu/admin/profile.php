@@ -13,8 +13,7 @@
   <script>NProgress.start()</script>
 
   <div class="main">
-    <?php include 'inc/navbar.php'; ?>
-
+    <?php include 'inc/navbar.php' ?>
     <div class="container-fluid">
       <div class="page-title">
         <h1>我的个人资料</h1>
@@ -72,10 +71,33 @@
   </div>
 
   <?php $current_page = 'profile'; ?>
-  <?php include 'inc/sidebar.php'; ?>
+  <?php include 'inc/sidebar.php' ?>
 
   <script src="/static/assets/vendors/jquery/jquery.js"></script>
   <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script>
+    $('#avatar').on('change',function (){
+      // 当文件选择状态变化会执行这个事件处理函数
+      // 判断是否选中了文件
+      var files = $(this).prop('files');
+      if(!files.length) return;
+      // 拿到我们要上传的文件
+      var file = files[0];
+      // ForData 是 HTML5 中新增的一个成员，专门配合AJAX操作，用于在客户端与服务端之间传递二进制数据
+      var data = new FormData();
+      data.append('avatar', file);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/admin/api/upload.php');
+      xhr.send(data);
+
+      xhr.onload = function (){
+        $this.siblings('img').attr('src', this.responseText);
+      }
+
+    });
+  </script>
+
   <script>NProgress.done()</script>
 </body>
 </html>

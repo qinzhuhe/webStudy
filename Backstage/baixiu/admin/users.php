@@ -1,3 +1,11 @@
+<?php
+  session_start();
+  if(empty($_SESSION['current_login_user'])){
+    // 没有当前登录用户信息，意味着没有进行登录
+    header('Location: /admin/login.php');
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -13,8 +21,7 @@
   <script>NProgress.start()</script>
 
   <div class="main">
-    <?php include 'inc/navbar.php'; ?>
-
+    <?php include 'inc/navbar.php' ?>
     <div class="container-fluid">
       <div class="page-title">
         <h1>用户</h1>
@@ -111,7 +118,7 @@
   </div>
 
   <?php $current_page = 'users'; ?>
-  <?php include 'inc/sidebar.php'; ?>
+  <?php include 'inc/sidebar.php' ?>
 
   <script src="/static/assets/vendors/jquery/jquery.js"></script>
   <script src="/static/assets/vendors/bootstrap/js/bootstrap.js"></script>
