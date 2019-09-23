@@ -1,5 +1,6 @@
 <?php
-if (empty($_FILES['avatar'])){
+
+if(empty($_FILES['avatar'])){
 	exit('必须上传文件');
 }
 

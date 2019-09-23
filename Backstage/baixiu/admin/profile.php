@@ -29,6 +29,7 @@
             <label class="form-image">
               <input id="avatar" type="file">
               <img src="/static/assets/img/default.png">
+              <input type="hidden" name="avatar">
               <i class="mask fa fa-upload"></i>
             </label>
           </div>
@@ -79,11 +80,12 @@
     $('#avatar').on('change',function (){
       // 当文件选择状态变化会执行这个事件处理函数
       // 判断是否选中了文件
-      var files = $(this).prop('files');
+      var $this = $(this)
+      var files = $this.prop('files');
       if(!files.length) return;
       // 拿到我们要上传的文件
       var file = files[0];
-      // ForData 是 HTML5 中新增的一个成员，专门配合AJAX操作，用于在客户端与服务端之间传递二进制数据
+      // FormData 是 HTML5 中新增的一个成员，专门配合AJAX操作，用于在客户端与服务端之间传递二进制数据
       var data = new FormData();
       data.append('avatar', file);
 
@@ -93,6 +95,7 @@
 
       xhr.onload = function (){
         $this.siblings('img').attr('src', this.responseText);
+        $this.siblings('input').val(this.responseText);
       }
 
     });
