@@ -1,0 +1,41 @@
+# Content-Type
+
+当发现了中文乱码情况时
+
+- 在服务端默认发送的数据，其实是 utf8 编码的内容
+
+- 但是浏览器不知道这是 utf8 编码的内容
+
+- 浏览器在不知道服务器响应内容的编码的情况下会按当前操作系统的默认编码去解析
+
+- 中文操作系统默认是 gbk
+
+- 解决办法：
+
+  - 就是正确的告诉浏览器我发送给你的内容是什么编码的。
+
+    > res.setHeader('Content-Type', 'text/Plain; charset=utf8')
+
+- 但是因为可能上传文件的类型问题，仍可能出现编码问题，例如
+
+  ```javascript
+  response.setHeader('Content-Type', 'text/Plain; charset=utf8')
+  response.end('<p>hello html <a href="">点我</a></p>')
+  ```
+
+  页面输出为：
+
+  ```html
+  <p>hello html <a href="">点我</a></p>
+  ```
+
+- 故此，发送什么格式的字符串，就要告诉浏览器发送的格式类型
+
+  - Content-Type
+
+    - text/Plain  =>  普通字符串
+    - text/html  =>  html格式字符串
+
+    > 不同的资源对应的类型不相同，可以在 HTTP Content-Type 对照表中查看。
+    >
+    > 编码一般值得是字符编码，除此之外都不需要指定编码格式。
