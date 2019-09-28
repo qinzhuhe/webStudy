@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>在浏览器中使用art-template</title>
+</head>
+<body>
+	<!-- 注意：在浏览器中需要引用 lib/template-web.js文件 -->
+	<script src="code/node_modules/art-template/lib/template-web.js"></script>
+	<script type="text/template" id="tpl">
+		大家好，我叫做：{{ name }}
+		我今年{{ age }}岁了
+		我来自{{ province }} 
+		我喜欢：{{ each like }} {{$value}} {{/each}}
+	</script>
+	<script>
+		var ret = template('tpl', {
+			name: 'Jack',
+			age : 18,
+			province : '中国',
+			like : [
+			'写代码',
+			'哈哈哈',
+			'啦啦啦'
+			]
+		})
+
+		console.log(ret)
+	</script>
+</body>
+</html>
