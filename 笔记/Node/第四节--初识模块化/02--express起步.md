@@ -6,7 +6,7 @@
 
     ```shell
     // 创建 package.json 文件
-    npm init --yes
+    npm init --y
 
     // 下载 express
     npm i -S express

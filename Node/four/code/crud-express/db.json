@@ -1,12 +1,32 @@
 {
-	"students": [
-		{"id": 1, "name": "张三", "gender": 0, "age": 18, "hobbies": "吃饭、LOL、混吃等死"},
-		{"id": 1, "name": "张三", "gender": 0, "age": 18, "hobbies": "吃饭、LOL、混吃等死"},
-		{"id": 1, "name": "张三", "gender": 0, "age": 18, "hobbies": "吃饭、LOL、混吃等死"},
-		{"id": 1, "name": "张三", "gender": 0, "age": 18, "hobbies": "吃饭、LOL、混吃等死"},
-		{"id": 1, "name": "张三", "gender": 0, "age": 18, "hobbies": "吃饭、LOL、混吃等死"},
-		{"id": 1, "name": "张三", "gender": 0, "age": 18, "hobbies": "吃饭、LOL、混吃等死"},
-		{"id": 1, "name": "张三", "gender": 0, "age": 18, "hobbies": "吃饭、LOL、混吃等死"},
-		{"id": 1, "name": "李四", "gender": 0, "age": 18, "hobbies": "你说呢"}
-	]
+	"students": [{
+		"id": 1,
+		"name": "张三",
+		"gender": 0,
+		"age": 18,
+		"hobbies": "吃饭、LOL、混吃等死"
+	}, {
+		"id": 2,
+		"name": "张三",
+		"gender": 0,
+		"age": 18,
+		"hobbies": "吃饭、LOL、混吃等死"
+	}, {
+		"id": 3,
+		"name": "张三",
+		"gender": 0,
+		"age": 18,
+		"hobbies": "吃饭、LOL、混吃等死"
+	}, {
+		"name": "李四",
+		"gender": "2",
+		"age": "12",
+		"hobbies": "看书",
+		"id": 9
+	}, {
+		"name": "赵五",
+		"age": "22",
+		"hobbies": "看拍黄片",
+		"id": 10
+	}]
 }
