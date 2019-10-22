@@ -1,0 +1,21 @@
+{{extend './layout.html'}}
+
+{{ block 'head' }}
+<style>
+	body {
+		background-color: skyblue;
+	}
+</style>
+{{ /block }}
+
+{{ block 'content' }}
+<div>
+	<h1>index 填充内容</h1>
+</div>
+{{ /block }}
+
+{{ block 'script' }}
+<script>
+	window.alert('index 独有的 js')
+</script>
+{{ /block }}
