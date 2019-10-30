@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定义超链接样式</title>
+	<style>
+		a:link { background-color: #FF0000; }
+		a:visited { background-color: #0000FF; }
+		a:hover { background-color: #00FF00; }
+		a:active { background-color: #FFF000; }
+		html, body {
+			height: 100%;
+		}
+	</style>
+</head>
+<body contextmenu="bew-context-menu">
+	<a href="#">首页</a>
+	<!-- 只有火狐/firefox支持 -->
+	<!-- <menu type="context" id="mymenu">
+	  <menuitem label="Refresh" onclick="window.location.reload();" icon="ico_reload.png">
+	  </menuitem>
+	  <menu label="Share on...">
+	    <menuitem label="Twitter" icon="ico_twitter.png"
+	    onclick="window.open('//twitter.com/intent/tweet?text='+window.location.href);">
+	    </menuitem>
+	    <menuitem label="Facebook" icon="ico_facebook.png"
+	    onclick="window.open('//facebook.com/sharer/sharer.php?u='+window.location.href);">
+	    </menuitem>
+	  </menu>
+	  <menuitem label="Email This Page"
+	  onclick="window.location='mailto:?body='+window.location.href;"></menuitem>
+	</menu> -->
+</body>
+</html>

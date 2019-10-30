@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器使用熟练</title>
+	<style>
+
+		/* 设置登录在被操作前的样式 */
+		.site-r a:link {
+			color: orange;
+		}
+
+		/* 设置登录被鼠标悬停时的样式 */
+		.site-r a:hover {
+			color: skyblue;
+		}
+
+		/* 设置登录超链接被点击过后的样式 */
+		.site-r a:visited {
+			color: red;
+		}
+
+		/* 定义导航栏超链接都显示为绿色 */
+		.nav ul li a {
+			color: #5F9EA0;
+		}
+
+		/* 设置字体样式 */
+		.nav, .sitenav {
+			font-family: "Microsoft YaHei",微软雅黑;
+			font-size: 14px;
+		}
+
+		/* 清除超链接下划线 */
+		a {
+			text-decoration: none;
+		}
+
+		/* 设置导航栏的一级菜单为绿色 */
+		.nav > ul > li > a {
+			color: green
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+			<li><a href="#">公司首页</a></li>
+			<li><a href="#">公司简介</a></li>
+			<li><a href="#">公司产品</a></li>
+			<li>
+				<a href="#">联系我们</a>
+				<ul>
+					<li><a href="#">公司邮箱</a></li>
+					<li><a href="#">公司电话</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="sitenav">
+		<div class="site-1">左侧导航栏</div>
+		<div class="site-r"><a href="#">登录</a></div>
+	</div>
+</body>
+</html>
