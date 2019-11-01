@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>案例</title>
+	<style>
+		/* 页面统一样式 */
+		/* css 初始化 start */
+		body {
+			background-color: #f3f5f7;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		a {
+			color: #050505;
+			text-decoration: none;
+		}
+		input {
+			border: 0;
+			box-sizing: border-box;
+		}
+		.clearfix:before, .clearfix:after {
+			content: "";
+			display: table;
+		}
+		.clearfix:after {
+			clear: both;
+		}
+		.clearfix {
+			*zoom: 1;
+		}
+		.container { /* 因为版心宽度都是1200且居中，所以开放一个公共类 */
+			width: 1200px;
+			margin: 0 auto;
+		}
+		/* css 初识化 end */
+		/* 页面头部分 */
+		header {
+			height: 100px;
+			overflow: hidden;
+		}
+		nav {
+			width: 1366px;
+			height: 42px;
+			margin: 26px auto;
+		}
+		.logo {
+			float: left;
+		}
+		.navbar {
+			float: left;
+			height: 42px;
+			line-height: 42px; /* 因为行高可以继承，所以将行高给父元素就行了 */
+			margin-left: 50px;
+		}
+		.navbar ul li {
+			float: left;
+		}
+		.navbar li a {
+			padding: 0 8px;
+			display: block; /* a 是行内元素，设置高度需要转换为块级元素*/
+		}
+		.navbar li a:hover {
+			border-bottom: 2px solid #00a4ff;
+		}
+		/* 搜索框部分 */
+		.search {
+			width: 410px;
+			height: 38px;
+			border: 1px solid #00a4ff;
+			float: left;
+		}
+		.search input[type=text] {
+			width: 360px;
+			height: 38px;
+			padding-left: 20px;
+			float: left;
+		}
+		.search input[type=submit] {
+			width: 50px;
+			height: 38px;
+			float: left;
+			background: #00a4ff url('img/search_06.png') center center no-repeat;
+		}
+		/* 导航栏 end */
+		/* 搜索框 end */
+		/* banner start */
+		.banner {
+			height: 420px;
+			background-color: #1c036c;
+		}
+		.banner-in {
+			height: 420px;
+			background: url('img/banner_03.png') 0 0 no-repeat;
+		}
+		.sidebar {
+			height: 420px;
+			width: 190px;
+			background: rgba(0, 0, 0, 0.3);
+			float: left;
+		}
+		.sidebar ul li a {
+			font-size: 15px;
+			font-family: "微软雅黑";
+			color: #fff;
+			padding: 0 20px;
+			display: block;
+			height: 45px;
+			line-height: 45px;
+		}
+		.sidebar li a:hover {
+			color: #00a4ff;
+		}
+		.sidebar li a span {
+			font-family: arial;
+			float: right
+		}
+		.timetable {
+			float: right;
+			width: 230px;
+			height: 300px;
+			background-color: #fff;
+			margin-top: 50px;
+		}
+		.timetable dt {
+			height: 50px;
+			background-color: #9bceea;
+			text-align: center;
+			line-height: 50px;
+			color: #fff;
+			font-weight: 700;
+			letter-spacing: 3px;
+			margin-bottom: 5px;
+		}
+		.timetable dd {
+			height: 60px;
+			width: 193px;
+			margin: 0 auto;
+			border-bottom: 1px solid #ccc;
+			padding-top: 12px;
+			box-sizing: border-box;
+		}
+		.timetable dd h4 {
+			font-size: 16px;
+			font-weight: normal;
+			color: #4e4e4e;
+		}
+		.timetable dd p {
+			color: #a5a5a5;
+			font-size: 14px;
+		}
+		.timetable dd:last-child {
+			border: 0;
+		}
+		.timetable dd a {
+			height: 38px;
+			border: 1px solid #00a4ff;
+			display: block;
+			text-align: center;
+			line-height: 38px;
+			color:  #00a4ff;
+			font-weight: 700;
+		}
+		.timetable dd a:hover {
+			background-color: #00a4ff;
+			color: #fff;
+		}
+		/* banner end */
+		/* 精品推荐 start */
+		.recommend {
+			height: 60px;
+			line-height: 60px;
+			background-color: #fff;
+			margin-top: 8px;
+			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+		}
+		.recommend a {
+			padding: 0 30px;
+			border-right: 1px solid #ccc;
+		}
+		.recommend a:hover {
+			color: #00a4ff;
+		}
+		.recommend a:first-child {
+			color: #00a4ff;
+		}
+		.recommend a:last-child {
+			color: #00a4ff;
+			border: 0;
+			float: right;
+			font-size: 14px;
+		}
+		/* 精品推荐 end */
+
+	</style>
+</head>
+<body>
+	<!-- 页面头部分 -->
+	<header>
+		<!-- 页面导航栏部分 -->
+		<nav>
+			<!-- logo 部分 -->
+			<div class="logo">
+				<img src="img/logo_03.png" alt="">
+			</div>
+			<!-- 导航栏 -->
+			<div class="navbar">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li><a href="#">课程</a></li>
+					<li><a href="#">职业规划</a></li>
+				</ul>
+			</div>
+			<!-- 搜索框 -->
+			<div class="search">
+				<form action="">
+					<input type="text" value="请输入关键词">
+					<input type="submit" value="">
+				</form>
+			</div>
+		</nav>
+	</header>
+	<!-- banner 部分 -->
+	<div class="banner">
+		<div class="banner-in container">
+			<!-- 左侧导航栏 -->
+			<div class="sidebar">
+				<ul>
+					<li><a href="#">前端开发<span>></span></a></li>
+					<li><a href="#">后端开发<span>></span></a></li>
+					<li><a href="#">移动开发<span>></span></a></li>
+					<li><a href="#">人工智能<span>></span></a></li>
+					<li><a href="#">商业预测<span>></span></a></li>
+					<li><a href="#">云计算&大数据<span>></span></a></li>
+					<li><a href="#">运维&从测试<span>></span></a></li>
+					<li><a href="#">UI设计<span>></span></a></li>
+					<li><a href="#">产品<span>></span></a></li>
+				</ul>
+			</div>
+		<dl class="timetable">
+			<dt>我的课程表</dt>
+			<dd>
+				<h4>继续学习 程序语言设计</h4>
+				<p>正在学习-使用对象</p>
+			</dd>
+			<dd>
+				<h4>继续学习 程序语言设计</h4>
+				<p>正在学习-使用对象</p>
+			</dd>
+			<dd>
+				<h4>继续学习 程序语言设计</h4>
+				<p>正在学习-使用对象</p>
+			</dd>
+			<dd><a href="#">全部课程</a></dd>
+		</dl>
+		</div>
+	</div>
+	<div class="recommend container">
+		<a href="#">精品推荐</a>
+		<a href="#">jQuery</a>
+		<a href="#">spart</a>
+		<a href="#">MySQL</a>
+		<a href="#">Javaweb</a>
+		<a href="#">SqlServer</a>
+		<a href="#">JavaScript</a>
+		<a href="#">修改兴趣</a>
+	</div>
+</body>
+</html>

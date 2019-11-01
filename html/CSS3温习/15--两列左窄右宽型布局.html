@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>布局</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.top,
+		.banner,
+		.main,
+		.footer {
+			width: 960px;
+			margin: 0 auto;
+			border: 1px dashed #ccc;
+			text-align: center;
+			background-color: #eee;
+			margin-bottom: 10px;
+		}
+		.top {
+			height: 80px;
+		}
+		.banner {
+			height: 150px;
+		}
+		.main {
+			height: 500px;
+		}
+		.left {
+			width: 352px;
+			height: 500px;
+			background-color: pink;
+			float: left;
+			margin-right: 8px;
+		}
+		.right {
+			width: 600px;
+			height: 500px;
+			background-color: skyblue;
+			float: left;
+		}
+		.footer {
+			height: 120px;
+		}
+	</style>
+</head>
+<body>
+	<div class="top">top</div>
+	<div class="banner">banner</div>
+	<div class="main">
+		<div class="left">left</div>
+		<div class="right">right</div>
+	</div>
+	<div class="footer">footer</div>
+</body>
+</html>

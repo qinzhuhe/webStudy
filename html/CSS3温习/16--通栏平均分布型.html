@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分布性</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.top {
+			height: 120px;
+			border: 1px dashed #aaa;
+			background-color: #eee;
+			text-align: center;
+		}
+		.banner {
+			width: 960px;
+			height: 150px;
+			border: 1px dashed #aaa;
+			background-color: #eee;
+			margin: 10px auto;
+			text-align: center;
+		}
+		.small {
+			width: 960px;
+			height: 100px;
+			margin: 0 auto;
+			/* background-color: pink; */
+			margin-bottom: 10px;
+		}
+		.small div {
+			width: 230px;
+			height: 98px;
+			border: 1px dashed #aaa;
+			background-color: #eee;
+			margin-left: 10px;
+			float: left;
+			text-align: center;
+		}
+		.small .nomargin {
+			margin-left: 0;
+		}
+		#small_4 {
+			float: right;
+		}
+
+		.rot {
+			width: 960px;
+			height: 150px;
+			margin: 0 auto;
+			/* background-color: pink; */
+			margin-bottom: 10px;
+		}
+		.rot div {
+			width: 230px;
+			height: 150px;
+			border: 1px dashed #aaa;
+			background-color: #eee;
+			margin-left: 10px;
+			float: left;
+			text-align: center;
+		}
+		.rot .nomargin {
+			margin-left: 0;
+		}
+
+		.footer {
+			height: 150px;
+			margin-top: 10px;
+			border: 1px dashed #aaa;
+			background-color: #eee;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="top">top</div>
+	<div class="banner">banner</div>
+	<div class="small">
+		<div class="nomargin">1</div>
+		<div>2</div>
+		<div>3</div>
+		<div id="small_4">4</div>
+	</div>
+	<div class="rot">
+		<div class="nomargin">1</div>
+		<div>2</div>
+		<div>3</div>
+		<div id="small_4">4</div>
+	</div>
+	<div class="footer">footer</div>
+</body>
+</html>
