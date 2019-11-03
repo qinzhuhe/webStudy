@@ -3,201 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>案例</title>
-	<style>
-		/* 页面统一样式 */
-		/* css 初始化 start */
-		body {
-			background-color: #f3f5f7;
-		}
-		* {
-			margin: 0;
-			padding: 0;
-		}
-		ul {
-			list-style: none;
-		}
-		a {
-			color: #050505;
-			text-decoration: none;
-		}
-		input {
-			border: 0;
-			box-sizing: border-box;
-		}
-		.clearfix:before, .clearfix:after {
-			content: "";
-			display: table;
-		}
-		.clearfix:after {
-			clear: both;
-		}
-		.clearfix {
-			*zoom: 1;
-		}
-		.container { /* 因为版心宽度都是1200且居中，所以开放一个公共类 */
-			width: 1200px;
-			margin: 0 auto;
-		}
-		/* css 初识化 end */
-		/* 页面头部分 */
-		header {
-			height: 100px;
-			overflow: hidden;
-		}
-		nav {
-			width: 1366px;
-			height: 42px;
-			margin: 26px auto;
-		}
-		.logo {
-			float: left;
-		}
-		.navbar {
-			float: left;
-			height: 42px;
-			line-height: 42px; /* 因为行高可以继承，所以将行高给父元素就行了 */
-			margin-left: 50px;
-		}
-		.navbar ul li {
-			float: left;
-		}
-		.navbar li a {
-			padding: 0 8px;
-			display: block; /* a 是行内元素，设置高度需要转换为块级元素*/
-		}
-		.navbar li a:hover {
-			border-bottom: 2px solid #00a4ff;
-		}
-		/* 搜索框部分 */
-		.search {
-			width: 410px;
-			height: 38px;
-			border: 1px solid #00a4ff;
-			float: left;
-		}
-		.search input[type=text] {
-			width: 360px;
-			height: 38px;
-			padding-left: 20px;
-			float: left;
-		}
-		.search input[type=submit] {
-			width: 50px;
-			height: 38px;
-			float: left;
-			background: #00a4ff url('img/search_06.png') center center no-repeat;
-		}
-		/* 导航栏 end */
-		/* 搜索框 end */
-		/* banner start */
-		.banner {
-			height: 420px;
-			background-color: #1c036c;
-		}
-		.banner-in {
-			height: 420px;
-			background: url('img/banner_03.png') 0 0 no-repeat;
-		}
-		.sidebar {
-			height: 420px;
-			width: 190px;
-			background: rgba(0, 0, 0, 0.3);
-			float: left;
-		}
-		.sidebar ul li a {
-			font-size: 15px;
-			font-family: "微软雅黑";
-			color: #fff;
-			padding: 0 20px;
-			display: block;
-			height: 45px;
-			line-height: 45px;
-		}
-		.sidebar li a:hover {
-			color: #00a4ff;
-		}
-		.sidebar li a span {
-			font-family: arial;
-			float: right
-		}
-		.timetable {
-			float: right;
-			width: 230px;
-			height: 300px;
-			background-color: #fff;
-			margin-top: 50px;
-		}
-		.timetable dt {
-			height: 50px;
-			background-color: #9bceea;
-			text-align: center;
-			line-height: 50px;
-			color: #fff;
-			font-weight: 700;
-			letter-spacing: 3px;
-			margin-bottom: 5px;
-		}
-		.timetable dd {
-			height: 60px;
-			width: 193px;
-			margin: 0 auto;
-			border-bottom: 1px solid #ccc;
-			padding-top: 12px;
-			box-sizing: border-box;
-		}
-		.timetable dd h4 {
-			font-size: 16px;
-			font-weight: normal;
-			color: #4e4e4e;
-		}
-		.timetable dd p {
-			color: #a5a5a5;
-			font-size: 14px;
-		}
-		.timetable dd:last-child {
-			border: 0;
-		}
-		.timetable dd a {
-			height: 38px;
-			border: 1px solid #00a4ff;
-			display: block;
-			text-align: center;
-			line-height: 38px;
-			color:  #00a4ff;
-			font-weight: 700;
-		}
-		.timetable dd a:hover {
-			background-color: #00a4ff;
-			color: #fff;
-		}
-		/* banner end */
-		/* 精品推荐 start */
-		.recommend {
-			height: 60px;
-			line-height: 60px;
-			background-color: #fff;
-			margin-top: 8px;
-			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-		}
-		.recommend a {
-			padding: 0 30px;
-			border-right: 1px solid #ccc;
-		}
-		.recommend a:hover {
-			color: #00a4ff;
-		}
-		.recommend a:first-child {
-			color: #00a4ff;
-		}
-		.recommend a:last-child {
-			color: #00a4ff;
-			border: 0;
-			float: right;
-			font-size: 14px;
-		}
-		/* 精品推荐 end */
-
-	</style>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<!-- 页面头部分 -->
@@ -258,6 +64,14 @@
 			</dd>
 			<dd><a href="#">全部课程</a></dd>
 		</dl>
+		<ul class="circle">
+			<li class="current"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
 		</div>
 	</div>
 	<div class="recommend container">
@@ -270,5 +84,101 @@
 		<a href="#">JavaScript</a>
 		<a href="#">修改兴趣</a>
 	</div>
+
+	<!-- 精品推荐模块 -->
+	<div class="recm-products container">
+		<div class="recm-hd">
+			<h4>精品推荐</h4>
+			<a href="#">查看全部</a>
+		</div>
+		<div class="recm-bd clearfix">
+			<ul>
+				<li>
+					<img src="img/icon1.png" alt="">
+					<h5>Think PHP 5.0 博客系统实战项目演练</h5>
+					<p><span>高级</span> · 1111人正在观看</p>
+				</li>
+				<li>
+					<img src="img/icon1.png" alt="">
+					<h5>Think PHP 5.0 博客系统实战项目演练</h5>
+					<p><span>高级</span> · 1111人正在观看</p>
+				</li>
+				<li>
+					<img src="img/icon1.png" alt="">
+					<h5>Think PHP 5.0 博客系统实战项目演练</h5>
+					<p><span>高级</span> · 1111人正在观看</p>
+				</li>
+				<li>
+					<img src="img/icon1.png" alt="">
+					<h5>Think PHP 5.0 博客系统实战项目演练</h5>
+					<p><span>高级</span> · 1111人正在观看</p>
+				</li>
+				<li>
+					<img src="img/icon1.png" alt="">
+					<h5>Think PHP 5.0 博客系统实战项目演练</h5>
+					<p><span>高级</span> · 1111人正在观看</p>
+				</li>
+				<li>
+					<img src="img/icon1.png" alt="">
+					<h5>Think PHP 5.0 博客系统实战项目演练</h5>
+					<p><span>高级</span> · 1111人正在观看</p>
+				</li>
+				<li>
+					<img src="img/icon1.png" alt="">
+					<h5>Think PHP 5.0 博客系统实战项目演练</h5>
+					<p><span>高级</span> · 1111人正在观看</p>
+				</li>
+				<li>
+					<img src="img/icon1.png" alt="">
+					<h5>Think PHP 5.0 博客系统实战项目演练</h5>
+					<p><span>高级</span> · 1111人正在观看</p>
+				</li>
+				<li>
+					<img src="img/icon1.png" alt="">
+					<h5>Think PHP 5.0 博客系统实战项目演练</h5>
+					<p><span>高级</span> · 1111人正在观看</p>
+				</li>
+				<li>
+					<img src="img/icon1.png" alt="">
+					<h5>Think PHP 5.0 博客系统实战项目演练</h5>
+					<p><span>高级</span> · 1111人正在观看</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 页面底部 -->
+	<footer>
+		<div class="container footer-in">
+			<div class="footer-l">
+				<img src="img/logo-s.png" alt="">
+				<p>学成在线致力于普及中国最好的教育它与中国一流大学和机构合作提供在线课程。<br />
+© 2017年XTCG Inc.保留所有权利。-沪ICP备15025210号</p>
+					<a href="#">下载APP</a>
+			</div><a href="#"></a>
+			<div class="footer-r">
+				<dl>
+					<dt>关于学成网</dt>
+					<dd><a href="#">关于</a></dd>
+					<dd><a href="#">关于团队</a></dd>
+					<dd><a href="#">工作机会</a></dd>
+					<dd><a href="#">客户服务</a></dd>
+					<dd><a href="#">帮助</a></dd>
+				</dl>
+				<dl>
+					<dt>新手指南</dt>
+					<dd><a href="#">如何注册</a></dd>
+					<dd><a href="#">如何选课</a></dd>
+					<dd><a href="#">如何拿到毕业证</a></dd>
+					<dd><a href="#">学分是什么</a></dd>
+					<dd><a href="#">考试未通过怎么办</a></dd>
+				</dl>
+				<dl>
+					<dt>合作伙伴</dt>
+					<dd><a href="#">合作机构</a></dd>
+					<dd><a href="#">合作导师</a></dd>
+				</dl>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>

@@ -1,0 +1,323 @@
+
+		/* 页面统一样式 */
+		/* css 初始化 start */
+		body {
+			background-color: #f3f5f7;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		a {
+			color: #050505;
+			text-decoration: none;
+		}
+		input {
+			border: 0;
+			box-sizing: border-box;
+		}
+		.clearfix:before, .clearfix:after {
+			content: "";
+			display: table;
+		}
+		.clearfix:after {
+			clear: both;
+		}
+		.clearfix {
+			*zoom: 1;
+		}
+		.container { /* 因为版心宽度都是1200且居中，所以开放一个公共类 */
+			width: 1200px;
+			margin: 0 auto;
+		}
+		/* css 初识化 end */
+		/* 页面头部分 */
+		header {
+			height: 100px;
+			overflow: hidden;
+		}
+		nav {
+			width: 1366px;
+			height: 42px;
+			margin: 26px auto;
+		}
+		.logo {
+			float: left;
+		}
+		.navbar {
+			float: left;
+			height: 42px;
+			line-height: 42px; /* 因为行高可以继承，所以将行高给父元素就行了 */
+			margin-left: 50px;
+		}
+		.navbar ul li {
+			float: left;
+		}
+		.navbar li a {
+			padding: 0 8px;
+			display: block; /* a 是行内元素，设置高度需要转换为块级元素*/
+		}
+		.navbar li a:hover {
+			border-bottom: 2px solid #00a4ff;
+		}
+		/* 搜索框部分 */
+		.search {
+			width: 410px;
+			height: 38px;
+			border: 1px solid #00a4ff;
+			float: left;
+		}
+		.search input[type=text] {
+			width: 360px;
+			height: 38px;
+			padding-left: 20px;
+			float: left;
+		}
+		.search input[type=submit] {
+			width: 50px;
+			height: 38px;
+			float: left;
+			background: #00a4ff url('../img/search_06.png') center center no-repeat;
+		}
+		/* 导航栏 end */
+		/* 搜索框 end */
+		/* banner start */
+		.banner {
+			height: 420px;
+			background-color: #1c036c;
+		}
+		.banner-in {
+			height: 420px;
+			background: url('../img/banner_03.png') 0 0 no-repeat;
+			position: relative;
+		}
+		.sidebar {
+			height: 420px;
+			width: 190px;
+			background: rgba(0, 0, 0, 0.3);
+			float: left;
+		}
+		.sidebar ul li a {
+			font-size: 15px;
+			font-family: "微软雅黑";
+			color: #fff;
+			padding: 0 20px;
+			display: block;
+			height: 45px;
+			line-height: 45px;
+		}
+		.sidebar li a:hover {
+			color: #00a4ff;
+		}
+		.sidebar li a span {
+			font-family: arial;
+			float: right
+		}
+		.timetable {
+			float: right;
+			width: 230px;
+			height: 300px;
+			background-color: #fff;
+			margin-top: 50px;
+		}
+		.timetable dt {
+			height: 50px;
+			background-color: #9bceea;
+			text-align: center;
+			line-height: 50px;
+			color: #fff;
+			font-weight: 700;
+			letter-spacing: 3px;
+			margin-bottom: 5px;
+		}
+		.timetable dd {
+			height: 60px;
+			width: 193px;
+			margin: 0 auto;
+			border-bottom: 1px solid #ccc;
+			padding-top: 12px;
+			box-sizing: border-box;
+		}
+		.timetable dd h4 {
+			font-size: 16px;
+			font-weight: normal;
+			color: #4e4e4e;
+		}
+		.timetable dd p {
+			color: #a5a5a5;
+			font-size: 14px;
+		}
+		.timetable dd:last-child {
+			border: 0;
+		}
+		.timetable dd a {
+			height: 38px;
+			border: 1px solid #00a4ff;
+			display: block;
+			text-align: center;
+			line-height: 38px;
+			color:  #00a4ff;
+			font-weight: 700;
+			transition: background-color, 0.5s;
+		}
+		.timetable dd a:hover {
+			background-color: #00a4ff;
+			color: #fff;
+		}
+		/* banner end */
+		/* 小圆点模块 */
+		.circle {
+			width: 180px;
+			height: 22px;
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			margin-left: -90px;
+		}
+		.circle li {
+			float: left;
+			width: 12px;
+			height: 12px;
+			margin: 6px 8px;
+			border-radius: 50%;
+			background: rgba(255, 255, 255, 0.3)
+		}
+		.circle .current {
+			width: 19px;
+			border-radius: 6px;
+			background-color: #fff;
+		}
+		/* 精品推荐 start */
+		.recommend {
+			height: 60px;
+			line-height: 60px;
+			background-color: #fff;
+			margin-top: 8px;
+			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+		}
+		.recommend a {
+			padding: 0 30px;
+			border-right: 1px solid #ccc;
+		}
+		.recommend a:hover {
+			color: #00a4ff;
+		}
+		.recommend a:first-child {
+			color: #00a4ff;
+		}
+		.recommend a:last-child {
+			color: #00a4ff;
+			border: 0;
+			float: right;
+			font-size: 14px;
+
+		}
+		/* 精品推荐 end */
+		.recm-products {
+			margin-top: 35px;
+		}
+		.recm-hd {
+			height: 40px;
+		}
+		.recm-hd h4 {
+			float: left;
+			color: #494949;
+		}
+		.recm-hd a {
+			float: right;
+			margin-top: 10px;
+			margin-right: 30px;
+			font-size: 14px;
+			color: #a5a5a5;
+		}
+		.recm-hd a:hover {
+			color: #00a4ff;
+		}
+		.recm-bd ul li {
+			width: 228px;
+			height: 270px;
+			background-color: #fff;
+			overflow: hidden;
+			box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+			float: left;
+			margin-right: 15px;
+			margin-top: 15px;
+		}
+		.recm-bd ul li:nth-child(5n) {
+			margin-right: 0;
+		}
+		.recm-bd li h5,
+		.recm-bd li p {
+			padding: 0 20px 0 24px;
+			margin-top: 12px;
+		}
+		.recm-bd li h5 {
+			font-size: 16px;
+			line-height: 22px;
+			font-weight: normal;
+		}
+		.recm-bd li p {
+			font-size: 12px;
+			color: #999;
+		}
+		.recm-bd p span {
+			color: #ff7c2d;
+		}
+
+		/* 页面底部分 */
+		footer {
+			height: 270px;
+			background-color: #fff;
+			margin-top: 100px;
+		}
+		.footer-in {
+			padding-top: 30px;
+		}
+		.footer-l {
+			float: left;
+		}
+		.footer-l p {
+			font-size: 12px;
+			line-height: 18px;
+			color: #999;
+			margin-top: 22px;
+		}
+		.footer-l a {
+			display: block;
+			width: 118px;
+			height: 33px;
+			border: 1px solid #00a4ff;
+			color: #00a4ff;
+			text-align: center;
+			line-height: 33px;
+			font-size: 16px;
+			margin-top: 15px;
+		}
+		.footer-l a:hover {
+			background-color: #00a4ff;
+			color: #fff;
+		}
+		.footer-r {
+			float: right;
+			color: #333;
+		}
+		.footer-r dl {
+			float: left;
+			width: 225px;
+		}
+		.footer-r dt {
+			font-size: 20px;
+			height: 30px;
+			margin-bottom: 10px;
+		}
+		.footer-r dd {
+			font-size: 12px;
+			height: 20px;
+		}
+		.footer-r dd a:hover {
+			color: #00a4ff;
+			text-decoration: underline; /* 添加下划线 */
+		}
