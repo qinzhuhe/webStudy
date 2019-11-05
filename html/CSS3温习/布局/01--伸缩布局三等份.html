@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伸缩布局</title>
+	<style>
+		section {
+			width: 80%;
+			height: 200px;
+			border: 1px solid pink;
+			margin: 100px auto;
+			display: flex;		/* 伸缩布局模式 */
+		}
+		section div {
+			height: 100%;
+			flex: 1;	/* 子盒子添加份数 */
+		}
+		section div:first-child {
+			background-color: pink;
+		}
+		section div:nth-child(2) {
+			background-color: purple;
+		}
+		section div:last-child {
+			background-color: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+	</section>
+</body>
+</html>
