@@ -4,6 +4,8 @@
 
 ##### 1. 循环普通数组
 
+`v-for="(item, i) in list"`
+
 ```html
 <div id="app">
     <p v-for="(item, i) in list">索引值：{{ i }}---每一项：{{ item }}</p>
@@ -21,6 +23,8 @@
 
 
 ##### 2. 循环对象数组
+
+`v-for="(user, i) in list"`
 
 ```html
 <div id="app">
@@ -45,6 +49,7 @@
 ##### 3. 循环对象
 
 - 注意：在遍历对象身上的键值对是，除了 `val` 和  `key`  之外，还有第三个值 ：索引 -- `i`
+- `v-for="(val, key) in user"`
 
 ```html
 <div id="app">
@@ -70,6 +75,7 @@
 
 - `in` 后面可以放 普通数组，对象数组，对象，还可以放数字。
 - 注意：如果使用 `v-for` 迭代数字的话，前面的 `count` 值从 1 开始。
+- `v-for="count in 10"`
 
 ```html
 <p v-for="count in 10">这是第 {{ count }} 次循环</p>

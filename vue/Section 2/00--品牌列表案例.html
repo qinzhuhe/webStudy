@@ -23,13 +23,12 @@
                         <input type="text" class="form-control" v-model="name" @keyup.enter="add">
                     </label>
                     <!-- 在 vue 中，使用事件绑定机制，为元素指定处理函数的时候，如果加了小括号，就可以给函数传参了 -->
-                    <input type="button" value="添加" class="btn btn-primary" @click="add" v-focus>
+                    <input type="button" value="添加" class="btn btn-primary" @click="add">
                     
                     <label>
                         搜索名称关键字：
-                        <input  type="text" class="form-control" v-model="keywords">
+                        <input  type="text" class="form-control" v-model="keywords" id="search" v-focus>
                     </label>
-                    <input type="button" value="搜索" class="btn btn-primary" @click="select()">
                 </div>
             </div> 
             
@@ -85,13 +84,16 @@
             // 但是：在调用的时候，必须在指令名称前加上 v-前缀 来进行调用.
             // 参数2：是一个对象，这个对象身上，有一些指令相关的函数，这些函数可以在特定的阶段，执行相关的操作。
             Vue.directive('focus', {
-                bind : function (el) {
+                bind : function (el) { // 每当指令绑定到元素上是，会立即执行这个 bind 函数，只执行一次
+                    // 注意：在每个函数中，第一个参数，永远是 el，表示被绑定了指令的那个元素，这个 el 参数，是一个原生的 js 对象
+                    // 在元素刚绑定了指令的时候，还没有插入到 DOM 中去，这时候，调用 focus 方法没有作用
+                    // 因为，一个元素，只有插入 DOM 之后，才能获取焦点
                     // el.focus
                 },
-                inserted : function (el) {
-                    el.focus
+                inserted : function (el) { // inserted 表示元素插入到 DOM 中的时候，会执行 inserted 函数 【触发一次】
+                    el.focus()
                 },
-                updated : function (el) {
+                updated : function (el) { // 当 VNode 更新的时候，会执行 updated ，可能会多次触发 
                     // el.focus
                 }
             })
@@ -129,7 +131,7 @@
                             }
                         })
                     },
-                    search (keywords) {
+                    search (keywords) { // 根据输入索引搜索数据
                         let newList = []
                         this.list.forEach(item => {
                             if (item.name.indexOf(keywords) != -1) {
