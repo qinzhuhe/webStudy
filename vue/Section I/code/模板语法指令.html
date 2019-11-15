@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+        <script src="../vue/vue.js"></script>
+	</head>
+	<body>
+        <div id="app">
+            <p v-if="seed">你能直视我吗</p>
+            <a v-bind:href="url">vue官网</a>
+            <div @click="click1">
+                <div @click="click2">
+                    click me
+                </div>
+            </div>
+        </div>
+        <script>
+            var vm = new Vue({
+                el : "#app",
+                data : {
+                    seed : false,
+                    url : "https://cn.vuejs.org/v2/guide/index.html"
+                },
+                methods : {
+                    click1 : function () {
+                        console.log('click 1...')
+                    },
+                    click2 : function () {
+                        console.log('click2...')
+                    }
+                }
+            })
+        </script>
+	</body>
+</html>

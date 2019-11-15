@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+        <script src="../vue/vue.js"></script>
+	</head>
+	<body>
+        <div id="app">
+            <p>{{ a }}---{{ b }}</p>
+        </div>
+        <script>
+            let data = { a : 1 },
+            
+            Object.freeze(data) // 阻止了更新
+            
+            let vm = new Vue({
+                el: '#app', 
+                data: data
+            })
+            data.a = "hi"
+            vm.b = "test"
+           
+        </script>
+	</body>
+</html>

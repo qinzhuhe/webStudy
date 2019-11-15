@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器使用</title>
+        <script src="../vue/vue.js"></script>
+	</head>
+	<body>
+        <div id="app">
+            <p>{{ msg | msgFormat('你笑个锤子', '123') | test }}</p>
+        </div>
+        <script>
+            
+            // 调用过滤器
+            Vue.filter('msgFormat', function (msg, arg, arg2) {
+                return msg.replace(/哈哈/g, arg + arg2)
+            })
+            Vue.filter('test', function (msg) {
+                return msg + '============'
+            })
+            
+            var vm = new Vue({
+                el : '#app',
+                data : {
+                    msg : '哈哈'
+                }
+            })
+        </script>
+	</body>
+</html>

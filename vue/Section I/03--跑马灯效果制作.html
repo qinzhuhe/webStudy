@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+        <script src="../vue/vue.js"></script>
+	</head>
+	<body>
+        <div id="app">
+            <input type="button" value="启动" @click="start">
+            <input type="button" value="关闭" @click="stop">
+            <div>{{ msg }}</div>
+        </div>
+        <script>
+            // 在 vm 实例中，想要获取 data 上的数据，或者想要调用 methods 中的方法。必须通过 this.数据属性名或者 this.方法名 来进行访问，这里的 this，就表示 我们 new 出来的 VM 实例对象
+            var vm = new Vue({
+                el : '#app',
+                data : {
+                    msg : '假假按揭',
+                    timerid : null
+                },
+                methods : {
+                    start () {
+                        
+                        if (this.timerid != null) return
+                        
+                        // console.log(this.msg)
+                        this.timerid = setInterval( () => {
+                            // 获取的前后字符串
+                            var start = this.msg.substring(0, 1)
+                            var end = this.msg.substring(1)
+                            // 重新拼接得到新的字符串，并重新复制
+                            this.msg = end + start
+                        }, 400)
+                        
+                        // 注意：VM 实例，会监听自己身上 data 中所有数据的改变，只要数据一发生改变，就会自动把最新的数据从 data 上同步到页面中去。
+                    },
+                    stop () {
+                        clearInterval(this.timerid)
+                        // 每当清除了定时器之后，需要重新将 timerid 的值赋值为 null
+                        this.timerid = null
+                    }
+                    
+                }
+            })
+        </script>
+	</body>
+</html>

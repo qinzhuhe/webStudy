@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-on定义事件</title>
+        <script src="../vue/vue.js"></script>
+	</head>
+	<body>
+        <div id="app">
+            <div>{{ msg }}</div>
+            <div v-text="msg2"></div>
+            <div v-html="msg2">1212112</div>
+            <input type="button" value="按钮" :title="mytitle + '123'" v-on:click="show">
+        </div>
+	</body>
+    <script>
+        var vm = new Vue({
+            el : '#app',
+            data : {
+                msg : '123',
+                msg2 : '<h1>这是一个h1标签</h1>',
+                mytitle: '这是我自己定义的title'               
+            },
+            methods : { // 这个 methods 属性中定义了当前 vue 实例中所有可用的方法
+                show : function () {
+                    alert("你点击了我")
+                }
+            }
+        })
+    </script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件修饰符</title>
+        <script src="../vue/vue.js"></script>
+        <style>
+            .inner {
+                height: 150px;
+                background-color: pink;
+            }
+        </style>
+	</head>
+	<body>
+        <div id="app">
+            <!-- <div class="inner" @click="inner">
+                <input type="button" value="按钮" @click.stop="btnHander">
+                <a href="http://www.baidu.com" @click.prevent="linkclick">百度</a>
+            </div> -->
+                
+            <a href="http://www.baidu.com" @click.prevent.once="linkclick">百度</a>
+            
+        </div>
+        <script>
+            var vm = new Vue({
+                el : "#app",
+                data : {},
+                methods : {
+                    inner () {
+                        console.log('这里触发了div的inner')
+                    },
+                    btnHander () {
+                        console.log('这里触发了按钮的btnHeader')
+                    },
+                    linkclick () {
+                        console.log('触发了链接的点击事件')
+                    }
+                }
+            })
+        </script>
+	</body>
+</html>
