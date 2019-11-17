@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>使用过渡类名实现动画</title>
+        <script src="../vue/vue.js"></script>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                margin: 0;
+                padding: 0;
+                background-color: #449D44;
+            }
+            /* 自定义两组样式，来控制 transition 内部的元素实现动画 */
+            /* v-enter 是进入之前，元素的起始状态，此时还没有开始进入 */
+            /* v-leave-to 是动画离开之后，离开的终止状态，此时，元素动画已经结束 */
+            .v-enter,
+            .v-leave-to {
+                opacity: 0;
+                transform: translateX(80px);
+            }
+            
+            /* v-enter-active  入场动画的时间段 */
+            /* v-leave-active  离场动画的时间段 */
+            .v-enter-active,
+            .v-leave-active {
+                transition: all 0.5s ease;
+            }
+            
+            /* 第二组动画 */
+            .my-enter,
+            .my-leave-to {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+            .my-enter-active,
+            .my-leave-active {
+                transition: all 0.5s ease;
+            }
+            
+        </style>
+	</head>
+	<body>
+        <div id="app">
+            <input type="button" value="toggle" @click="flag=!flag">
+            <!-- 使用 transition 元素，把需要被动画控制的元素，包裹起来 -->
+            <!-- transition 元素是官方提供的 -->
+            <transition>
+                <div class="box" v-if="flag"></div>
+            </transition>
+            
+            <hr>
+            
+            <input type="button" value="toggle2" @click="flag2=!flag2">
+            <!-- 使用 transition 元素，把需要被动画控制的元素，包裹起来 -->
+            <!-- transition 元素是官方提供的 -->
+            <transition name="my">
+                <div class="box" v-if="flag2"></div>
+            </transition>
+            
+        </div>
+        <script>
+            let vm = new Vue({
+                el : '#app',
+                data : {
+                    flag : false,
+                    flag2 : false
+                },
+                methods : {
+                    
+                }
+            })
+        </script>
+	</body>
+</html>

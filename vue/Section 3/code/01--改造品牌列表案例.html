@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>改造品牌列表</title>
+        <script src="lib/vue-2.4.0.js"></script>
+        <script src="lib/axios.js"></script>
+        <link rel="stylesheet" href="lib/bootstrap-3.3.7.css">
+	</head>
+	<body>
+        <div id="app">
+            
+             <div class="panel panel-primary">
+                 <div class="panel-heading">
+                     <h3 class="panel-title">添加品牌</h3>
+                 </div>
+                 <div class="panel-body form-inline">
+                     <label>
+                         Name:
+                         <input type="text" v-model="name" class="form-control">
+                     </label>
+                     
+                     <input type="button" value="添加" @click="add" class="btn btn-primary">
+                 </div>
+             </div>
+             
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Ctime</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in list" :key="item.id">
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.Ctime }}</td>
+                        <td>
+                            <a href="">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <script>
+            var vm = new Vue({
+                el : '#app',
+                data : {
+                    name : '',
+                    list : [ // 存放所有品牌列表的数组
+                        { id : 1, name : '五菱宏光', Ctime : new Date() },
+                        { id : 2, name : '众泰', Ctime : new Date() },
+                    ]
+                },
+                created () { // 当 vm 实例的 data 和 methods 初始化完毕后，vm 实例会自动执行 created 这个生命周期函数
+                    this.getAllList()
+                },
+                methods : {
+                    getAllList () { // 获取所有的品牌
+                        // 分析：
+                        // 1. 由于已经导入了 Vue-resource 这个包，所以，可以直接通过 this.$http 来发起请求
+                        // 2. 根据接口 API 文档，知道，获取列表的时候，应该发起一个 get 请求
+                        // 3. this.$http.get('url').then(function (result) {})
+                        // 4. 当通过 then，指定回调函数之后，在回调函数中，可以拿到数据服务器返回的 result
+                        // 5. 先判断 result.status 是否等于0，如果等于0，就成功了，可以把 result.message 赋值给 this.list；如果不等于0，可以弹框提醒，获取数据失败！
+                        // this.$http.get('http://wnhja.cn/api/getnew').then(result => {
+                        //     var result = result.body
+                        //     console.log(result)
+                        //     if (result.status === 0) {
+                        //         // 成功了
+                        //         this.list = result.message
+                        //     } else {
+                        //         // 失败
+                        //         alert('获取数据失败！')
+                        //     }
+                        // })
+                        axios.get('http://wnhja.cn/api/getnew').then(result => {
+                           console.log(result)
+                            if (result.status === 200) {
+                                 let data = result.data
+                                 this.list = data.data
+                            } else {
+                                alert('失败')
+                            }
+                            
+                        })
+                    },
+                    add () { // 添加品牌列表到后台服务器
+                        // 分析：
+                        // 1. 听过查看数据 API 接口，发现，要发现一个 Post 请求，this.$http.post
+                        // 2. this.$http.post() 中接受三个参数：
+                        //      2.1 第一个参数：要请求的 URL 地址
+                        //      2.2 第二个参数：要提交给服务器的数据，要以对象形式提交给服务器 {name : this.name}
+                        //      2.3 第三个参数：是一个配置对象，要以哪种表单数据类型提交过去，{ emulateJSON：true }，以普通表单格式，以数据提交给服务器。
+                        // 3. 在 post 方法中，使用 .then 来设置成功的回调函数，如果想要想到拿到成功的结果，需要 result.body
+                        
+                        this.$http.post('wnhja.cn/api/getnew', {name : this.name}, {emulateJSON:true})
+                        .then(result => {
+                            if (result.body.status === 0) {
+                                // 成功了
+                                // 添加完成后，只需要手动调用一下 getAllList 就能刷新品牌列表了
+                                this.getAllList()
+                            } else {
+                                // 失败了
+                                alert('失败了')
+                            }
+                        })
+                        
+                    }
+                     
+                }
+            })
+        </script>
+        
+	</body>
+</html>
