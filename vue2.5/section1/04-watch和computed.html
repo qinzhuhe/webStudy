@@ -1,0 +1,59 @@
+<!--
+ * @Author: zy
+ * @Date: 2020-02-20 18:48:26
+ * @LastEditors: zy
+ * @LastEditTime: 2020-02-20 19:03:43
+ * @Description: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>watch监听</h3>
+        <input type="text" name="" v-model='msg.text'>
+        <h3>computed计算属性</h3>
+        <input type="text" name="" v-model='n1'> +
+        <input type="text" name="" v-model='n2'> -
+        <input type="text" name="" v-model='n3'> = {{ result }}
+    </div>
+</body>
+<script>
+    new Vue({
+        el : '#app',
+        data : function () {
+            return {
+                msg : { text : '' },
+                n1 : '',
+                n2 : '',
+                n3 : ''
+            }
+        },
+        computed : {
+            result () {
+                return Number(this.n1) + Number(this.n2) - Number(this.n3)
+            }
+        },
+        watch : {
+            // msg (newval, oldval) {
+            //     if (newval.text == 'love') {
+            //         alert('love')
+            //     }
+            // }
+            msg : {
+                handler (newval, oldval) {
+                    if (newval.text == 'love') {
+                        alert(newval.text)
+                    }
+                },
+                deep: true // 深度解析
+            }
+        },
+    })
+</script>
+</html>

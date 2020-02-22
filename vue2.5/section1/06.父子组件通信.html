@@ -1,0 +1,74 @@
+<!--
+ * @Author: zy
+ * @Date: 2020-02-21 17:26:39
+ * @LastEditors: zy
+ * @LastEditTime: 2020-02-21 18:06:48
+ * @Description: 
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>父子组件通信</title>
+     <script src="./vue.js"></script>
+ </head>
+ <body>
+     <div id="app">
+        <parent></parent>
+     </div>
+     <script>
+         
+        // 定义子组件
+        var child = {
+            template : `
+            <div>
+                这是子组件 --- {{ childSend }}
+                <button @click='parentSend'>点击传值</button>
+            </div>
+            `,
+            props : [
+                'childSend'
+            ],
+            methods : {
+                parentSend () {
+                    this.$emit('farther', '这是子组件传递给父组件的内容')
+                }
+            },
+        }
+
+        // 定义父组件
+        var parent = {
+            template : `
+            <div>
+                这是父组件 --- {{ msg }}
+                <child childSend = '这是父组件传递给子组件的值' @farther = 'reserve'></child>
+            </div>
+            `,
+            components : {
+                child
+            },
+            data () {
+                return {
+                    msg : ''
+                }
+            },
+            methods : {
+                reserve (val) {
+                    this.msg = val
+                }
+            },
+        }
+
+        new Vue({
+            el : '#app',
+            data () {
+                return {}
+            },
+            components : {
+                parent
+            }
+        })
+     </script>
+ </body>
+ </html>

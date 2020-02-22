@@ -1,0 +1,13 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+}
+html .box,
+body .box {
+  width: 200px;
+  height: 200px;
+  background: url(../images/f4.jpg);
+  background-size: cover;
+}

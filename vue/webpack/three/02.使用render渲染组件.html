@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../vue/vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+
+        let login = {
+            template : '<h1>登录组件</h1>'
+        }
+
+        const vm = new Vue({
+            el : '#app',
+            data : {},
+            methods : {},
+            render : function (createElement) { // createElement 是一个方法，把一个指定的组件模板，渲染为 html 结构
+                return createElement(login)
+                // 注意：这里 return 的结果，会替换页面中 el 指定的那个容器。
+
+                // 与原来方式的区别：
+                // 原来方式只是将组件放置在指定的位置，不会影响其中的内容；
+                // 而 render 渲染方式则是直接将组件替换掉指定的位置，会清空其中的内容
+            }
+        })
+    </script>
+</body>
+</html>

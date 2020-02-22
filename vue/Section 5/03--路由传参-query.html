@@ -1,0 +1,55 @@
+<!--
+ * @Author: zy
+ * @Date: 2020-01-04 15:46:54
+ * @LastEditors: zy
+ * @LastEditTime: 2020-02-19 17:35:21
+ * @Description: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>路由传参</title>
+    <script src="../vue/vue.js"></script>
+    <script src="../vue/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 如果在路由中，使用 查询字符串，给路由传递参数，则不需要修改路由规则 path 属性 -->
+        <router-link to="/login?id=10&name=ls">登录</router-link>
+        <router-link to="/reg?id=20">注册</router-link>
+        <router-view></router-view>
+    </div>
+    <script>
+
+        let login = {
+            template : '<h1>登录 -- {{ $route.query.id }} --- {{ $route.query.name }}</h1>',
+            created () {
+                console.log(this.$route)
+                console.log(this.$route.query.name)
+            },
+        }
+
+        let reg = {
+            template : '<h1>注册</h1>'
+        }
+
+        const router = new VueRouter({
+            routes : [
+                { path : '/', redirect : '/login' },
+                { path : '/login',component : login },
+                { path : '/reg', component : reg }
+            ],
+        }) 
+
+        const vm = new Vue({
+            el : '#app',
+            data : {},
+            methods : {},
+            router : router
+        })
+    </script>
+</body>
+</html>

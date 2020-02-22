@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>watch监听路由变化</title>
+    <script src="../vue/vue.js"></script>
+    <script src="../vue/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <router-link to="/login">登录</router-link>
+        <router-link to="/reg">注册</router-link>
+        <router-view></router-view>
+    </div>
+    <script>
+
+        let login = {
+            template : '<h1>登录子组件</h1>'
+        }
+
+        let reg = {
+            template: '<h1>注册子组件</h1>'
+        }
+
+        const router = new VueRouter({
+            routes : [
+                { path : '/', redirect : 'login' },
+                { path : '/login', component : login },
+                { path : '/reg', component : reg }
+            ]
+        })
+
+        const vm = new Vue({
+            el : '#app',
+            data : {},
+            methods : {},
+            router,
+            watch : {
+                '$route.path' : function (newVal, oldVal) {
+                    if (newVal === '/login') {
+                        console.log('欢迎进入登录页面')
+                    } else if (newVal === '/reg') {
+                        console.log('欢迎进入注册页面')
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+</html>

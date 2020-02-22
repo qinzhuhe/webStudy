@@ -1,0 +1,39 @@
+<!--
+ * @Author: zy
+ * @Date: 2020-02-20 17:12:26
+ * @LastEditors: zy
+ * @LastEditTime: 2020-02-20 17:17:33
+ * @Description: 
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script src="./vue.js"></script>
+ </head>
+ <body>
+     <div id="app"></div>
+     <script>
+         new Vue({
+             el : '#app',
+             template : `
+             <div>
+                单向数据板顶
+                <input type='text' v-bind:value="name" :class="name"><br>
+                双向数据绑定
+                <input type='text' v-model='name'><br>
+                {{ name }}
+                <button @click="name='我改变了'">点击</button>
+             </div>
+             `,
+             data : function () {
+                 return {
+                     name : 'hello'
+                 }
+             }
+         })
+     </script>
+ </body>
+ </html>

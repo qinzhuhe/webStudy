@@ -1,0 +1,36 @@
+<!--
+ * @Author: zy
+ * @Date: 2020-02-20 16:21:15
+ * @LastEditors: zy
+ * @LastEditTime: 2020-02-20 16:28:38
+ * @Description: 
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>指令温习</title>
+     <script src="./vue.js"></script>
+ </head>
+ <body>
+     <div id="app"></div>
+     <script>
+         new Vue({
+             el : '#app',
+             template : `
+            <div>
+                <div v-text='mytext'></div>
+                <div v-html='myhtml'></div>
+            </div>
+             `,
+             data : function () {
+                 return {
+                    mytext : '此处是v-text',
+                    myhtml : '<h1>此处是v-html</h1>'
+                 }
+             }
+         })
+     </script>
+ </body>
+ </html>

@@ -1,0 +1,33 @@
+<!--
+ * @Author: zy
+ * @Date: 2020-02-20 16:11:48
+ * @LastEditors: zy
+ * @LastEditTime: 2020-02-20 16:19:48
+ * @Description: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    new Vue({
+        el : '#app',
+        // template 中只能存在一个根节点，不能存在两个平级的根节点
+        template : `
+            <div>模板内容测试--{{ msg }}</div>    
+        `,
+        data : function () {
+            return {
+                msg : 'Hello Vue！'
+            }
+        }
+    })
+</script>
+</html>

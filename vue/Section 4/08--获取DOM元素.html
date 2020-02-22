@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取DOM元素</title>
+    <script src="../vue/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="获取元素" @click="getElement">
+        <h3 id="myh3" ref="myh3">获取到了DOM元素!!!</h3>
+        <login ref="mylogin"></login>
+    </div>
+    <script>
+        var login = {
+            template : '<h1>登录组件</h1>',
+            data () {
+                return {
+                    msg : 'data内容'
+                    重温vue的步骤：
+                    1、明白脚手架
+                    2、组件化使用流程
+                    3、vue动画分为哪些，需要掌握
+                    4、vue的基本指令使用
+                    5、路由的使用
+                    6、生命周期如何不熟使用
+                    数据方法、生命周期、模板语法
+                }
+            },
+            methods : {
+                 show () {
+                     console.log('调用了子组件的方法')
+                 }
+            }
+        }
+        var vm = new Vue({
+            el : '#app',
+            data : {},
+            methods : {
+                getElement () {
+                    // ref : 【reference】 值类型和引用类型
+                    // console.log(this.$refs.myh3.innerText)
+                    // console.log(this.$refs.mylogin.msg)
+                    // 使用 ref 可以同时获取多个 DOM 元素的内容，还可以拿到组件的引用，而且还可以拿到组件内部的方法和数据
+                    this.$refs.mylogin.show() 
+                }
+            },
+            components : {
+                login
+            }
+        })
+    </script>
+</body>
+</html>
