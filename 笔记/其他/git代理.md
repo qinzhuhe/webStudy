@@ -43,3 +43,13 @@ mkdir ~/.ssh
 ```
 
 设置完毕
+
+
+
+### 取消代理
+
+```shell
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
+
