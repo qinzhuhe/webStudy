@@ -1,0 +1,141 @@
+<!--
+ * @Author: zy
+ * @Date: 2020-09-21 10:42:30
+ * @LastEditors: zy
+ * @LastEditTime: 2020-09-21 20:39:14
+ * @Description: 回顾
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度贴吧</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <!-- 第一块 -->
+    <section class="TopLeft">
+        <div class="box1" id="box1">
+            <div class="about">
+                <p>ABOUT</p>
+            </div>
+        </div>
+        <div class="box2" id="box2">
+            <div class="works">
+                <p>WORKS</p>
+            </div>
+        </div>
+        <div class="box3" id="box3">
+            <div class="blog">
+                <p>BLOG</p>
+            </div>
+        </div>
+        <div class="box4" id="box4">
+            <div class="contact">
+                <p>CONTACT</p>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    let box1 = document.getElementById('box1');
+    let box2 = document.getElementById('box2');
+    
+    let box3 = document.getElementById('box3');
+    let box4 = document.getElementById('box4');
+
+    let flog = true;
+
+    box1.onclick = function () {
+        // let e = evt || event;
+        if (flog) {
+            // _left = e.pageX - e.offsetX;
+            // _top = e.pageY - e.offsetY;
+            box1.style.width = window.innerWidth + "px";
+            box1.style.height = window.innerHeight + "px";
+            box2.style.display = "none";
+            box3.style.display = "none";
+            box4.style.display = "none";
+            flog = false;
+        } else {
+            box1.style.width = "50%";
+            box1.style.height = "50%";
+            // box2.style.left = "50%"
+            box2.style.display = "block";
+            box3.style.display = "block";
+            box4.style.display = "block";
+            flog = true;
+        }
+    }
+
+    box2.onclick = function () {
+        // let e = evt || event;
+        if (flog) {
+            // _left = e.pageX - e.offsetX;
+            // _top = e.pageY - e.offsetY;
+            box2.style.width = window.innerWidth + "px";
+            box2.style.height = window.innerHeight + "px";
+            box1.style.display = "none";
+            box3.style.display = "none";
+            box4.style.display = "none";
+            flog = false;
+        } else {
+            box2.style.width = "50%";
+            box2.style.height = "50%";
+            // box2.style.left = "50%"
+            box1.style.display = "block";
+            box3.style.display = "block";
+            box4.style.display = "block";
+            flog = true;
+        }
+    }
+
+    box3.onclick = function () {
+        // let e = evt || event;
+        if (flog) {
+            // _left = e.pageX - e.offsetX;
+            // _top = e.pageY - e.offsetY;
+            box3.style.width = window.innerWidth + "px";
+            box3.style.height = window.innerHeight + "px";
+            box1.style.display = "none";
+            box2.style.display = "none";
+            box4.style.display = "none";
+            flog = false;
+        } else {
+            box3.style.width = "50%";
+            box3.style.height = "50%";
+            // box2.style.left = "50%"
+            box1.style.display = "block";
+            box2.style.display = "block";
+            box4.style.display = "block";
+            flog = true;
+        }
+    }
+
+    box4.onclick = function () {
+        // let e = evt || event;
+        if (flog) {
+            // _left = e.pageX - e.offsetX;
+            // _top = e.pageY - e.offsetY;
+            box4.style.width = window.innerWidth + "px";
+            box4.style.height = window.innerHeight + "px";
+            box1.style.display = "none";
+            box3.style.display = "none";
+            box2.style.display = "none";
+            flog = false;
+        } else {
+            box4.style.width = "50%";
+            box4.style.height = "50%";
+            // box2.style.left = "50%"
+            box1.style.display = "block";
+            box3.style.display = "block";
+            box2.style.display = "block";
+            flog = true;
+        }
+    }
+
+    
+    
+</script>
+</html>

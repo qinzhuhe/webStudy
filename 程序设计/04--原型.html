@@ -1,0 +1,49 @@
+<!--
+ * @Author: zy
+ * @Date: 2020-06-24 16:58:58
+ * @LastEditors: zy
+ * @LastEditTime: 2020-09-21 10:41:54
+ * @Description: prototype
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型</title>
+</head>
+<body>
+    <script>
+        function Person () {
+        }
+
+        // prototype 指向该构造函数的原型对象的指针
+        // 通过原型添加，使得实例调用时可以共享该构造函数的属性方法
+        Person.prototype.name = "Nick"
+        Person.prototype.age = 29
+        Person.prototype.job = "doctor"
+        Person.prototype.sayName = function () {
+            console.log(this.name)
+        }
+
+        // constructor  指向 prototype 属性所在函数的指针
+        // console.log(Person.prototype.constructor)
+
+        let person1 = new Person() 
+        person1.sayName()
+
+        let person2 = new Person()
+        person2.sayName()
+        
+        console.log("两个实例是否指向同一原型指针---" + (person1.sayName === person2.sayName))
+
+        // [[prototype]] 指向的原型对象 
+        console.log("person1 是否指向 Person 的原型---" + Person.prototype.isPrototypeOf(person1)) // true
+        console.log("person2 是否指向 Person 的原型---" + Person.prototype.isPrototypeOf(person2)) // true
+
+        // getPrototypeOf()   返回 [[prototype]] 的值
+        console.log("原型指针是否相同---" + (Object.getPrototypeOf(person1) === Person.prototype))
+        console.log("返回值---" + Object.getPrototypeOf(person1).name)
+    </script>
+</body>
+</html>

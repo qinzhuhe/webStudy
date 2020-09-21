@@ -1,0 +1,252 @@
+/* 公共样式 */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+textarea,
+input {
+  margin: 0;
+  padding: 0;
+}
+address,
+cite,
+dfn,
+em,
+var,
+i {
+  font-style: normal;
+}
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Microsoft Yahei', 'simsun', 'arial', 'tahoma';
+  color: #333;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th {
+  font-size: 100%;
+  font-weight: normal;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+fieldset,
+img {
+  border: 0;
+}
+a,
+img {
+  -webkit-touch-callout: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+a,
+a:active,
+a:focus,
+a:hover,
+a:visited {
+  text-decoration: none;
+}
+input[type=password],
+input[type=text],
+textarea {
+  resize: none;
+  outline: 0;
+  -webkit-appearance: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #fff;
+}
+:focus {
+  outline: none;
+}
+.clearfix {
+  clear: both;
+  content: "";
+  display: block;
+  overflow: hidden;
+}
+.clear {
+  clear: both;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+/* 主体 */
+html,
+body {
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+}
+.TopLeft {
+  width: 100%;
+  height: 100%;
+}
+.TopLeft .box1 {
+  float: left;
+  width: 50%;
+  height: 50%;
+  background-color: #DE5658;
+}
+.TopLeft .box1 .about {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  top: 42%;
+}
+.TopLeft .box1 .about P {
+  color: #EFEBDF;
+  font-size: 3em;
+  font-weight: 500;
+  text-align: center;
+  line-height: 80px;
+  transition: all 0.5s ease;
+}
+.TopLeft .box1:hover p {
+  transform: scale(1.2);
+}
+.TopLeft .box2 {
+  float: right;
+  width: 50%;
+  height: 50%;
+  background-color: #EC8F73;
+}
+.TopLeft .box2 .works {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  top: 42%;
+}
+.TopLeft .box2 .works P {
+  color: #EFEBDF;
+  font-size: 3em;
+  font-weight: 500;
+  text-align: center;
+  line-height: 80px;
+  transition: all 0.5s ease;
+}
+.TopLeft .box2:hover p {
+  transform: scale(1.2);
+}
+.TopLeft .box3 {
+  float: left;
+  width: 50%;
+  height: 50%;
+  background-color: #7BC79D;
+}
+.TopLeft .box3 .blog {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  top: 42%;
+}
+.TopLeft .box3 .blog P {
+  color: #EFEBDF;
+  font-size: 3em;
+  font-weight: 500;
+  text-align: center;
+  line-height: 80px;
+  transition: all 0.5s ease;
+}
+.TopLeft .box3:hover p {
+  transform: scale(1.2);
+}
+.TopLeft .box4 {
+  float: right;
+  width: 50%;
+  height: 50%;
+  background-color: #3E9A8C;
+}
+.TopLeft .box4 .contact {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  top: 42%;
+}
+.TopLeft .box4 .contact P {
+  color: #EFEBDF;
+  font-size: 3em;
+  font-weight: 500;
+  text-align: center;
+  line-height: 80px;
+  transition: all 0.5s ease;
+}
+.TopLeft .box4:hover p {
+  transform: scale(1.2);
+}
