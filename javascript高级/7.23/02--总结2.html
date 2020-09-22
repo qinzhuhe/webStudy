@@ -17,7 +17,7 @@
 		}
 		var per = new Person(10);//实例对象
 		var stu = new Student();//实例对象
-		// sayHi方法是【er实例对象的
+		// sayHi的指针被转向实例对象stu
 		per.sayHi.apply(stu,[10,20]);
 		per.sayHi.call(stu,10,20);
 

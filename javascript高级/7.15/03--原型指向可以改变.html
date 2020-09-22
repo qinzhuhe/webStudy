@@ -34,14 +34,14 @@
 		function Student(){
 
 		}
-		Student.prototype.whe = function (){
+		Student.prototype.eats = function (){
 			console.log("是的，才刚刚开始");
 		};
 		// 学生的原型，指向了一个人的实例对象
 		Student.prototype = new Person(10);
 		var stu = new Student();
-		// stu.eat();
-		stu.whe();
+		stu.eat();
+		stu.eats();
 
 		// 原型指向可以改变
 		// 实例对象的原型__proto__指向的是该对象所在的构造函数的原型对象
