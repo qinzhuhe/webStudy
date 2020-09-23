@@ -1,15 +1,17 @@
 <html>
     <head>
-    <script type="text/javascript" src="/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../../jQuery/js/jQuery/jquery-1.12.2.min.js"></script>
     <script type="text/javascript">
-      $(document).ready(function(){
-        $("input").keydown(function(){
-          $("input").css("background-color","#FFFFCC");
-        });
-        $("input").keyup(function(){
-          $("input").css("background-color","#D6D6FF");
-        });
-      });
+      window.onload = function () {
+          $(document).ready(function(){
+            $("input").keydown(function(){
+              $("input").css("background-color","#FFFFCC");
+            });
+            $("input").keyup(function(){
+              $("input").css("background-color","#D6D6FF");
+            });
+          });
+      }
     </script>
     </head>
     <body>
