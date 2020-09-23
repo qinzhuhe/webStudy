@@ -27,11 +27,11 @@
 		myid("btn1").onclick = function (){
 			// 这里不能使用局部变量，要使用全局变量
 				timeid = setInterval(function (){
-				var x = parseInt(Math.random() * 100 + 1);
-				var y = parseInt(Math.random() * 100 + 1);
-				myid("dv").style.left = x + "px";
-				myid("dv").style.top = y + "px";
-			}, 150);
+					var x = parseInt(Math.random() * 100 + 1);
+					var y = parseInt(Math.random() * 100 + 1);
+					myid("dv").style.left = x + "px";
+					myid("dv").style.top = y + "px";
+				}, 150);
 		};
 
 		//点击按钮停止

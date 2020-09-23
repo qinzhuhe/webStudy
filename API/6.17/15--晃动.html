@@ -20,11 +20,13 @@
 </head>
 <body>
 	<input type="button" value="晃动" id="btn" />
+	<input type="button" value="stop" id="btn2" />
 	<div id="dv"></div>
 	<script src="../js/myid.js"></script>
 	<script>
+		var time = "";
 		myid("btn").onclick = function (){
-			setInterval(function (){
+			time = setInterval(function (){
 				myid("dv").innerHTML = "<span>☆</span>";
 				var x = parseInt(Math.random() * 100 + 1);
 				var y = parseInt(Math.random() * 100 + 1);
@@ -32,6 +34,12 @@
 				myid("dv").firstElementChild.style.top = y + "px";
 			}, 100);
 		}
+
+		myid("btn2").onclick = function () {
+			clearInterval(time);
+			console.log(myid("dv").offsetLeft)
+		}
+
 	</script>
 </body>
 </html>
