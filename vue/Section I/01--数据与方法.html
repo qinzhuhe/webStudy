@@ -11,16 +11,16 @@
         </div>
         <script>
             let data = { a : 1 },
-            
-            Object.freeze(data) // 阻止了更新
-            
+
+            Object.freeze(data)// 阻止了更新
+
             let vm = new Vue({
-                el: '#app', 
+                el: '#app',
                 data: data
             })
             data.a = "hi"
             vm.b = "test"
-           
+
         </script>
 	</body>
 </html>

@@ -3,7 +3,7 @@
  * @Date: 2020-01-06 19:10:00
  * @LastEditors: zy
  * @LastEditTime: 2020-02-19 17:37:14
- * @Description: 
+ * @Description:
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +28,7 @@
 
         let login = {
             template: '<h1>登录</h1>',
+            // 生命周期钩子，在data与methods中的数据已经载入完毕时触发
             created() {
                 console.log(this.$route.params.id)
             },

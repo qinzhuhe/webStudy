@@ -27,7 +27,7 @@
         .left {
             background-color: lightblue;
             flex: 2;
-        } 
+        }
         .main {
             background-color: lightcoral;
             flex: 8;
@@ -59,12 +59,12 @@
         // 创建路由对象
         const router = new VueRouter({
             routes : [
-                { 
+                {
                     path : '/', components : {
                         'default' : header,
                         'left' : leftBox,
                         'main' : mainBox
-                    }   
+                    }
                 }
             ]
         })
@@ -72,7 +72,7 @@
         const vm = new Vue({
             el : '#app',
             data : {},
-            methods : {},  
+            methods : {},
             router: router
         })
     </script>
