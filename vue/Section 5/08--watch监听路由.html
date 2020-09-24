@@ -37,6 +37,7 @@
             data : {},
             methods : {},
             router,
+            // 使用 watch 方式监听路由
             watch : {
                 '$route.path' : function (newVal, oldVal) {
                     if (newVal === '/login') {
