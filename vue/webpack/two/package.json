@@ -24,7 +24,7 @@
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "open-iconic": "git+https://github.com/iconic/open-iconic.git",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.2",
