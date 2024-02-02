@@ -1,0 +1,470 @@
+# 设计模式
+
+设计模式，用于提供可重用的解决方案，可在不同的项目和场景中使用这些方案来解决类似的问题，进一步提高了代码的可维护性和可拓展性。设计模式并不是直接可用的代码，只是存在于特定情境下解决问题的模板或蓝图。
+
+## 设计模式形态
+
+设计模式大致可以分为三种不同形态的设计模式。
+
+1. 创建型模式（`Creational Patterns`）
+
+   用于创建对象的模式，这些模式将对象的创建和使用分离开来，从而提高了系统的灵活性和可扩展性。用于封装创建对象的方法。
+
+   - 工厂方法模式
+   - 抽象共工模式
+   - 单例模式
+   - 建造者模式
+   - 原型模式
+
+2. 结构型模式（`Structural Patterns`）
+
+   用于描述如何将类或对象组合成更大的结构，从而构成更加复杂的模式。用于封装对象之间的组合关系。这些模式关注对象的组合方式，以及类和对象之间的关系。
+
+   - 适配器模式
+   - 桥接模式
+   - 组合模式
+   - 装饰模式
+   - 外观模式
+   - 享元模式
+   - 代理模式
+
+3. 行为型模式（`Behavioral Patterns`）
+
+   用于描述对象之间的通信和协作，以及类和对象之间的职责分配。用于封装对象相关行为的变化。这些模式关注对象之间的交互方式，以及如何实现对象的行为。
+
+   - 模块方法模式
+   - 命令模式
+   - 迭代器模式
+   - 观察者模式
+   - 中介者模式
+   - 备忘录模式
+   - 解释器模式
+   - 状态模式
+   - 策略模式
+   - 职责链模式
+   - 访问者模式
+
+## 六大原则
+
+设计模式同样是基于不同的设计原则产生的，而在多种的数据原则中被抽离出来有六个重要的设计原则，即为 `SOLID`。
+
+1. 单一职责原则（`Single Responsibility Principle` / `SRP`）
+
+   一个类应该只有一个引起它变化的原因，也就是一个类应该只有一种职责，不应该给它设置多种原则，以防止代码的耦合度过高。如果大类过于负责，可以将大类拆分成多个小类，每个小类只负责一个明确的职责，确保每个类都有高内聚性。
+
+2. 开放封闭原则（`Open-Closed Principle` / `OCP`）
+
+   一个软件实体（类、模块、函数等）应该对扩展开放，对修改关闭。这样可以使得系统更容易拓展，当需求发生变化时，可以通过添加新的代码而不是修改已有的代码来适应变化。
+
+3. 里氏替换原则（`Liskov Substitution Principle` / `LSP`）
+
+   所有引用 *基类* 对象的地方，都可以用其 *子类* 对象进行替换，并且不影响程序的正确性。保持继承关系的一致性，已确保子类可以无缝替代基类。也就是说子类对象可以在程序中替换父类对象，而程序的行为不会发生变化。
+
+4. 接口隔离原则（`Interface Segregation Principle` / `ISP`）
+
+   客户端不应该依赖它不需要的接口。需要避免类实现不需要的接口，减少不必要的依赖。可以将大型接口拆分为多个小接口，使客户端只依赖于它们需要的接口。
+
+5. 依赖倒置原则（`Dependency Inversion Principle` / `DIP`）
+
+   高层模块不应该依赖底层模块，二者都应该依赖抽象接口；抽象接口不应该依赖具体实现，具体实现应该依赖抽象接口。降低模块之间的耦合度，使系统更灵活、可扩展、可维护。简单说就是面向接口编程，而不是面向实现编程。
+
+6. 迪米特法则（`Law of Demeter` / `LoD`）
+
+   一个对象应该对其他对象保持最少的了解，避免在一个对象中调用其他对象的方法。一个对象应该只与它直接的对象进行交流，通过封装减少对象之间的直接交互，提高模块的独立性和可维护性。
+
+## 设计模式
+
+此处只列举部分常用的设计模式，根据实际场景以及案例进行说明。
+
+### 策略模式
+
+定义：通过所需的算法，将不同的内容进行封装，使它们可以相互替换。
+
+实际场景：
+
+> 假设根据不同的条件返回值，例如业务本身涉及到了大量的重复判断的情况下（根据消费金额返回赠送商品、门票校验时不同的年龄有不同的校验方法、...），代码不仅冗余且违反了开放封闭原则，这个时候就可以考虑使用策略模式对于代码进行优化。
+>
+> ```javascript
+> // 策略搭建
+> var strategies = {
+>     checkGrade: function (value) {
+>         return value >= 1
+>     }
+> }
+> 
+> // 创建校验规则类
+> const Vaildator = function () {
+>     this.cache = []
+>     
+>     // 添加策略事件
+>     this.add = function (value, method) {
+>         this.cache.push(function () {
+>             return strategies[method](value)
+>         })
+>     }
+>     
+>     // 检查
+>     this.check = function () {
+>         for(let i = 0; i < this.cache.length; i++) {
+>             let valiFn = this.cache[i]
+>             const data = valiFn()
+>             if (!data) {
+>                 return false
+>             }
+>         }
+>         return true
+>     }
+> }
+> 
+> // 实例调用
+> var compose = function () {
+>     var validator = new Vaildator()
+>     const data = {
+>         grade: 3
+>     }
+>     validator.add(data.grade, 'checkGrade')
+>     const result = validator.check()
+>     return result
+> }
+> ```
+>
+> 那么利用以上代码，就实现了一个根据等级进行权限校验的通用规则类，就算突然有新增的规则校验方法，也只需要添加新的策略就行了。
+
+### 单例模式
+
+创建一个可以全局访问并且只会实例化一次的类，这个实例在整个应用将会被共享。对于一些频繁实例化又销毁的对象，以及经常使用，但是实例化耗时间较多的情况下，可以考虑用该设计模式进行优化，并且单例模式非常适用管理应用程序中的全局状态。
+
+单例模式通常包括以下几个要素：
+
+1. 私有构造函数：使得外部不能直接实例化该类
+2. 私有静态变量：用于保存类的唯一实例
+3. 公共静态方法（全局访问点）：用于获取类的实例
+
+> ```javascript
+> // 创建一个变量，通过判断该变量是否为空来保证不会有多次的实例化行为
+> {
+>   let instance;
+> 
+>   class Counter {
+>     constructor() {
+>       //防止多次实例
+>       if (instance) {
+>         throw new Error("只能创建一个实例!");
+>       }
+>       instance = this;
+>     }
+> 
+>     getInstance() {
+>       // 返回实例
+>       return this;
+>     }
+> 
+>     getCount() {
+>       // 获取当前 counter 值
+>       return counter;
+>     }
+> 
+>     // 加减运算
+>     increment() {
+>       return ++counter;
+>     }
+> 
+>     decrement() {
+>       return --counter;
+>     }
+>   }
+> 
+>   // 实例化出两个对象，测试它们是否相等
+>   const counter1 = new Counter();
+>   // const counter2 = new Counter(); // 创建第二个实例时将会被阻止
+> 
+>   // const singletonCounter = Object.freeze(new Counter()); // 冻结实例，防止被外部导致实例被更改
+> }
+> ```
+>
+
+### 发布 - 订阅模式
+
+它定义对象间的一种一对多的依赖关系。当一个对象的状态发生改变时，所有依赖于它的对象都将接受到通知，例如 `vuex` 中的变量存储以及常用的组件通信。而在实际开发中，一般使用事件模型来替代传统的发布 - 订阅模式，例如 `addEventListener` 等相关方法。
+
+在观察者模式中，订阅对象拥有添加、删除、通知等一系列的依赖者对象的方法，而依赖者对象同样也拥有更新方法。
+
+
+
+### 代理模式
+
+当模块职责单一且能复用，并且不同模块之间的交互需要一定限制的情况下，可以考虑使用代理模式。为一个对象提供一个代用品或占位符，通过中间渠道去对原对象进行操作，也就是类似于 `vpn` 中的代理机制。代理者本身的作用，就是将请求预先进行处理或是直接转接给实际对象。
+
+代理模式分为保护代理以及虚拟代理两种：
+
+- 保护代理：用于控制不同权限的对象对目标对象的访问
+- 虚拟代理：把开销很大的对象或者操作延迟到真正进行的时候再去创建，类比引入时的动态引入
+
+但是对于前端来说，由于自身业务场景的关系，基本不适用于保护代理的构建，所以绝大部分情况还是采用虚拟代理进行搭建。
+
+```javascript
+// 图片懒加载就是一种代理模式的表现
+// 通过占位符的方式对图片位置进行操作
+
+{
+  // 普通场景下的懒加载
+  const lazyImage = () => {
+    let imgNode = document.createElement("img");
+    document.body.appendChild(imgNode);
+    let image = new Image();
+    image.onload = () => (imgNode.src = image.src);
+
+    return {
+      setSrc: function (src) {
+        imgNode.src = "......"; //预加载本地图片
+        image.src = src;
+      },
+    };
+  };
+
+  lazyImage.setSrc("https://www.image.com/oldDog.png"); // 加载图片
+}
+
+{
+  // 使用代理模式进行的懒加载
+  //例子： 图片预加载功能
+  var lazyImage = (function () {
+    var imgNode = document.createElement("img");
+    document.body.appendChild(imgNode);
+
+    return function (src) {
+      imgNode.src = src;
+    };
+  })();
+
+  var proxyImage = (function () {
+    var img = new Image();
+
+    img.onload = function () {
+      lazyImage(this.src);
+    };
+
+    return function (src) {
+      lazyImage("file:// /C:/Users/svenzeng/Desktop/loading.gif");
+      img.src = src;
+    };
+  })();
+
+  proxyImage("http://imgcache.qq.com/music// N/k/000GGDys0yA0Nk.jpg");
+}
+
+```
+
+### 责任链模式
+
+为了避免请求发送者与接收者耦合在一起，让多个对象都有可能进行请求接受，于是就需要将这些对象连接成一条链，沿着这条链传递请求，指导有对象处理它位置。
+
+当实际负责的流程中各环节存在一定的执行顺序且可复用的情况，就可以考虑使用责任链模式进行编写。
+
+```javascript
+  //例子：一个售卖手机的电商网站，公司针对支付过定金的用户有一定的优惠政策。在正式购买后，已经支付过500元定金的用户会收到100元的商城优惠券，200元定金的用户可以收到50元的优惠券，而之前没有支付定金的用户只能进入普通购买模式，也就是没有优惠券，且在库存有限的情况下不一定保证能买到。
+
+{
+  // 原始实现：
+  var order = function (orderType, pay, stock) {
+    if (orderType === 1) {
+      // 500元定金购买模式
+      if (pay === true) {
+        // 已支付定金
+        console.log("500元定金预购，得到100优惠券");
+      } else {
+        // 未支付定金，降级到普通购买模式
+        if (stock > 0) {
+          // 用于普通购买的手机还有库存
+          console.log("普通购买，无优惠券");
+        } else {
+          console.log("手机库存不足");
+        }
+      }
+    } else if (orderType === 2) {
+      // 200元定金购买模式
+      if (pay === true) {
+        console.log("200元定金预购, 得到50优惠券");
+      } else {
+        if (stock > 0) {
+          console.log("普通购买, 无优惠券");
+        } else {
+          console.log("手机库存不足");
+        }
+      }
+    } else if (orderType === 3) {
+      if (stock > 0) {
+        console.log("普通购买, 无优惠券");
+      } else {
+        console.log("手机库存不足");
+      }
+    }
+  };
+
+  order(1, true, 500); // 输出： 500元定金预购, 得到100优惠券
+}
+
+{
+  // 责任链模式重构
+  var order500 = function (orderType, pay, stock) {
+    if (orderType === 1 && pay === true) {
+      console.log("500元定金预购，得到100优惠券");
+    } else {
+      return "nextSuccessor"; // 我不知道下一个节点是谁，反正把请求往后面传递
+    }
+  };
+
+  var order200 = function (orderType, pay, stock) {
+    if (orderType === 2 && pay === true) {
+      console.log("200元定金预购，得到50优惠券");
+    } else {
+      return "nextSuccessor"; // 我不知道下一个节点是谁，反正把请求往后面传递
+    }
+  };
+
+  var orderNormal = function (orderType, pay, stock) {
+    if (stock > 0) {
+      console.log("普通购买，无优惠券");
+    } else {
+      console.log("手机库存不足");
+    }
+  };
+
+  //定义一个构造函数Chain，在new Chain的时候传递的参数即为需要被包装的函数，同时它还拥有一个实例属性this.successor，表示在链中的下一个节点
+  // Chain.prototype.setNextSuccessor  指定在链中的下一个节点
+  // Chain.prototype.passRequest  传递请求给某个节点
+
+  var Chain = function (fn) {
+    this.fn = fn;
+    this.successor = null;
+  };
+
+  Chain.prototype.setNextSuccessor = function (successor) {
+    return (this.successor = successor);
+  };
+
+  Chain.prototype.passRequest = function () {
+    var ret = this.fn.apply(this, arguments);
+
+    if (ret === "nextSuccessor") {
+      return this.successor && this.successor.passRequest.apply(this.successor, arguments);
+    }
+
+    return ret;
+  };
+  //把3个订单函数分别包装成职责链的节点
+  var chainOrder500 = new Chain(order500);
+  var chainOrder200 = new Chain(order200);
+  var chainOrderNormal = new Chain(orderNormal);
+  //指定节点在职责链中的顺序：
+  chainOrder500.setNextSuccessor(chainOrder200);
+  chainOrder200.setNextSuccessor(chainOrderNormal);
+  //把3个订单函数分别包装成职责链的节点
+  chainOrder500.passRequest(1, true, 500); // 输出：500元定金预购，得到100优惠券
+  chainOrder500.passRequest(2, true, 500); // 输出：200元定金预购，得到50优惠券
+  chainOrder500.passRequest(3, true, 500); // 输出：普通购买，无优惠券
+  chainOrder500.passRequest(1, false, 0); // 输出：手机库存不足
+}
+
+
+```
+
+### 工厂模式
+
+工厂模式，就是将对象的创建 `new()` 这个过程封装起来，在工厂的内部实现对象的创建。这样创建对象时，不会对客户端暴露对象的创建逻辑，而是通过共同的接口来创建对象。
+
+工厂模式适用于，在应用场景中，想要创建一个对外隐藏内部细节的对象供外部使用，可以考虑使用工厂模式进行操作。
+
+而在实现方式上，目前主要有简单工厂模式、工厂方法模式、抽象工厂模式三种应用较为广泛的模式。
+
+#### 简单工厂
+
+又称为静态工厂模式，有一个静态类统一管理对象的创建，根据一个简单参数创建不同的示例对象。用于少量的简单的场景，能够在工厂中统一实现所有商品的创建。
+
+```javascript
+// 这里模拟一个创建单位，通过输入不同的型号返回不同的手机创建
+
+// 手机生产工厂
+class PhoneFactory {
+  // 实例对象创建器Map
+  #constructors = new Map()
+  constructor() {
+    this.#constructors.set('huawei', () => new HuaweiPhone())
+    this.#constructors.set('xiaomi', () => new XiaomiPhone())
+  }
+  // 可扩展型号
+  add(type, func) {
+    this.#constructors.set(type, func)
+  }
+  // 生产商品
+  create(type) {
+    const func = this.#constructors.get(type)
+    if (func) {
+      return func.call()
+    }
+    throw new Error(`不支持生产型号为${type}的设备`)
+  }
+}
+const phoneFactory = new PhoneFactory()
+// 添加苹果型号
+let IPhone = class { name = '苹果' }
+phoneFactory.add('iphone', () => new IPhone())
+// 使用，调用工厂方法创建对象实例
+let p1 = phoneFactory.create('iphone')
+let p2 = phoneFactory.create('huawei')
+
+```
+
+#### 工厂方法
+
+简单工厂模式能够满足部分业务场景的简单需求，但是倘若涉及到的内容开始变得复杂，那么在一个地方管理所有的 `new` 操作，无疑会让风险与管理变得更加繁琐。而工厂方法，就是为每一个产品都建立一个单独的工厂，一个工厂只生产一类商品，从而更加灵活的扩展内容项，从而实现相互之间的不影响。
+
+```javascript
+let HuaweiPhone = class {
+    name = "华为";
+  };
+  let XiaomiPhone = class {
+    name = "小米";
+  };
+
+  let IFactory = class {
+    creat() {}
+  };
+  // 华为手机工厂
+  class HuaweiFactory extends IFactory {
+    creat() {
+      return new HuaweiPhone();
+    }
+  }
+  // 小米手机工厂
+  class XiaomiFactory extends IFactory {
+    creat() {
+      return new XiaomiPhone();
+    }
+  }
+  // 使用
+  const huaweiFactory = new HuaweiFactory();
+  let p1 = huaweiFactory.creat();
+  let p2 = huaweiFactory.creat();
+```
+
+#### 抽象工厂
+
+抽象工厂可以看做是简单工厂+工厂方法的结合提升，增加了产品组的概念，还是拿电子产品生产来举例，一个大型的电子产品工厂中有多个品牌产品，不同的品牌产品形成了一个产品组，包含了多个产品，例如手机、平板、电视等等，不同品牌的产品也是不同的。因此一个产品工厂就会有多条生产线，生产多个产品。
+
+基本结构就是，抽象工厂类+具体工厂类，抽象产品类+具体产品类组合。
+
+## 部分名词解释说明
+
+<!--高阶函数：指能够接受一个或多个函数作为参数，并且返回一个新函数的函数。-->
+
+<!--基类对象：-->
+
+- <!--基类代表一个通用的类。它定义了一组通用的属性和行为。基类通常是更一般性、抽象的概念，可以被一个或多个子类继承。-->
+- <!--基类对象是基于基类创建的实例。这些对象拥有基类定义的属性和方法，代表了基类的共享行为。基类对象本身可能是抽象的，也就是不能直接实例化的。-->
+
+<!--子类对象：-->
+
+- <!--子类是基于基类创建的新类，通过继承基类的属性和行为，可以添加、修改或扩展。子类可以拥有基类的所有特征，并且可以具有自己特定的属性和方法。-->
+- <!--子类对象是基于子类创建的实例。这些对象继承了基类和子类定义的属性和方法，同时可以具有子类特有的属性和方法。-->
+
