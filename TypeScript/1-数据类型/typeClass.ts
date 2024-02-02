@@ -51,3 +51,20 @@ let user = "hello";
   let x2: number = foo();
   let x3: number = foo();
 }
+
+{
+  // function f(): void {
+  //   return 123; // 报错
+  // }
+
+  type voidFunc = () => void;
+
+  const f: voidFunc = () => {
+    return 123;
+  };
+
+  // let x = f();
+  // x = 123;
+
+  let x = f() * 2;
+}

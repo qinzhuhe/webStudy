@@ -39,3 +39,11 @@ var user = "hello";
     var x2 = foo();
     var x3 = foo();
 }
+{
+    var f = function () {
+        return 123;
+    };
+    // let x = f();
+    // x = 123;
+    var x = f() * 2;
+}
