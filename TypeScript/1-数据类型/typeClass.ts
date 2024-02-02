@@ -66,5 +66,5 @@ let user = "hello";
   // let x = f();
   // x = 123;
 
-  let x = f() * 2;
+  // let x = f() * 2;
 }
