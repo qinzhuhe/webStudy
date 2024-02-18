@@ -177,6 +177,10 @@ console.log(Animal.num); // 42
 
 ## `TypeScript` 中类的用法
 
+在 `TypeScript` 中，定义以及使用类的方法与 `JavaScript` 并无太大差异，但同样的，为了规范代码的书写以及提高对于代码的掌控度，`TypeScript` 提供了一些单独的修饰符以及属性。
+
+
+
 public、 private 、 protected
 
 `TypeScript` 可以使用三种访问修饰符（Access Modifiers），分别是 `public`、`private` 和 `protected`。
