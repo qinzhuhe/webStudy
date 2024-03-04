@@ -92,6 +92,12 @@
   const alice: UserDetailedInfo = { name: "alice", address: "middle" };
 }
 
+{
+  type T = string | null | undefined;
+
+  type NoT = NonNullable<T>; // Type string
+}
+
 // 集合类型
 {
   type UserA = "name" | "age" | "email" | "phone";
